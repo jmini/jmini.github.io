@@ -13,7 +13,7 @@
         <!-- The project URL on GitHub is : https://github.com/${github.repository.owner}/${github.repository.name} -->
         <github.repository.owner>jmini</github.repository.owner>
         <github.repository.name>jmini.github.io</github.repository.name>
-        <commit.message>Update gh-pages to publish on GitHub pages.</commit.message>
+        <commit.message>Update the 'master' branch to publish on GitHub pages.</commit.message>
     </properties>
 
     <build>
