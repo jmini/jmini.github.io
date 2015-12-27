@@ -1,0 +1,21 @@
+= About this Blog
+Jeremie Bresson
+2015-12-27
+:jbake-type: page
+:jbake-status: published
+:idprefix:
+
+This is my personal blog.
+
+== About Me
+
+This is where you can find me:
+
+* link:https://twitter.com/j2r2b[@j2r2b on Twitter]
+* link:https://plus.google.com/%2BJeremieBresson[+JeremieBresson on Google Plus]
+* link:https://github.com/jmini[github.com/jmini]
+* link:https://stackoverflow.com/users/91497/jmini[jmini on stackoverflow.com]
+
+== Sources
+
+Sources and read-me for this blog are link:https://github.com/jmini/jmini.github.io[hosted on GitHub].

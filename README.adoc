@@ -1,0 +1,28 @@
+:website: https://jmini.github.io/
+:twitter: https://twitter.com/j2r2b
+:issues: https://github.com/jmini/jmini.github.io/issues
+:license: https://creativecommons.org/licenses/by-sa/4.0/
+
+= jmini.github.io
+
+Sources for link:{website}[Jeremie Bresson website/blog] hosted on GitHub.
+
+== Get in touch
+
+Use the link:{issues}[GitHub issue tracker] or link:{twitter}[@j2r2b on Twitter].
+
+== Technologies/Build
+
+The articles are written in the AsciiDoc format. 
+This website uses link:https://jbake.org/[JBake] (and link:https://asciidoctor.org/[Asciidoctor] in particular).
+The site is built using link:https://maven.apache.org/[Maven].
+
+If you are interested in the setup, do not hesitate to have a look at this sample project: link:https://github.com/jmini/jbake-sample[jmini/jbake-sample]
+
+To build the site and to push it online just run:
+
+    mvn exec:exec 
+
+== Licence
+
+Except where otherwise noted, the content of this blog is under the link:{license}[Creative Commons Attribution-ShareAlike 4.0 International license] (posts, original images, ...).

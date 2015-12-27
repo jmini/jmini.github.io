@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.jmini</groupId>
+    <artifactId>jmini.github.io</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <github.global.server>github</github.global.server> <!-- this should match the sever id in your settings.xml -->
+        <!-- The project URL on GitHub is : https://github.com/${github.repository.owner}/${github.repository.name} -->
+        <github.repository.owner>jmini</github.repository.owner>
+        <github.repository.name>jmini.github.io</github.repository.name>
+        <commit.message>Update gh-pages to publish on GitHub pages.</commit.message>
+    </properties>
+
+    <build>
+        <finalName>jmini.github.io</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+            <!-- Run JBake -->
+            <plugin>
+                <groupId>br.com.ingenieux</groupId>
+                <artifactId>jbake-maven-plugin</artifactId>
+                <version>0.0.9</version>
+                <executions>
+                    <execution>
+                        <id>default-generate</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jbake</groupId>
+                        <artifactId>jbake-core</artifactId>
+                        <version>2.4.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy</artifactId>
+                        <version>2.3.6</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-templates</artifactId>
+                        <version>2.3.6</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-xml</artifactId>
+                        <version>2.3.6</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj</artifactId>
+                        <version>1.5.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- Copy the images from the jbake content to the final output -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                    <resources>
+                        <resource>
+                            <directory>src/main/jbake/content</directory>
+                            <includes>
+                                <include>**/*.png</include>
+                                <include>**/*.gif</include>
+                                <include>**/*.jpg</include>
+                                <include>**/*.jpeg</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Commit and push site to github pages, by default to gh-pages branch -->
+            <!-- https://github.com/github/maven-plugins -->
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>${commit.message}</message>
+                    <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                    <repositoryName>${github.repository.name}</repositoryName>
+                    <repositoryOwner>${github.repository.owner}</repositoryOwner>
+                    <branch>refs/heads/master</branch>
+                    <dryRun>false</dryRun>
+                    <excludes>
+                        <exclude>**/*.jsp</exclude>
+                        <exclude>**/web.xml</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Run mvn exec:exec to generate site and upload it with single step -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <executable>mvn</executable>
+                    <arguments>
+                        <argument>clean:clean</argument>
+                        <argument>jbake:generate</argument>
+                        <argument>resources:copy-resources</argument>
+                        <argument>site:site</argument>
+                        <argument>clean:clean</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,19 @@
+= Backing the next version of JUnit
+Jeremie Bresson
+2015-08-17
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, open-source, crowdfunding
+:idprefix:
+
+
+Some developers have started a link:https://www.indiegogo.com/projects/junit-lambda[crowdfunding campaign] to trigger the development of the next version of JUnit.
+
+link:https://www.indiegogo.com/projects/junit-lambda[image:2015-08-17_junit.png[JUnit Lambda Logo]]
+
+Read more:
+
+* On Voxxed: link:https://www.voxxed.com/blog/2015/08/junit-lambda-crowdfunding-to-secure-the-future-of-testing-on-the-jvm/[JUnit Lambda: The Future of Testing on the JVM Gets Crowdfunded]
+* On JAXenter: link:https://jaxenter.com/crowdfunding-for-junit-lambda-is-underway-119546.html[Crowdfunding for JUnit Lambda is underway]
+
+Because I believe the JUnit library needs to evolve, I have participated in the fundraising campaign.
