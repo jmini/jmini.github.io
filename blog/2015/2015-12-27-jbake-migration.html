@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Migration to JBake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Migration to JBake</h1>
+    </div>
+
+    <p><em>27 Dezember 2015</em></p>
+
+    <p><div class="paragraph">
+<p>I have changed the technology stack for this blog.</p>
+</div>
+<div class="paragraph">
+<p>This blog was hosted and built on GitHub pages (key technologies: Jekyll and Markdown).</p>
+</div>
+<div class="paragraph">
+<p>I have moved to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Blog posts written in AsciiDoc</p>
+</li>
+<li>
+<p>JBake (which uses Asciidoctor)</p>
+</li>
+<li>
+<p>Maven for the build</p>
+</li>
+<li>
+<p>GitHub pages to host the output</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are interested by this setup, have a look at this example project: <a href="https://github.com/jmini/jbake-sample">jbake-sample</a></p>
+</div>
+<div class="paragraph">
+<p>My motivations are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Now that I am using Asciidoctor a lot, I really prefer writing my blog posts in the AsciiDoc format.</p>
+</li>
+<li>
+<p>I like to be able to work offline (my use case is "working in the train"). With this setup I can preview the output on my machine before I push the commit to GitHub.</p>
+</li>
+<li>
+<p>RSS/Atom feed is requested for the <a href="http://planet.eclipse.org/planet/">Eclipse Planet</a> (I cannot use <a href="http://hubpress.io/">HubPress</a> for this reason).</p>
+</li>
+<li>
+<p>I still use GitHub to host the sources (because I believe in the pull request model) and to host the final result (hosting on GitHub.io is great).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Next steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Continuous integration with Travis CI</p>
+</li>
+<li>
+<p>Change/improve the Blog theme</p>
+</li>
+</ul>
+</div></p>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2015/2015-12-27-jbake-migration.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
