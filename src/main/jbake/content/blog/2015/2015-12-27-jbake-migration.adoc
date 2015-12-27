@@ -1,0 +1,32 @@
+= Migration to JBake
+Jeremie Bresson
+2015-12-27
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: blog
+:idprefix:
+
+I have changed the technology stack for this blog.
+
+This blog was hosted and built on GitHub pages (key technologies: Jekyll and Markdown).
+
+I have moved to:
+
+* Blog posts written in AsciiDoc
+* JBake (which uses Asciidoctor)
+* Maven for the build
+* GitHub pages to host the output
+
+If you are interested by this setup, have a look at this example project: link:https://github.com/jmini/jbake-sample[jbake-sample]
+
+My motivations are:
+
+* Now that I am using Asciidoctor a lot, I really prefer writing my blog posts in the AsciiDoc format.
+* I like to be able to work offline (my use case is "working in the train"). With this setup I can preview the output on my machine before I push the commit to GitHub.
+* RSS/Atom feed is requested for the link:http://planet.eclipse.org/planet/[Eclipse Planet] (I cannot use link:http://hubpress.io/[HubPress] for this reason).
+* I still use GitHub to host the sources (because I believe in the pull request model) and to host the final result (hosting on GitHub.io is great).
+
+Next steps:
+
+* Continuous integration with Travis CI
+* Change/improve the Blog theme
