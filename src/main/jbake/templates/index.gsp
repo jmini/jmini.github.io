@@ -7,7 +7,7 @@
     </div>
     <ul>
     <%published_posts.each {post ->%>
-        <li>${post.date.format("dd MMM yyyy")} &raquo; <a href="${post.uri}">${post.title}</a></li>
+        <li>${new java.text.SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH).format(post.date)} &raquo; <a href="${post.uri}">${post.title}</a></li>
     <%}%>
     </ul>
 

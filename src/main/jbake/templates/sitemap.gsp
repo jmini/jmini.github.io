@@ -3,7 +3,7 @@
 <%published_content.each {content -> %>
     <url>
         <loc>${config.site_host}/${content.uri}</loc>
-        <lastmod>${content.date.format("yyyy-MM-dd")}</lastmod>
+        <lastmod>${new java.text.SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(content.date)}</lastmod>
     </url>
 <%}%>
 </urlset>

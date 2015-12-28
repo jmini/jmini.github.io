@@ -11,7 +11,7 @@ urlsrc = "https://github.com/jmini/jmini.github.io/tree/develop" + urlsrc.substr
         <h1>${content.title}</h1>
     </div>
 
-    <p><em>${content.date.format("dd MMMM yyyy")}</em></p>
+    <p><em>${new java.text.SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(content.date)}</em></p>
 
     <p>${content.body}</p>
 
