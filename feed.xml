@@ -6,14 +6,14 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>So, 27 Dez 2015 12:02:16 +0100</pubDate>
-    <lastBuildDate>So, 27 Dez 2015 12:02:16 +0100</lastBuildDate>
+    <pubDate>Mon, 28 Dec 2015 07:07:55 +0100</pubDate>
+    <lastBuildDate>Mon, 28 Dec 2015 07:07:55 +0100</lastBuildDate>
 
     
     <item>
       <title>Migration to JBake</title>
       <link>http://jmini.github.io/blog/2015/2015-12-27-jbake-migration.html</link>
-      <pubDate>So, 27 Dez 2015 00:00:00 +0100</pubDate>
+      <pubDate>Sun, 27 Dec 2015 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2015/2015-12-27-jbake-migration.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt;
@@ -82,7 +82,7 @@
     <item>
       <title>Backing the next version of JUnit</title>
       <link>http://jmini.github.io/blog/2015/2015-08-17-backing-junit-next-version.html</link>
-      <pubDate>Mo, 17 Aug 2015 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 17 Aug 2015 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2015/2015-08-17-backing-junit-next-version.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt;
@@ -113,7 +113,7 @@
     <item>
       <title>EclipseCon participation and return on investment</title>
       <link>http://jmini.github.io/blog/2014/2014-11-10-eclipse-con-participation-roi.html</link>
-      <pubDate>Mo, 10 Nov 2014 00:00:00 +0100</pubDate>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2014/2014-11-10-eclipse-con-participation-roi.html</guid>
       <description>
       &lt;div id=&quot;preamble&quot;&gt;
@@ -200,7 +200,7 @@ You will discover what being part of the Eclipse community means.&lt;/p&gt;
     <item>
       <title>Let be part of it</title>
       <link>http://jmini.github.io/blog/2014/2014-11-01-part-of-it.html</link>
-      <pubDate>Sa, 1 Nov 2014 00:00:00 +0100</pubDate>
+      <pubDate>Sat, 1 Nov 2014 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2014/2014-11-01-part-of-it.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt;
