@@ -9,7 +9,7 @@ Jeremie Bresson
 
 Some developers have started a link:https://www.indiegogo.com/projects/junit-lambda[crowdfunding campaign] to trigger the development of the next version of JUnit.
 
-link:https://www.indiegogo.com/projects/junit-lambda[image:2015-08-17_junit.png[JUnit Lambda Logo]]
+link:https://www.indiegogo.com/projects/junit-lambda[image:/blog/2015/2015-08-17_junit.png[JUnit Lambda Logo]]
 
 Read more:
 

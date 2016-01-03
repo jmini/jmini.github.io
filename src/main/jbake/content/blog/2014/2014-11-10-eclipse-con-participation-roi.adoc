@@ -35,8 +35,8 @@ I started to ask around (IBM booth, staff of the eclipse foundation) and everybo
 I needed to find him and I started to ask around.
 To maximize my chances, I started to misuse the monitor at the eclipse scout booth during the evening (Club ECE).
 
-image:2014-11-10_slide1.png[Slide 1, 300, 225]
-image:2014-11-10_slide2.png[Slide 2, 300, 225]
+image:/blog/2014/2014-11-10_slide1.png[Slide 1, 300, 225]
+image:/blog/2014/2014-11-10_slide2.png[Slide 2, 300, 225]
 
 We also used link:http://twitter.com/EclipseScout/status/527546521144000513[Twitter] to broadcast the information.
 
@@ -46,7 +46,7 @@ This is the EclipseCon magic!
 John helped me with my problems and we managed to push my commit from Orion to Gerrit.
 
 .Published on link:http://twitter.com/EclipseScout/status/527556988486828032[twitter]. Photo credit: Matthias Zimmermann
-image:2014-11-10_me_and_john.jpg[Photo on Twitter, 600, 450]
+image:/blog/2014/2014-11-10_me_and_john.jpg[Photo on Twitter, 600, 450]
 
 == Helping others
 
