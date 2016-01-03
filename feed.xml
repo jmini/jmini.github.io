@@ -6,9 +6,32 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Mon, 28 Dec 2015 07:07:55 +0100</pubDate>
-    <lastBuildDate>Mon, 28 Dec 2015 07:07:55 +0100</lastBuildDate>
+    <pubDate>Sun, 3 Jan 2016 17:14:33 +0100</pubDate>
+    <lastBuildDate>Sun, 3 Jan 2016 17:14:33 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>A Desktop Wallpaper inspired by the Eclipse Logo</title>
+      <link>http://jmini.github.io/blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</link>
+      <pubDate>Sun, 3 Jan 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Few months after the &lt;a href=&quot;https://ianskerrett.wordpress.com/2014/02/13/introducing-the-updated-eclipse-logo/&quot;&gt;release of the new Eclipse Logo&lt;/a&gt;, I created this wallpaper for my Desktop:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;2016-01-03-desktop-screenshot.png&quot; alt=&quot;2016-01-03-desktop-screenshot&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I finally took the time to share it with the eclipse community.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It was created by transforming this &lt;a href=&quot;https://www.flickr.com/photos/sancho_panza/54940367/&quot;&gt;Flickr photo by Abel Pardo Lopez&lt;/a&gt;.
+Like the original file, it is distributed under a Creative Commons Attribution 2.0 Generic License. You can download it from my bintray repository:
+&lt;a href=&quot;https://bintray.com/artifact/download/jmini/generic/EcDeWa.zip&quot;&gt;EcDeWa.zip&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Migration to JBake</title>
