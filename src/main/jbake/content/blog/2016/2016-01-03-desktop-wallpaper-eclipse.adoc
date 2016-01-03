@@ -1,0 +1,17 @@
+= A Desktop Wallpaper inspired by the Eclipse Logo
+Jeremie Bresson
+2016-01-03
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, open-source
+:idprefix:
+
+Few months after the link:https://ianskerrett.wordpress.com/2014/02/13/introducing-the-updated-eclipse-logo/[release of the new Eclipse Logo], I created this wallpaper for my Desktop:
+
+image:2016-01-03-desktop-screenshot.png[]
+
+I finally took the time to share it with the eclipse community.
+
+It was created by transforming this link:https://www.flickr.com/photos/sancho_panza/54940367/[Flickr photo by Abel Pardo Lopez].
+Like the original file, it is distributed under a Creative Commons Attribution 2.0 Generic License. You can download it from my bintray repository: 
+link:https://bintray.com/artifact/download/jmini/generic/EcDeWa.zip[EcDeWa.zip]
