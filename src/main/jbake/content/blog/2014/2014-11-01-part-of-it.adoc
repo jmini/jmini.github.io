@@ -12,7 +12,7 @@ I think this is an incredible way to learn from others and to share knowledge.
 I have opened this blog to be part of it.
 I see it as a way to share knowledge and to write about my ideas. 
 
-image:/blog/2014/2014-11-01_words.png[]
+image:2014-11-01_words.png[]
 
 I have hosted this blog on link:https://github.com/jmini/jmini.github.io[GitHub]. 
 Maybe someone will send me some link:https://github.com/jmini/jmini.github.io/pulls[pull requests] to improve the content (update broken links, fix typo, rephrase the text).
