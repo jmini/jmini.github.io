@@ -6,9 +6,106 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Thu, 14 Jan 2016 00:24:38 +0100</pubDate>
-    <lastBuildDate>Thu, 14 Jan 2016 00:24:38 +0100</lastBuildDate>
+    <pubDate>Fri, 5 Feb 2016 19:04:27 +0100</pubDate>
+    <lastBuildDate>Fri, 5 Feb 2016 19:04:27 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Bug 75981 is fixed!</title>
+      <link>http://jmini.github.io/blog/2016/2016-02-06_bug-75981-is-fixed.html</link>
+      <pubDate>Sat, 6 Feb 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-02-06_bug-75981-is-fixed.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Like many of my Eclipse stories, it starts during a coffee break.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;Have you seen the new TODO template I have configured for our project?&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;Yes. It is nice&amp;#x2026;&amp;#x200b;&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-02-06_todo-template-old.png&quot; alt=&quot;2016-02-06_todo-template-old&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;But I hate having to set the date manually.&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;I know but it is not possible with Eclipse.&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&amp;#x2026;&amp;#x200b;&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A quick search on Google pointed me to Bug 75981. I was not the only one looking for a solution to this issue:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/1131712&quot;&gt;How to set the Eclipse date variable format?&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/32119571&quot;&gt;Templates in Eclipse&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Grummfy/status/12874338803&quot;&gt;Twitt by @Grummfy&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Sigasi/status/381436597579038720&quot;&gt;Twitt by @Sigasi&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;By analyzing the Bugzilla history I have noticed that already 2 contributors have started to work on this (a long time ago) and the feedback to the latest patch never got any answers. I reworked the last proposal&amp;#x2026;&amp;#x200b; and&amp;#x2026;&amp;#x200b;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I am happy tell you that you can now do the following:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-02-06_templates-preferences.png&quot; alt=&quot;2016-02-06_templates-preferences&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Short description of the possibilities:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;As before you can use the date variable with no argument. Example: &lt;code&gt;${date}&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;You can use the variable with additional arguments. In this case you will need to name the variable (since you are not reusing the date somewhere else, the name of the variable doesn&amp;#x2019;t matter). Example: &lt;code&gt;${mydate:date}&lt;/code&gt;&lt;/p&gt; 
+   &lt;div class=&quot;ulist&quot;&gt; 
+    &lt;ul&gt; 
+     &lt;li&gt; &lt;p&gt;The first parameter is the date format. Example: &lt;code&gt;${d:date(&apos;yyyy-MM-dd&apos;)}&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; 
+     &lt;li&gt; &lt;p&gt;The second parameter is the locale. Example: &lt;code&gt;${maDate:date(&apos;EEEE dd MMMM yyyy HH:mm:ss Z&apos;, &apos;fr&apos;)}&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; 
+    &lt;/ul&gt; 
+   &lt;/div&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Back to our use case, it now works as expected:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-02-06_todo-template-new.png&quot; alt=&quot;2016-02-06_todo-template-new&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Do not hesitate to try the feature and to report any issue you can find. The fix is implemented with the M5 milestone release of Eclipse Neon. You can download this version now here:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;a href=&quot;http://www.eclipse.org/downloads/index-developer.php&quot; class=&quot;bare&quot;&gt;http://www.eclipse.org/downloads/index-developer.php&lt;/a&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This experiment was also a great opportunity for me to measure how the development process at Eclipse has been improved:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;With Eclipse Oomph (a.k.a Eclipse Installer) it is possible setup the Workspace to work on &quot;Platform Text&quot; very quickly&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;With Gerrit it is much easier for me (a simple contributor) to work with the commiters of the project (propose a patch, discuss each line, push a new version, rebase on top of HEAD&amp;#x2026;&amp;#x200b;)&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;With the Maven Build, the build is reproducible (I never tried to build the platform with the old PDE Build, but I believe that this was not possible for somebody like me)&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Where I spend most of the time:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;Analysis of the proposed patches and existing feedbacks in Bugzilla&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;Figure out how I could add some unit tests (for the existing behaviour and for the new use cases).&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This was a great experience for me and I am really happy to have contributed this fix.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>A Desktop Wallpaper inspired by the Eclipse Logo</title>
