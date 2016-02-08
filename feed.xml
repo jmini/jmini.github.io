@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 5 Feb 2016 19:04:27 +0100</pubDate>
-    <lastBuildDate>Fri, 5 Feb 2016 19:04:27 +0100</lastBuildDate>
+    <pubDate>Mon, 8 Feb 2016 06:10:14 +0100</pubDate>
+    <lastBuildDate>Mon, 8 Feb 2016 06:10:14 +0100</lastBuildDate>
 
     
     <item>
@@ -36,14 +36,14 @@
  &lt;/ul&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;A quick search on Google pointed me to Bug 75981. I was not the only one looking for a solution to this issue:&lt;/p&gt; 
+ &lt;p&gt;A quick search on Google pointed me to &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=75981&quot;&gt;Bug 75981&lt;/a&gt;. I was not the only one looking for a solution to this issue:&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;ulist&quot;&gt; 
  &lt;ul&gt; 
   &lt;li&gt; &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/1131712&quot;&gt;How to set the Eclipse date variable format?&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
   &lt;li&gt; &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/32119571&quot;&gt;Templates in Eclipse&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
-  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Grummfy/status/12874338803&quot;&gt;Twitt by @Grummfy&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
-  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Sigasi/status/381436597579038720&quot;&gt;Twitt by @Sigasi&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Grummfy/status/12874338803&quot;&gt;Tweet by @Grummfy&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://twitter.com/Sigasi/status/381436597579038720&quot;&gt;Tweet by @Sigasi&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; 
  &lt;/ul&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
