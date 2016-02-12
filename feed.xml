@@ -6,9 +6,33 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Mon, 8 Feb 2016 06:10:14 +0100</pubDate>
-    <lastBuildDate>Mon, 8 Feb 2016 06:10:14 +0100</lastBuildDate>
+    <pubDate>Fri, 12 Feb 2016 09:41:29 +0100</pubDate>
+    <lastBuildDate>Fri, 12 Feb 2016 09:41:29 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Terminate and Relaunch in Eclipse IDE</title>
+      <link>http://jmini.github.io/blog/2016/2016-02-06_terminate_and_relaunch.html</link>
+      <pubDate>Fri, 12 Feb 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-02-06_terminate_and_relaunch.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Are you using the &quot;Terminate and Relaunch&quot; context menu in the Debug view?&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-02-12_debug_view.png&quot; alt=&quot;2016-02-12_debug_view&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Last year &lt;a href=&quot;https://twitter.com/martinlippert&quot;&gt;Martin Lippert&lt;/a&gt; did a demo of the &quot;Spring Tool Suite&quot; at the Eclipse Demo Camp in Zurich. He presented a great addition to the Eclipse Toolbar: the possibility to terminate and relaunch an application from anywhere.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-02-12_toolbar.png&quot; alt=&quot;2016-02-12_toolbar&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;We discussed after his presentation if this feature could be integrated in Eclipse IDE. I think it would be great and I imagine I would use it every day (now I am switching to the Debug perspective to do it). I have opened &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=487554&quot;&gt;Bug 487554&lt;/a&gt; for that. Feel free to share your opinion there.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Bug 75981 is fixed!</title>
