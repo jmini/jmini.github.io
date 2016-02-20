@@ -6,9 +6,165 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 12 Feb 2016 09:41:29 +0100</pubDate>
-    <lastBuildDate>Fri, 12 Feb 2016 09:41:29 +0100</lastBuildDate>
+    <pubDate>Sat, 20 Feb 2016 23:35:20 +0100</pubDate>
+    <lastBuildDate>Sat, 20 Feb 2016 23:35:20 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Maven Repository and POM Files</title>
+      <link>http://jmini.github.io/blog/2016/2016-02-21_maven_repo_and_pom_files.html</link>
+      <pubDate>Sun, 21 Feb 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-02-21_maven_repo_and_pom_files.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;em&gt;This blog post is about Maven POM Files and publication of Eclipse jars in a maven repository. I use Mylyn-Wikitext as an example, because I know the project and I have worked on it. I think the same applies to other eclipse projects.&lt;/em&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Mylyn-Wikitext is an eclipse project that provides great tooling for lightweight markup language (Markdown, MediaWiki, Textile, Confluence, TracWiki, and others). The project is spitted into several modules: some of them (like the Editor) are coupled to the Eclipse runtime but others (like the parser) can be used in plain java applications.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A simple Java Main Class (conversion from Markdown to HTML) is presented in &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;lst-java&quot; class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 1. Simple Java Main Class using Mylyn Wikitext
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import java.io.StringWriter;
+import org.eclipse.mylyn.wikitext.core.parser.MarkupParser;
+import org.eclipse.mylyn.wikitext.core.parser.builder.HtmlDocumentBuilder;
+import org.eclipse.mylyn.wikitext.core.parser.markup.MarkupLanguage;
+import org.eclipse.mylyn.wikitext.markdown.core.MarkdownLanguage;
+
+public class MarkdownHelloWorld {
+
+  public static void main(String[] args) {
+    StringBuilder sb = new StringBuilder();
+    sb.append(&quot;# Heading 1\n&quot;);
+    sb.append(&quot;\n&quot;);
+    sb.append(&quot;Hello World!\n&quot;);
+    sb.append(&quot;\n&quot;);
+    sb.append(&quot;* Lorem\n&quot;);
+    sb.append(&quot;* Ipsum\n&quot;);
+    sb.append(&quot;\n&quot;);
+    sb.append(&quot;This is **Markdown**  language.\n&quot;);
+    String text = sb.toString();
+
+    MarkupLanguage markupLanguage = new MarkdownLanguage();
+
+    StringWriter writer = new StringWriter();
+    HtmlDocumentBuilder builder = new HtmlDocumentBuilder(writer);
+    builder.setEmitAsDocument(false);
+    MarkupParser parser = new MarkupParser(markupLanguage, builder);
+    parser.parse(text);
+    System.out.println(writer.toString());
+  }
+}&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;To build the code presented in &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt;, you can use Maven with the &lt;code&gt;pom.xml&lt;/code&gt; File presented in &lt;a href=&quot;#lst-pom_eclipse&quot;&gt;Listing 2&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;lst-pom_eclipse&quot; class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 2. POM File using a SNAPSHOT version from the Eclipse Maven repository
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;groupId&amp;gt;com.company.example&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;helloworld-markdown&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext.markdown.core&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.6.0-SNAPSHOT&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext.core&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.6.0-SNAPSHOT&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;com.google.guava&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;guava&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;[15.0.0,)&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+
+  &amp;lt;repositories&amp;gt;
+    &amp;lt;repository&amp;gt;
+      &amp;lt;id&amp;gt;eclipse.mylyn&amp;lt;/id&amp;gt;
+      &amp;lt;url&amp;gt;https://repo.eclipse.org/content/repositories/mylyn-snapshots/&amp;lt;/url&amp;gt;
+    &amp;lt;/repository&amp;gt;
+  &amp;lt;/repositories&amp;gt;
+
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This works and it is great.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Last year I have developed a simple maven plugin that generate the Eclipse Info Center XML file (e.g. &lt;code&gt;toc.xml&lt;/code&gt;) for existing HTML pages. Of course it uses Mylyn Wikitext. In order to be able to publish a release of my plugin, I needed a maven repository containing a released version of Mylyn Wikitext and not a snapshot version.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I have used the &lt;a href=&quot;https://www.eclipse.org/b3/&quot;&gt;Eclipse B3&lt;/a&gt; tool to republish the Mylyn Wikitext jars coming from the Mars P2 Update Site to a maven repository hosted on Bintray. I my opinion this was a workaround until Bug 421551 is solved (see &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=421551&quot;&gt;Bug 421551: publish current stable release to a Maven repository&lt;/a&gt;). The B3 XML file is &lt;a href=&quot;https://github.com/jmini/mylyn-wikitext-repository&quot;&gt;published on GitHub&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Last week I discovered something interesting. With my maven repository, the POM file to build the simple Hello World from &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt; is much simpler and is presented in &lt;a href=&quot;#lst-pom_bintray&quot;&gt;Listing 3&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;lst-pom_bintray&quot; class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 3. POM File using a released version from my Bintray Maven repository
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;groupId&amp;gt;com.company.example&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;helloworld-markdown&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext.markdown.core&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;2.6.0.v20150901-2143&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+
+  &amp;lt;repositories&amp;gt;
+    &amp;lt;repository&amp;gt;
+      &amp;lt;id&amp;gt;bintray.jmini.maven&amp;lt;/id&amp;gt;
+      &amp;lt;url&amp;gt;http://dl.bintray.com/jmini/maven/&amp;lt;/url&amp;gt;
+    &amp;lt;/repository&amp;gt;
+  &amp;lt;/repositories&amp;gt;
+
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The reason is simple. The pom files are not the same:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;The &lt;a href=&quot;https://repo.eclipse.org/content/repositories/mylyn-snapshots/org/eclipse/mylyn/docs/org.eclipse.mylyn.wikitext.markdown.core/2.6.0-SNAPSHOT/org.eclipse.mylyn.wikitext.markdown.core-2.6.0-20151008.192527-170.pom&quot;&gt;pom file&lt;/a&gt; describing &lt;code&gt;org.eclipse.mylyn.docs:org.eclipse.mylyn.wikitext.markdown.core:2.6.0-SNAPSHOT&lt;/code&gt; in the Eclipse Maven Repo is the pom uploaded by the maven-tycho build (packaging is &lt;code&gt;eclipse-plugin&lt;/code&gt;, there is no &lt;code&gt;&amp;lt;dependencies&amp;gt;&lt;/code&gt; section).&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;The &lt;a href=&quot;http://dl.bintray.com/jmini/maven/org/eclipse/mylyn/docs/org.eclipse.mylyn.wikitext.markdown.core/2.6.0.v20150901-2143/:org.eclipse.mylyn.wikitext.markdown.core-2.6.0.v20150901-2143.pom&quot;&gt;pom file&lt;/a&gt; describing &lt;code&gt;org.eclipse.mylyn.docs:org.eclipse.mylyn.wikitext.markdown.core:2.6.0.v20150901-2143&lt;/code&gt; in my Maven repository is generated by the Eclipse B3 tool (default packaging, has a &lt;code&gt;&amp;lt;dependencies&amp;gt;&lt;/code&gt; section)&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Eclipse B3 uses the Installable Unit of the P2 update site as input. The POM file is not present and has to be generated. The big difference is the dependencies section. My guess is that they have been derived by B3 from the P2 Metadata. The resulting POM is much user friendly for the developers that want to consume the library from the maven repository.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I am not a maven expert. Did I miss something?&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I see more and more projects pushing their library to maven central. This is really nice. Tom Schindl has explained in a &lt;a href=&quot;http://tomsondev.bestsolution.at/2015/09/04/efxclipse-2-1-0-released/&quot;&gt;Blog Post&lt;/a&gt; that he was manually (re)publishing some components of the Eclipse Platform to Maven Central (&lt;code&gt;com.ibm.icu.base&lt;/code&gt;, &lt;code&gt;org.eclipse.e4.core.di.annotations&lt;/code&gt;, &lt;code&gt;org.eclipse.equinox.common&lt;/code&gt;, &lt;code&gt;org.eclipse.jdt.annotation&lt;/code&gt;, &lt;code&gt;org.eclipse.text&lt;/code&gt; &amp;#x2026;&amp;#x200b;). My feeling is that we have with Eclipse B3 a great piece of technology that can be used to (re)publish some of the content of the simultaneous release train on maven central. If there is enough interest, a maven job using Eclipse B3 could be prepared to push a fixed list of libraries on a maven repo (the eclipse one or even better maven central).&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Terminate and Relaunch in Eclipse IDE</title>
