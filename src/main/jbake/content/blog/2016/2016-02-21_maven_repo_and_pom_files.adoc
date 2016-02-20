@@ -1,0 +1,155 @@
+= Maven Repository and POM Files
+Jeremie Bresson
+2016-02-21
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, open-source
+:idprefix:
+:listing-caption: Listing
+
+_This blog post is about Maven POM Files and publication of Eclipse jars in a maven repository.
+I use Mylyn-Wikitext as an example, because I know the project and I have worked on it.
+I think the same applies to other eclipse projects._
+
+Mylyn-Wikitext is an eclipse project that provides great tooling for lightweight markup language (Markdown, MediaWiki, Textile, Confluence, TracWiki, and others).
+The project is spitted into several modules: some of them (like the Editor) are coupled to the Eclipse runtime but others (like the parser) can be used in plain java applications.
+
+A simple Java Main Class (conversion from Markdown to HTML) is presented in <<lst-java>>.
+
+[[lst-java,Listing 1]]
+.Simple Java Main Class using Mylyn Wikitext
+[source,java]
+----
+import java.io.StringWriter;
+import org.eclipse.mylyn.wikitext.core.parser.MarkupParser;
+import org.eclipse.mylyn.wikitext.core.parser.builder.HtmlDocumentBuilder;
+import org.eclipse.mylyn.wikitext.core.parser.markup.MarkupLanguage;
+import org.eclipse.mylyn.wikitext.markdown.core.MarkdownLanguage;
+
+public class MarkdownHelloWorld {
+
+  public static void main(String[] args) {
+    StringBuilder sb = new StringBuilder();
+    sb.append("# Heading 1\n");
+    sb.append("\n");
+    sb.append("Hello World!\n");
+    sb.append("\n");
+    sb.append("* Lorem\n");
+    sb.append("* Ipsum\n");
+    sb.append("\n");
+    sb.append("This is **Markdown**  language.\n");
+    String text = sb.toString();
+
+    MarkupLanguage markupLanguage = new MarkdownLanguage();
+
+    StringWriter writer = new StringWriter();
+    HtmlDocumentBuilder builder = new HtmlDocumentBuilder(writer);
+    builder.setEmitAsDocument(false);
+    MarkupParser parser = new MarkupParser(markupLanguage, builder);
+    parser.parse(text);
+    System.out.println(writer.toString());
+  }
+}
+----
+
+To build the code presented in <<lst-java>>, you can use Maven with the `pom.xml` File presented in <<lst-pom_eclipse>>.
+
+[[lst-pom_eclipse,Listing 2]]
+.POM File using a SNAPSHOT version from the Eclipse Maven repository
+[source,xml]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.company.example</groupId>
+  <artifactId>helloworld-markdown</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.mylyn.docs</groupId>
+      <artifactId>org.eclipse.mylyn.wikitext.markdown.core</artifactId>
+      <version>2.6.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.mylyn.docs</groupId>
+      <artifactId>org.eclipse.mylyn.wikitext.core</artifactId>
+      <version>2.6.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>[15.0.0,)</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>eclipse.mylyn</id>
+      <url>https://repo.eclipse.org/content/repositories/mylyn-snapshots/</url>
+    </repository>
+  </repositories>
+
+</project>
+----
+
+This works and it is great.
+
+
+Last year I have developed a simple maven plugin that generate the Eclipse Info Center XML file (e.g. `toc.xml`) for existing HTML pages.
+Of course it uses Mylyn Wikitext.
+In order to be able to publish a release of my plugin, I needed a maven repository containing a released version of Mylyn Wikitext and not a snapshot version.
+
+
+I have used the link:https://www.eclipse.org/b3/[Eclipse B3] tool to republish the Mylyn Wikitext jars coming from the Mars P2 Update Site to a maven repository hosted on Bintray. 
+I my opinion this was a workaround until Bug 421551 is solved (see link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=421551[Bug 421551: publish current stable release to a Maven repository]).
+The B3 XML file is link:https://github.com/jmini/mylyn-wikitext-repository[published on GitHub].
+
+Last week I discovered something interesting.
+With my maven repository, the POM file to build the simple Hello World from <<lst-java>> is much simpler and is presented in <<lst-pom_bintray>>.
+
+[[lst-pom_bintray,Listing 3]]
+.POM File using a released version from my Bintray Maven repository
+[source,xml]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.company.example</groupId>
+  <artifactId>helloworld-markdown</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.mylyn.docs</groupId>
+      <artifactId>org.eclipse.mylyn.wikitext.markdown.core</artifactId>
+      <version>2.6.0.v20150901-2143</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>bintray.jmini.maven</id>
+      <url>http://dl.bintray.com/jmini/maven/</url>
+    </repository>
+  </repositories>
+
+</project>
+----
+
+The reason is simple. The pom files are not the same:
+
+* The link:https://repo.eclipse.org/content/repositories/mylyn-snapshots/org/eclipse/mylyn/docs/org.eclipse.mylyn.wikitext.markdown.core/2.6.0-SNAPSHOT/org.eclipse.mylyn.wikitext.markdown.core-2.6.0-20151008.192527-170.pom[pom file] describing `org.eclipse.mylyn.docs:org.eclipse.mylyn.wikitext.markdown.core:2.6.0-SNAPSHOT` in the Eclipse Maven Repo is the pom uploaded by the maven-tycho build (packaging is `eclipse-plugin`, there is no `<dependencies>` section). 
+* The link:http://dl.bintray.com/jmini/maven/org/eclipse/mylyn/docs/org.eclipse.mylyn.wikitext.markdown.core/2.6.0.v20150901-2143/:org.eclipse.mylyn.wikitext.markdown.core-2.6.0.v20150901-2143.pom[pom file] describing `org.eclipse.mylyn.docs:org.eclipse.mylyn.wikitext.markdown.core:2.6.0.v20150901-2143` in my Maven repository is generated by the Eclipse B3 tool (default packaging, has a `<dependencies>` section)
+
+Eclipse B3 uses the Installable Unit of the P2 update site as input.
+The POM file is not present and has to be generated.
+The big difference is the dependencies section.
+My guess is that they have been derived by B3 from the P2 Metadata.
+The resulting POM is much user friendly for the developers that want to consume the library from the maven repository.
+
+I am not a maven expert. Did I miss something?
+
+I see more and more projects pushing their library to maven central.
+This is really nice. 
+Tom Schindl has explained in a link:http://tomsondev.bestsolution.at/2015/09/04/efxclipse-2-1-0-released/[Blog Post] that he was manually (re)publishing some components of the Eclipse Platform to Maven Central (`com.ibm.icu.base`, `org.eclipse.e4.core.di.annotations`, `org.eclipse.equinox.common`, `org.eclipse.jdt.annotation`, `org.eclipse.text` ...).
+My feeling is that we have with Eclipse B3 a great piece of technology that can be used to (re)publish some of the content of the simultaneous release train on maven central.
+If there is enough interest, a maven job using Eclipse B3 could be prepared to push a fixed list of libraries on a maven repo (the eclipse one or even better maven central).
