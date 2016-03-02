@@ -6,9 +6,45 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sat, 20 Feb 2016 23:35:20 +0100</pubDate>
-    <lastBuildDate>Sat, 20 Feb 2016 23:35:20 +0100</lastBuildDate>
+    <pubDate>Wed, 2 Mar 2016 07:07:29 +0100</pubDate>
+    <lastBuildDate>Wed, 2 Mar 2016 07:07:29 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Use pull requests to improve documentation</title>
+      <link>http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html</link>
+      <pubDate>Wed, 2 Mar 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-03-02_pr_improve_documentation.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Last November, I have presented a short introduction on Asciidoctor: &lt;em&gt;Writing documentation with Asciidoctor&lt;/em&gt; (&lt;a href=&quot;https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf&quot;&gt;slides&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=MyhiD65qaUI&quot;&gt;video&lt;/a&gt;). As you can see in the video, several projects hosted by the Eclipse Fundation are already using Asciidoctor.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;At the end of the presentation I discuss the fact, that you should always indicate to your readers how they can improve the document. In the latest version of the Eclipse Scout documentation (for example the &lt;a href=&quot;http://eclipsescout.github.io/5.2/latest/article_helloworld/scout_helloworld/scout_helloworld.html&quot;&gt;Hello World Tutorial&lt;/a&gt;), I have included a link &quot;edit on GitHub&quot; at the bottom of each document:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-03-02_edit_on_gh_link.png&quot; alt=&quot;2016-03-02_edit_on_gh_link&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Because I believe in this approach, even this blog has a &quot;see source on GitHub&quot; link at the bottom of each article.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The Pull Request model (it is the same for Gerrit changes) is really powerful tool to improve documentation. Each user can propose changes to the document, in order to improve it for all other readers. This is the exact same mechanism that makes Wikipedia the best encyclopedia of the world. Dan Allen has proposed a great slide to illustrate this idea:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-03-02_fork_and_fix.png&quot; alt=&quot;2016-03-02_fork_and_fix&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In the Eclipse Scout project, we have decided to use GitHub for our documentation, because they provide a really great interface to edit AsciiDoc text directly online. Even without having to check out the document, users can edit the text and get some preview of their changes. With one or two additional clicks they submit a pull request. With this kind of tools, the complexity of having a Git repository is removed. Users get something similar as online wiki engines, with one important addition: each change can be reviewed and discussed before it gets integrated into the final document.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;By the way for closed source code, we are using a GitLab Backend on our company servers. We get a very similar user experience as with GitHub (see: &lt;a href=&quot;https://about.gitlab.com/2016/02/10/feature-highlight-create-files-and-directories-from-files-page/&quot;&gt;Create files and directories from the Files page&lt;/a&gt;). The AsciiDoc editor is also great there.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A propos Asciidoctor, I will hold a Quickie Talk tomorrow (Thursday 03.03.2016) at Voxxed Day Zurich: &lt;a href=&quot;https://cfp-vdz.exteso.com/program/talk/WNL-9236/Writing_documentation_with_Asciidoctor.html&quot;&gt;Writing documentation with Asciidoctor&lt;/a&gt;. I hope I will meet other Asciidoctor users from Switzerland there.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Maven Repository and POM Files</title>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Use pull requests to improve documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Use pull requests to improve documentation</h1>
+    </div>
+
+    <p><em>02 March 2016</em></p>
+
+    <div class="paragraph"> 
+ <p>Last November, I have presented a short introduction on Asciidoctor: <em>Writing documentation with Asciidoctor</em> (<a href="https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=MyhiD65qaUI">video</a>). As you can see in the video, several projects hosted by the Eclipse Fundation are already using Asciidoctor.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>At the end of the presentation I discuss the fact, that you should always indicate to your readers how they can improve the document. In the latest version of the Eclipse Scout documentation (for example the <a href="http://eclipsescout.github.io/5.2/latest/article_helloworld/scout_helloworld/scout_helloworld.html">Hello World Tutorial</a>), I have included a link "edit on GitHub" at the bottom of each document:</p> 
+</div> 
+<div class="paragraph"> 
+ <p><span class="image"><img src="2016-03-02_edit_on_gh_link.png" alt="2016-03-02_edit_on_gh_link"></span></p> 
+</div> 
+<div class="paragraph"> 
+ <p>Because I believe in this approach, even this blog has a "see source on GitHub" link at the bottom of each article.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The Pull Request model (it is the same for Gerrit changes) is really powerful tool to improve documentation. Each user can propose changes to the document, in order to improve it for all other readers. This is the exact same mechanism that makes Wikipedia the best encyclopedia of the world. Dan Allen has proposed a great slide to illustrate this idea:</p> 
+</div> 
+<div class="paragraph"> 
+ <p><span class="image"><img src="2016-03-02_fork_and_fix.png" alt="2016-03-02_fork_and_fix"></span></p> 
+</div> 
+<div class="paragraph"> 
+ <p>In the Eclipse Scout project, we have decided to use GitHub for our documentation, because they provide a really great interface to edit AsciiDoc text directly online. Even without having to check out the document, users can edit the text and get some preview of their changes. With one or two additional clicks they submit a pull request. With this kind of tools, the complexity of having a Git repository is removed. Users get something similar as online wiki engines, with one important addition: each change can be reviewed and discussed before it gets integrated into the final document.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>By the way for closed source code, we are using a GitLab Backend on our company servers. We get a very similar user experience as with GitHub (see: <a href="https://about.gitlab.com/2016/02/10/feature-highlight-create-files-and-directories-from-files-page/">Create files and directories from the Files page</a>). The AsciiDoc editor is also great there.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>A propos Asciidoctor, I will hold a Quickie Talk tomorrow (Thursday 03.03.2016) at Voxxed Day Zurich: <a href="https://cfp-vdz.exteso.com/program/talk/WNL-9236/Writing_documentation_with_Asciidoctor.html">Writing documentation with Asciidoctor</a>. I hope I will meet other Asciidoctor users from Switzerland there.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2016/2016-03-02_pr_improve_documentation.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
