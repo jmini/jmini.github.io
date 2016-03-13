@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Wed, 2 Mar 2016 07:07:29 +0100</pubDate>
-    <lastBuildDate>Wed, 2 Mar 2016 07:07:29 +0100</lastBuildDate>
+    <pubDate>Sun, 13 Mar 2016 16:31:21 +0100</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 16:31:21 +0100</lastBuildDate>
 
     
     <item>
@@ -29,7 +29,7 @@
  &lt;p&gt;Because I believe in this approach, even this blog has a &quot;see source on GitHub&quot; link at the bottom of each article.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;The Pull Request model (it is the same for Gerrit changes) is really powerful tool to improve documentation. Each user can propose changes to the document, in order to improve it for all other readers. This is the exact same mechanism that makes Wikipedia the best encyclopedia of the world. Dan Allen has proposed a great slide to illustrate this idea:&lt;/p&gt; 
+ &lt;p&gt;The Pull Request model (it is the same for Gerrit changes) is really powerful tool to improve documentation. Each user can propose changes to the document, in order to improve it for all other readers. This is the exact same mechanism that makes Wikipedia the best encyclopedia of the world. Dan Allen uses this picture to illustrate this idea:&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-03-02_fork_and_fix.png&quot; alt=&quot;2016-03-02_fork_and_fix&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
