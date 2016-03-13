@@ -21,7 +21,7 @@ Because I believe in this approach, even this blog has a "see source on GitHub" 
 The Pull Request model (it is the same for Gerrit changes) is really powerful tool to improve documentation.
 Each user can propose changes to the document, in order to improve it for all other readers.
 This is the exact same mechanism that makes Wikipedia the best encyclopedia of the world.
-Dan Allen has proposed a great slide to illustrate this idea:
+Dan Allen uses this picture to illustrate this idea:
 
 image:2016-03-02_fork_and_fix.png[]
 
