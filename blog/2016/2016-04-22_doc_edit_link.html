@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Documentation: do not forget the edit link</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Documentation: do not forget the edit link</h1>
+    </div>
+
+    <p><em>22 April 2016</em></p>
+
+    <div id="preamble"> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>In my opinion if you publish documentation online, you should always tell your readers how they can change/update it.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>I picked up several examples of documentation hosted on GitHub. On each page there is an "Edit on GitHub" link. This eases the creation of pull requests.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Example 1: Microsoft Azure documentation (see <a href="https://azure.microsoft.com/en-us/documentation/articles/java-download-azure-sdk/">this page</a> for example):</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="2016-04-22_azure.png" alt="2016-04-22_azure"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Example 2: the <a href="http://www.eclipse.org/xtend/documentation/index.html">Eclipse Xtend documentation</a>:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="2016-04-22_xtend.png" alt="2016-04-22_xtend"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Example 3: Eclipse Scout documentation (see <a href="http://eclipsescout.github.io/6.0/latest/article_helloworld/scout_helloworld/scout_helloworld.html">the scout "hello world" page</a>):</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="2016-04-22_scout.png" alt="2016-04-22_scout"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Example 4: My blog (see <a href="http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html">my last article</a> for example):</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="2016-04-22_blog.png" alt="2016-04-22_blog"></span></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>And many other projects are following this best practice&#x2026;&#x200b;</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>This isn&#x2019;t a GitHub only stuff. The same pattern can be used if the documentation is hosted on a wiki engine. As an example the <a href="http://help.eclipse.org/mars/index.jsp">GEF4 documentation</a> does it exactly like that:</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p><span class="image"><img src="2016-04-22_gef4.png" alt="2016-04-22_gef4"></span></p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="asciidoctorj_macro">Asciidoctorj macro</h3> 
+ <div class="paragraph"> 
+  <p>If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: <a href="http://jmini.github.io/asciidoctorj-gh-edit/">asciidoctorj-gh-edit</a>. Short usage example:</p> 
+ </div> 
+ <div class="listingblock"> 
+  <div class="content"> 
+   <pre class="prettyprint highlight"><code class="language-asciidoc" data-lang="asciidoc">:repository: jmini/jmini.github.io
+:branch: develop
+
+Do you want to improve this documentation? Please gh:edit[].</code></pre> 
+  </div> 
+ </div> 
+ <div class="paragraph"> 
+  <p>A second example where more parameters are defined as arguments of the macro:</p> 
+ </div> 
+ <div class="listingblock"> 
+  <div class="content"> 
+   <pre class="prettyprint highlight"><code class="language-asciidoc" data-lang="asciidoc">See gh:view[repository='asciidoctor/asciidoctor.org', branch='master', path="news/debuter-avec-asciidoctor.adoc", link-text='this article in french'] on GitHub.</code></pre> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect2"> 
+ <h3 id="jbake_blog">JBake blog</h3> 
+ <div class="paragraph"> 
+  <p>If you have a blog powered by JBake (like this one), you can add the code for the link creation in your templates. This way JBake generates the desired link on each page. I implemented it with some Groovy code included in the template. More details can be found on the JBake-user mailing list: <a href="https://groups.google.com/forum/#!topic/jbake-user/kcFpxlCEHOg">Create a link "see blog post source on GitHub"</a>.</p> 
+ </div> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2016/2016-04-22_doc_edit_link.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>

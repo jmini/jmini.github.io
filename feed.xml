@@ -6,9 +6,89 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sun, 13 Mar 2016 16:31:21 +0100</pubDate>
-    <lastBuildDate>Sun, 13 Mar 2016 16:31:21 +0100</lastBuildDate>
+    <pubDate>Fri, 22 Apr 2016 07:39:09 +0200</pubDate>
+    <lastBuildDate>Fri, 22 Apr 2016 07:39:09 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Documentation: do not forget the edit link</title>
+      <link>http://jmini.github.io/blog/2016/2016-04-22_doc_edit_link.html</link>
+      <pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-04-22_doc_edit_link.html</guid>
+      <description>
+      &lt;div id=&quot;preamble&quot;&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;In my opinion if you publish documentation online, you should always tell your readers how they can change/update it.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;I picked up several examples of documentation hosted on GitHub. On each page there is an &quot;Edit on GitHub&quot; link. This eases the creation of pull requests.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Example 1: Microsoft Azure documentation (see &lt;a href=&quot;https://azure.microsoft.com/en-us/documentation/articles/java-download-azure-sdk/&quot;&gt;this page&lt;/a&gt; for example):&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_azure.png&quot; alt=&quot;2016-04-22_azure&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Example 2: the &lt;a href=&quot;http://www.eclipse.org/xtend/documentation/index.html&quot;&gt;Eclipse Xtend documentation&lt;/a&gt;:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_xtend.png&quot; alt=&quot;2016-04-22_xtend&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Example 3: Eclipse Scout documentation (see &lt;a href=&quot;http://eclipsescout.github.io/6.0/latest/article_helloworld/scout_helloworld/scout_helloworld.html&quot;&gt;the scout &quot;hello world&quot; page&lt;/a&gt;):&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_scout.png&quot; alt=&quot;2016-04-22_scout&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Example 4: My blog (see &lt;a href=&quot;http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html&quot;&gt;my last article&lt;/a&gt; for example):&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_blog.png&quot; alt=&quot;2016-04-22_blog&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;And many other projects are following this best practice&amp;#x2026;&amp;#x200b;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;This isn&amp;#x2019;t a GitHub only stuff. The same pattern can be used if the documentation is hosted on a wiki engine. As an example the &lt;a href=&quot;http://help.eclipse.org/mars/index.jsp&quot;&gt;GEF4 documentation&lt;/a&gt; does it exactly like that:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_gef4.png&quot; alt=&quot;2016-04-22_gef4&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect2&quot;&gt; 
+ &lt;h3 id=&quot;asciidoctorj_macro&quot;&gt;Asciidoctorj macro&lt;/h3&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: &lt;a href=&quot;http://jmini.github.io/asciidoctorj-gh-edit/&quot;&gt;asciidoctorj-gh-edit&lt;/a&gt;. Short usage example:&lt;/p&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;listingblock&quot;&gt; 
+  &lt;div class=&quot;content&quot;&gt; 
+   &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-asciidoc&quot; data-lang=&quot;asciidoc&quot;&gt;:repository: jmini/jmini.github.io
+:branch: develop
+
+Do you want to improve this documentation? Please gh:edit[].&lt;/code&gt;&lt;/pre&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;A second example where more parameters are defined as arguments of the macro:&lt;/p&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;listingblock&quot;&gt; 
+  &lt;div class=&quot;content&quot;&gt; 
+   &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-asciidoc&quot; data-lang=&quot;asciidoc&quot;&gt;See gh:view[repository=&apos;asciidoctor/asciidoctor.org&apos;, branch=&apos;master&apos;, path=&quot;news/debuter-avec-asciidoctor.adoc&quot;, link-text=&apos;this article in french&apos;] on GitHub.&lt;/code&gt;&lt;/pre&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect2&quot;&gt; 
+ &lt;h3 id=&quot;jbake_blog&quot;&gt;JBake blog&lt;/h3&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;If you have a blog powered by JBake (like this one), you can add the code for the link creation in your templates. This way JBake generates the desired link on each page. I implemented it with some Groovy code included in the template. More details can be found on the JBake-user mailing list: &lt;a href=&quot;https://groups.google.com/forum/#!topic/jbake-user/kcFpxlCEHOg&quot;&gt;Create a link &quot;see blog post source on GitHub&quot;&lt;/a&gt;.&lt;/p&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Use pull requests to improve documentation</title>
