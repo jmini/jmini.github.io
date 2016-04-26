@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sat, 23 Apr 2016 22:42:34 +0200</pubDate>
-    <lastBuildDate>Sat, 23 Apr 2016 22:42:34 +0200</lastBuildDate>
+    <pubDate>Tue, 26 Apr 2016 20:23:29 +0200</pubDate>
+    <lastBuildDate>Tue, 26 Apr 2016 20:23:29 +0200</lastBuildDate>
 
     
     <item>
@@ -17,7 +17,7 @@
       <guid isPermaLink="false">blog/2016/2016-04-24_disable_eclipse_theming.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;At &lt;a href=&quot;http://devoxx.fr/&quot;&gt;Devoxx France 2016&lt;/a&gt;, Mickael Barbero gave &lt;a href=&quot;https://cfp.devoxx.fr/2016/talk/CEK-5422/The_Eclipse_IDE:_The_Force_Awakens&quot;&gt;a great talk&lt;/a&gt; about the Eclipse IDE. The talks was well attended (the room was almost full). This is the proof that there is still a lot of interest for the Eclipse IDE.&lt;/p&gt; 
+ &lt;p&gt;At &lt;a href=&quot;http://devoxx.fr/&quot;&gt;Devoxx France 2016&lt;/a&gt;, Mika&amp;euml;l Barbero gave &lt;a href=&quot;https://cfp.devoxx.fr/2016/talk/CEK-5422/The_Eclipse_IDE:_The_Force_Awakens&quot;&gt;a great talk&lt;/a&gt; about the Eclipse IDE. The talks was well attended (the room was almost full). This is the proof that there is still a lot of interest for the Eclipse IDE.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-24_room.jpg&quot; alt=&quot;2016-04-24_room&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
@@ -26,7 +26,7 @@
  &lt;p&gt;The talk was a great presentation of all improvements made to the IDE (already implemented with mars, coming with neon or oxygen). It was a big new and noteworthy, organized by main categories that matters to the users and not by eclipse projects. I really appreciated this approach.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;If understand French, I recommend you to watch the video of the talk. In the other case, I am sure you will learn something by just looking at the slides.&lt;/p&gt; 
+ &lt;p&gt;If understand French, I recommend you to watch the video of the talk. In the other case, I am sure you will learn something by just looking at &lt;a href=&quot;http://www.slideshare.net/mikaelbarbero/the-eclipse-ide-the-force-awakens-devoxx-france-2016&quot;&gt;the slides&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;Something I have learned: with Neon you can deactivate the theming (appearance section of the preferences) completely. In that case the CSS styling engine will be deactivated and your Eclipse IDE will have a really raw look. To disable the theming, just uncheck the checkbox highlighted in &lt;a href=&quot;#img-prefs&quot;&gt;Figure 2&lt;/a&gt;&lt;/p&gt; 
