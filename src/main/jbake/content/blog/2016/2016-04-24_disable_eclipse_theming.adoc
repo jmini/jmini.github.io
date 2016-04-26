@@ -9,7 +9,7 @@ Jeremie Bresson
 :figure-caption: Figure
 
 
-At link:http://devoxx.fr/[Devoxx France 2016], Mickael Barbero gave link:https://cfp.devoxx.fr/2016/talk/CEK-5422/The_Eclipse_IDE:_The_Force_Awakens[a great talk] about the Eclipse IDE.
+At link:http://devoxx.fr/[Devoxx France 2016], Mika&#xEB;l Barbero gave link:https://cfp.devoxx.fr/2016/talk/CEK-5422/The_Eclipse_IDE:_The_Force_Awakens[a great talk] about the Eclipse IDE.
 The talks was well attended (the room was almost full).
 This is the proof that there is still a lot of interest for the Eclipse IDE.
 
@@ -20,7 +20,7 @@ It was a big new and noteworthy, organized by main categories that matters to th
 I really appreciated this approach.
 
 If understand French, I recommend you to watch the video of the talk.
-In the other case, I am sure you will learn something by just looking at the slides.
+In the other case, I am sure you will learn something by just looking at link:http://www.slideshare.net/mikaelbarbero/the-eclipse-ide-the-force-awakens-devoxx-france-2016[the slides].
 
 Something I have learned:
 with Neon you can deactivate the theming (appearance section of the preferences) completely.
