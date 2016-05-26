@@ -6,9 +6,42 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Tue, 10 May 2016 06:22:03 +0200</pubDate>
-    <lastBuildDate>Tue, 10 May 2016 06:22:03 +0200</lastBuildDate>
+    <pubDate>Thu, 26 May 2016 22:33:58 +0200</pubDate>
+    <lastBuildDate>Thu, 26 May 2016 22:33:58 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Eclipse debugging: truncated String values</title>
+      <link>http://jmini.github.io/blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</link>
+      <pubDate>Fri, 27 May 2016 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Being able to inspect variable values during debugging is probably one of the mostly used feature in Eclipse.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;With String variables, the default Eclipse configuration is to truncate big Strings after 10000 characters. This can be a problem with long text documents loaded in a String.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Inspect a big String variable in Eclipse IDE
+ &lt;/div&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-05-27_inspect_variable.png&quot; alt=&quot;2016-05-27_inspect_variable&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;As always with Eclipse, there is a possibility to change this configuration. Just open the &quot;Max Length&amp;#x2026;&amp;#x200b;&quot; entry in the context menu of the detail pane (Variables view). In the next dialog set the value &quot;Maximum characters to display in details pane&quot;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Open the &apos;Max Length&amp;#x2026;&amp;#x200b;&apos; entry in the context menu
+ &lt;/div&gt; 
+ &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-05-27_max_length_menu.png&quot; alt=&quot;2016-05-27_max_length_menu&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The new limit will also be considered in the yellow overlay window.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Eclipse Neon: disable the theming</title>
