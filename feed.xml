@@ -6,9 +6,71 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sat, 18 Jun 2016 11:45:55 +0200</pubDate>
-    <lastBuildDate>Sat, 18 Jun 2016 11:45:55 +0200</lastBuildDate>
+    <pubDate>Thu, 15 Sep 2016 22:15:27 +0200</pubDate>
+    <lastBuildDate>Thu, 15 Sep 2016 22:15:27 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Install "Plug-in Spy" in your Eclipse Neon IDE</title>
+      <link>http://jmini.github.io/blog/2016/2016-09-16_eclipse_plugin_spy.html</link>
+      <pubDate>Fri, 16 Sep 2016 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-09-16_eclipse_plugin_spy.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;There is a lot of documentation about the Eclipse &quot;Plug-in Spy&quot; feature (&lt;a href=&quot;http://www.vogella.com/tutorials/EclipseCodeAccess/article.html#plug-in-spy-for-ui-parts&quot;&gt;Plug-in Spy for UI parts&lt;/a&gt; or &lt;a href=&quot;https://scratsh.wordpress.com/2009/06/09/eclipse-3-5-plug-in-spy-and-menus/&quot;&gt;Eclipse 3.5 - Plug-in Spy and menus&lt;/a&gt;). Im my opinion one information is missing: what you need to install to use the Spy feature in your Eclipse Neon IDE. Here is my small how-to.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Select &quot;Install new Software&amp;#x2026;&amp;#x200b;&quot; in the &quot;Help&quot; Menu. In the dialog, switch to the &quot;The Eclipse Project Updates&quot; update site (or enter its location &lt;code&gt;&lt;a href=&quot;http://download.eclipse.org/eclipse/updates/4.6&quot; class=&quot;bare&quot;&gt;http://download.eclipse.org/eclipse/updates/4.6&lt;/a&gt;&lt;/code&gt;). Filter with &quot;PDE&quot; and select the &quot;Eclipse PDE Plug-in Developer Resources&quot;. Validate your choices with &quot;Next&quot; and &quot;Finish&quot;, Eclipse will install the feature and ask for a Restart.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;img-dialog&quot; class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-09-16_install-dialog.png&quot; alt=&quot;2016 09 16 install dialog&quot;&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Figure 1. Install new Software in Eclipse
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you prefer the Oomph way, you can paste the snippet contained in &lt;a href=&quot;#lst-oomph&quot;&gt;Listing 1&lt;/a&gt; in your &lt;code&gt;installation.setup&lt;/code&gt; file (Open it with the Menu: &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;Navigate&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;submenu&quot;&gt;Open Setup&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Installation&lt;/span&gt;&lt;/span&gt;).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;lst-oomph&quot; class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;setup.p2:P2Task
+    xmi:version=&quot;2.0&quot;
+    xmlns:xmi=&quot;http://www.omg.org/XMI&quot;
+    xmlns:setup.p2=&quot;http://www.eclipse.org/oomph/setup/p2/1.0&quot;&amp;gt;
+  &amp;lt;requirement
+      name=&quot;org.eclipse.pde.source.feature.group&quot;/&amp;gt;
+  &amp;lt;repository
+      url=&quot;http://download.eclipse.org/eclipse/updates/4.6&quot;/&amp;gt;
+&amp;lt;/setup.p2:P2Task&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Your Oomph Editor should looks like in &lt;a href=&quot;#img-oomph&quot;&gt;Figure 2&lt;/a&gt;. Save the file and select &quot;Perform Setup Task&amp;#x2026;&amp;#x200b;&quot; (in the &lt;span class=&quot;menu&quot;&gt;Help&lt;/span&gt; menu). Oomph will update your installation and will ask for a restart.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;img-oomph&quot; class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-09-16_installation-oomph-editor.png&quot; alt=&quot;2016 09 16 installation oomph editor&quot;&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Figure 2. Oomph setup Editor: installation.setup File
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In both cases, after the restart you can press &lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;shift&lt;/kbd&gt;+&lt;kbd&gt;f1&lt;/kbd&gt;&lt;/span&gt; and use the Plug-in Spy as in &lt;a href=&quot;#img-spy&quot;&gt;Figure 3&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div id=&quot;img-spy&quot; class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-09-16_plugin-spy.png&quot; alt=&quot;2016 09 16 plugin spy&quot;&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Figure 3. Plug-in Spy in Eclipse Neon
+ &lt;/div&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Eclipse Neon: diamond notation as clean-up action</title>

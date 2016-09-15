@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Install "Plug-in Spy" in your Eclipse Neon IDE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Install "Plug-in Spy" in your Eclipse Neon IDE</h1>
+    </div>
+
+    <p><em>16 September 2016</em></p>
+
+    <div class="paragraph"> 
+ <p>There is a lot of documentation about the Eclipse "Plug-in Spy" feature (<a href="http://www.vogella.com/tutorials/EclipseCodeAccess/article.html#plug-in-spy-for-ui-parts">Plug-in Spy for UI parts</a> or <a href="https://scratsh.wordpress.com/2009/06/09/eclipse-3-5-plug-in-spy-and-menus/">Eclipse 3.5 - Plug-in Spy and menus</a>). Im my opinion one information is missing: what you need to install to use the Spy feature in your Eclipse Neon IDE. Here is my small how-to.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Select "Install new Software&#x2026;&#x200b;" in the "Help" Menu. In the dialog, switch to the "The Eclipse Project Updates" update site (or enter its location <code><a href="http://download.eclipse.org/eclipse/updates/4.6" class="bare">http://download.eclipse.org/eclipse/updates/4.6</a></code>). Filter with "PDE" and select the "Eclipse PDE Plug-in Developer Resources". Validate your choices with "Next" and "Finish", Eclipse will install the feature and ask for a Restart.</p> 
+</div> 
+<div id="img-dialog" class="imageblock"> 
+ <div class="content"> 
+  <img src="2016-09-16_install-dialog.png" alt="2016 09 16 install dialog"> 
+ </div> 
+ <div class="title">
+  Figure 1. Install new Software in Eclipse
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you prefer the Oomph way, you can paste the snippet contained in <a href="#lst-oomph">Listing 1</a> in your <code>installation.setup</code> file (Open it with the Menu: <span class="menuseq"><span class="menu">Navigate</span>&nbsp;&#x25b8; <span class="submenu">Open Setup</span>&nbsp;&#x25b8; <span class="menuitem">Installation</span></span>).</p> 
+</div> 
+<div id="lst-oomph" class="listingblock"> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;setup.p2:P2Task
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"&gt;
+  &lt;requirement
+      name="org.eclipse.pde.source.feature.group"/&gt;
+  &lt;repository
+      url="http://download.eclipse.org/eclipse/updates/4.6"/&gt;
+&lt;/setup.p2:P2Task&gt;</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Your Oomph Editor should looks like in <a href="#img-oomph">Figure 2</a>. Save the file and select "Perform Setup Task&#x2026;&#x200b;" (in the <span class="menu">Help</span> menu). Oomph will update your installation and will ask for a restart.</p> 
+</div> 
+<div id="img-oomph" class="imageblock"> 
+ <div class="content"> 
+  <img src="2016-09-16_installation-oomph-editor.png" alt="2016 09 16 installation oomph editor"> 
+ </div> 
+ <div class="title">
+  Figure 2. Oomph setup Editor: installation.setup File
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>In both cases, after the restart you can press <span class="keyseq"><kbd>alt</kbd>+<kbd>shift</kbd>+<kbd>f1</kbd></span> and use the Plug-in Spy as in <a href="#img-spy">Figure 3</a>.</p> 
+</div> 
+<div id="img-spy" class="imageblock"> 
+ <div class="content"> 
+  <img src="2016-09-16_plugin-spy.png" alt="2016 09 16 plugin spy"> 
+ </div> 
+ <div class="title">
+  Figure 3. Plug-in Spy in Eclipse Neon
+ </div> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2016/2016-09-16_eclipse_plugin_spy.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
