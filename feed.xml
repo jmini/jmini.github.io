@@ -6,9 +6,95 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Thu, 15 Sep 2016 22:15:27 +0200</pubDate>
-    <lastBuildDate>Thu, 15 Sep 2016 22:15:27 +0200</lastBuildDate>
+    <pubDate>Thu, 27 Oct 2016 22:49:13 +0200</pubDate>
+    <lastBuildDate>Thu, 27 Oct 2016 22:49:13 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Asciidoctor instead of MediaWiki?</title>
+      <link>http://jmini.github.io/blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</link>
+      <pubDate>Fri, 28 Oct 2016 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;During &lt;a href=&quot;https://www.eclipsecon.org/europe2016/&quot;&gt;EclipseCon Europe 2016&lt;/a&gt; we had a great BoF Session about documentation with Asciidoctor at Eclipse. A lot of subjects were discussed, from the editing possibilities inside or outside Eclipse IDE to the best toolchains for document generation/customization.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-10-28_bofs_eclipsecon_europe_2016.jpg&quot; alt=&quot;BoFs Session Schedule at EclipseCon Europe 2016&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;One topic that was discussed during the meeting was the conversion of MediaWiki documentation to the AsciiDoc format. I am happy to blog about this topic and to propose a solution.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A lot of Eclipse projects are using the &lt;a href=&quot;https://wiki.eclipse.org/&quot;&gt;Eclipse MediaWiki instance&lt;/a&gt; for their documentation. Maybe I can summarize my vision on this topic: I consider the usage of a Git repository better as a wiki engine. A wiki engine is not enough when it comes to documentation of different versions of your project/product (git branches, cherry pick&amp;#x2026;&amp;#x200b;). If you host the repository on GitHub (it works also with GitLab) and if you use one of the markup syntaxes supported by the online editor, you get almost the same experience as with a wiki engine (online edition, online preview of changes, navigation in the history, diffs&amp;#x2026;&amp;#x200b;). Reviews and discussions inside pull requests are a great way to collaborate. Having also everything offline is a big plus (I work a lot in the train). Amongst the different markup syntaxes you can choose, I consider the AsciiDoc format as the best option (management of code snippets, callout support in listings blocs, variable substitution and conditional inclusion, multiple output formats, live preview in browser during edition in any text editor, easy integration in existing build toolchain, possibility to extend the language with custom macros&amp;#x2026;&amp;#x200b;). In my opinion Asciidoctor is becoming a state of the art documentation toolchain in many projects.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This immediately raises the next question: what can we do with the great content we have on the Eclipse wiki? How can it be migrated to the AsciiDoc format? In my opinion the &lt;a href=&quot;https://eclipse.org/mylyn/docs&quot;&gt;Mylyn Wikitext project&lt;/a&gt; can help, but an &lt;code&gt;AsciiDocDocumentBuilder&lt;/code&gt; is missing. I have opened &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=506643&quot;&gt;Bug 506643&lt;/a&gt; for that and &lt;a href=&quot;https://git.eclipse.org/r/84040&quot;&gt;contributed&lt;/a&gt; a first implementation. My code will now go through the eclipse review process. To test it today, you need to check out the repo (and the corresponding gerrit change).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Here a simple example:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 1. Example MediaWiki document
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre&gt;&apos;&apos;&apos;Lorem ipsum&apos;&apos;&apos; sed tempor euismod elit, et eleifend tellus lacinia a.
+
+=== Penatibus et magnis
+
+Pellentesque ut &apos;&apos;lorem lorem&apos;&apos;.
+
+[[Image:foo.png|Foo image]]
+
+Nulla ut sapien tellus. Quisque id semper nulla. Nullam facilisis risus turpis.
+
+* Cras posuere tempor urna
+* Laoreet pharetra diam rhoncus at
+* Quisque ornare diam eu iaculis auctor.
+
+Pellentesque tincidunt ultricies varius. [http://eclipse.org/ Lorem ipsum dolor] sit amet, consectetur adipiscing elit.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti.&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;That will be converted to:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 2. Result of the conversion to AsciiDoc
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre&gt;*Lorem ipsum* sed tempor euismod elit, et eleifend tellus lacinia a.
+
+=== Penatibus et magnis
+
+Pellentesque ut _lorem lorem_.
+
+image:foo.png[title=&quot;Foo image&quot;]
+
+Nulla ut sapien tellus. Quisque id semper nulla. Nullam facilisis risus turpis.
+
+* Cras posuere tempor urna
+* Laoreet pharetra diam rhoncus at
+* Quisque ornare diam eu iaculis auctor.
+
+Pellentesque tincidunt ultricies varius. link:http://eclipse.org/[Lorem ipsum dolor] sit amet, consectetur adipiscing elit.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti.&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Of course my tool has certainly some limitations. Markup conversion is never an easy task. I think that the MediaWiki parser provided by the Mylyn Wikitext project is a good choice, because it is already used for the generation of some eclipse help pages. For the conversion to AsciiDoc there is already some support in the Wikitext framework (AsciiDoc is just an other output Markup there). I just created a new class: &lt;code&gt;AsciiDocDocumentBuilder&lt;/code&gt; (plus an other one for the test suite). I have used the &lt;code&gt;MarkdownDocumentBuilder&lt;/code&gt; as base and adapted it for AsciiDoc. I consider my implementation as a first usable version. Any feedback is welcomed (on the Bug, on Gerrit, twitter or on the mailing list). Depending on the feedback, I will be happy to iterate and to improve it for concrete use cases.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;By the way, if an Eclipse Project wants to migrate and start to use Asciidoctor, I will be happy to help as much as I can.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Install "Plug-in Spy" in your Eclipse Neon IDE</title>
