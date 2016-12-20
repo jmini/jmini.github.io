@@ -6,9 +6,40 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Thu, 27 Oct 2016 22:49:13 +0200</pubDate>
-    <lastBuildDate>Thu, 27 Oct 2016 22:49:13 +0200</lastBuildDate>
+    <pubDate>Tue, 20 Dec 2016 22:15:35 +0100</pubDate>
+    <lastBuildDate>Tue, 20 Dec 2016 22:15:35 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Oxygen M4: convert to AsciiDoc with Mylyn WikiText</title>
+      <link>http://jmini.github.io/blog/2016/2016-12-21_convert_to_asciidoc.html</link>
+      <pubDate>Wed, 21 Dec 2016 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2016/2016-12-21_convert_to_asciidoc.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you need to convert your documentation to the AsciiDoc format, you might be interested in this new feature delivered with Eclipse Oxygen M4 (see also my previous blog post: &lt;a href=&quot;2016-10-28_from_mediawiki_to_asciidoc.html&quot;&gt;Asciidoctor instead of MediaWiki?&lt;/a&gt;). Any file format supported by Mylyn WikiText (textile, mediawiki, markdown and more) can now be converted to the AsciiDoc format. Just select &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;WikiText&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Generate AsciiDoc&lt;/span&gt;&lt;/span&gt; from the context menu in the package explorer.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-12-21_textile_example.png&quot; alt=&quot;Convert to AsciiDoc in Eclipse IDE&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A new file is generated near to the original file (&lt;code&gt;example.asciidoc&lt;/code&gt; in this example). Of course you can preview it with your favorite asciidoctor viewer (Chrome with the &lt;a href=&quot;https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia?hl=en&quot;&gt;Asciidoctor.js Live Preview&lt;/a&gt; extension in my case).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2016/2016-12-21_preview.png&quot; alt=&quot;AsciiDoc file preview in Chrome&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;While I was trying to convert some pages of &lt;a href=&quot;http://wiki.eclipse.org/&quot;&gt;Eclipsepedia&lt;/a&gt; to Asciidoctor, I have noticed that some additional concepts need to be supported by the converter. I have opened &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=508262&quot;&gt;Bug 508262&lt;/a&gt; to track them. Feel free to leave feedback there if something is not working for you.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;You can get the Oxygen M4 version of Eclipse IDE from the &lt;a href=&quot;http://www.eclipse.org/downloads/index-developer.php&quot;&gt;Developer Builds download page&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Asciidoctor instead of MediaWiki?</title>
@@ -92,6 +123,9 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;By the way, if an Eclipse Project wants to migrate and start to use Asciidoctor, I will be happy to help as much as I can.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;EDIT: the feature is available in Eclipse IDE Oxygen version, read more here: &lt;a href=&quot;2016-12-21_convert_to_asciidoc.html&quot;&gt;Oxygen M4: convert to AsciiDoc with Mylyn WikiText&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt;
       </description>
     </item>
