@@ -95,3 +95,5 @@ Any feedback is welcomed (on the Bug, on Gerrit, twitter or on the mailing list)
 Depending on the feedback, I will be happy to iterate and to improve it for concrete use cases.
 
 By the way, if an Eclipse Project wants to migrate and start to use Asciidoctor, I will be happy to help as much as I can.
+
+EDIT: the feature is available in Eclipse IDE Oxygen version, read more here: <<2016-12-21_convert_to_asciidoc.adoc#, Oxygen M4: convert to AsciiDoc with Mylyn WikiText>>.
