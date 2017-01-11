@@ -6,9 +6,123 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Tue, 20 Dec 2016 22:15:35 +0100</pubDate>
-    <lastBuildDate>Tue, 20 Dec 2016 22:15:35 +0100</lastBuildDate>
+    <pubDate>Wed, 11 Jan 2017 07:11:14 +0100</pubDate>
+    <lastBuildDate>Wed, 11 Jan 2017 07:11:14 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Use the Eclipse Java Development Tools in a Java SE application</title>
+      <link>http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Stephan Herrmann has &lt;a href=&quot;https://objectteams.wordpress.com/2017/01/09/eclipse-neon-2-is-on-maven-central/&quot;&gt;announced&lt;/a&gt; that some libraries of the Eclipse Neon.2 release are now available on &lt;a href=&quot;https://search.maven.org/&quot;&gt;maven central&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-10_eclipse-jars-on-maven-central.png&quot; alt=&quot;Some eclipse jars are now available the central repository&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;It is now easy to reuse the piece of Eclipse outside any Eclipse based application. Let me share with you this simple example: &lt;em&gt;use the java code formatter of Eclipse JDT in a simple java main class&lt;/em&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;: create a very simple maven project. You will need &lt;a href=&quot;https://search.maven.org/#artifactdetails%7Corg.eclipse.jdt%7Corg.eclipse.jdt.core%7C3.12.2%7Cjar&quot;&gt;org.eclipse.jdt.core&lt;/a&gt; as dependency.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 1. Example pom.xml
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+      xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&amp;gt;
+  &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  &amp;lt;groupId&amp;gt;example&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;java-formatter&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.0.0-SNAPSHOT&amp;lt;/version&amp;gt;
+
+  &amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+      &amp;lt;groupId&amp;gt;org.eclipse.jdt&amp;lt;/groupId&amp;gt;
+      &amp;lt;artifactId&amp;gt;org.eclipse.jdt.core&amp;lt;/artifactId&amp;gt;
+      &amp;lt;version&amp;gt;3.12.2&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;: write a java class with a main method.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 2. Example main class
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import java.util.Properties;
+
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.ToolFactory;
+import org.eclipse.jdt.core.formatter.CodeFormatter;
+import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.text.edits.TextEdit;
+
+public class MainFormatter {
+
+  public static void main(String[] args) {
+    String result;
+
+    String javaCode = &quot;public class MyClass{ &quot;
+                        + &quot;public static void main(String[] args) { &quot;
+                        + &quot;System.out.println(\&quot;Hello World\&quot;);&quot;
+                        + &quot; }&quot;
+                        + &quot; }&quot;;
+
+    Properties prefs = new Properties();
+    prefs.setProperty(JavaCore.COMPILER_SOURCE, CompilerOptions.VERSION_1_8);
+    prefs.setProperty(JavaCore.COMPILER_COMPLIANCE, CompilerOptions.VERSION_1_8);
+    prefs.setProperty(JavaCore.COMPILER_CODEGEN_TARGET_PLATFORM, CompilerOptions.VERSION_1_8);
+
+    CodeFormatter codeFormatter = ToolFactory.createCodeFormatter(prefs);
+    IDocument doc = new Document(javaCode);
+    try {
+      TextEdit edit = codeFormatter.format(CodeFormatter.K_COMPILATION_UNIT | CodeFormatter.F_INCLUDE_COMMENTS,
+                                             javaCode, 0, javaCode.length(), 0, null);
+      if (edit != null) {
+        edit.apply(doc);
+        result = doc.get();
+      }
+      else {
+        result = javaCode;
+      }
+    }
+    catch (BadLocationException e) {
+      throw new RuntimeException(e);
+    }
+
+    System.out.println(result);
+  }
+}&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt;: there is no step 3! You can just run your code in your IDE or from the command line using maven to compute your classpath.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-10_console.png&quot; alt=&quot;Console output&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The code used in this example is a simplification of what you can find in another great open-source project: &lt;a href=&quot;https://github.com/forge/roaster&quot;&gt;JBoss Forge Roaster&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Oxygen M4: convert to AsciiDoc with Mylyn WikiText</title>

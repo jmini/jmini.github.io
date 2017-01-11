@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Use the Eclipse Java Development Tools in a Java SE application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Use the Eclipse Java Development Tools in a Java SE application</h1>
+    </div>
+
+    <p><em>10 January 2017</em></p>
+
+    <div class="paragraph"> 
+ <p>Stephan Herrmann has <a href="https://objectteams.wordpress.com/2017/01/09/eclipse-neon-2-is-on-maven-central/">announced</a> that some libraries of the Eclipse Neon.2 release are now available on <a href="https://search.maven.org/">maven central</a>.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-10_eclipse-jars-on-maven-central.png" alt="Some eclipse jars are now available the central repository"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>It is now easy to reuse the piece of Eclipse outside any Eclipse based application. Let me share with you this simple example: <em>use the java code formatter of Eclipse JDT in a simple java main class</em>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Step 1</strong>: create a very simple maven project. You will need <a href="https://search.maven.org/#artifactdetails%7Corg.eclipse.jdt%7Corg.eclipse.jdt.core%7C3.12.2%7Cjar">org.eclipse.jdt.core</a> as dependency.</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 1. Example pom.xml
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;example&lt;/groupId&gt;
+  &lt;artifactId&gt;java-formatter&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.eclipse.jdt&lt;/groupId&gt;
+      &lt;artifactId&gt;org.eclipse.jdt.core&lt;/artifactId&gt;
+      &lt;version&gt;3.12.2&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Step 2</strong>: write a java class with a main method.</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 2. Example main class
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.util.Properties;
+
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.ToolFactory;
+import org.eclipse.jdt.core.formatter.CodeFormatter;
+import org.eclipse.jdt.internal.compiler.impl.CompilerOptions;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.text.edits.TextEdit;
+
+public class MainFormatter {
+
+  public static void main(String[] args) {
+    String result;
+
+    String javaCode = "public class MyClass{ "
+                        + "public static void main(String[] args) { "
+                        + "System.out.println(\"Hello World\");"
+                        + " }"
+                        + " }";
+
+    Properties prefs = new Properties();
+    prefs.setProperty(JavaCore.COMPILER_SOURCE, CompilerOptions.VERSION_1_8);
+    prefs.setProperty(JavaCore.COMPILER_COMPLIANCE, CompilerOptions.VERSION_1_8);
+    prefs.setProperty(JavaCore.COMPILER_CODEGEN_TARGET_PLATFORM, CompilerOptions.VERSION_1_8);
+
+    CodeFormatter codeFormatter = ToolFactory.createCodeFormatter(prefs);
+    IDocument doc = new Document(javaCode);
+    try {
+      TextEdit edit = codeFormatter.format(CodeFormatter.K_COMPILATION_UNIT | CodeFormatter.F_INCLUDE_COMMENTS,
+                                             javaCode, 0, javaCode.length(), 0, null);
+      if (edit != null) {
+        edit.apply(doc);
+        result = doc.get();
+      }
+      else {
+        result = javaCode;
+      }
+    }
+    catch (BadLocationException e) {
+      throw new RuntimeException(e);
+    }
+
+    System.out.println(result);
+  }
+}</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p><strong>Step 3</strong>: there is no step 3! You can just run your code in your IDE or from the command line using maven to compute your classpath.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-10_console.png" alt="Console output"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>The code used in this example is a simplification of what you can find in another great open-source project: <a href="https://github.com/forge/roaster">JBoss Forge Roaster</a>.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
