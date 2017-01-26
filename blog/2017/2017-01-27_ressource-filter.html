@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Ressource filter at project level in Eclipse IDE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Ressource filter at project level in Eclipse IDE</h1>
+    </div>
+
+    <p><em>27 January 2017</em></p>
+
+    <div class="paragraph"> 
+ <p>If you follow the maven convention in multi-modules maven project, your directory structure will looks like this:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre>\---parent
+    |   .project
+    |   pom.xml
+    |
+    +---project1
+    |   |   .classpath
+    |   |   .project
+    |   |   pom.xml
+    |   |
+    |   \---src/main/java
+    |       \---...
+    |
+    \---project2
+        |   .classpath
+        |   .project
+        |   pom.xml
+        |
+        \---src/main/java
+            \---...</pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>When the projects are imported in Eclipse IDE, the parent project looks not nice in the Package Explorer. The child modules <code>project1</code> and <code>project2</code> appear twice: as sub-folder of the <code>parent</code> project and as separated java project. In my opinion this is not really user-friendly.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_package-explorer.png" alt="Package Explorer"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>A solution was suggested by Ed Merks: in the parent project, the child folders can be filtered. Use the <em>Ressource Filters</em> at project level. Select the <span class="menu">Properties</span> context menu on the parent project and select "Ressource Filters" under "Ressource" in the tree. Click on the <b class="button">Add Filter&#x2026;&#x200b;</b> button. In the Dialog configure your filter to exclude all folders with a name that matches <code>*</code>.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_add-resource-filter.png" alt="Add a Ressource Filter for project parent"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>The configuration should look like this:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_resource-filters.png" alt="Ressource Filters - project configuration page"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you have a look at the xml content in the <code>.project</code> file of the <code>parent</code> project, you should see something like this:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">	&lt;filteredResources&gt;
+		&lt;filter&gt;
+			&lt;id&gt;1485436062166&lt;/id&gt;
+			&lt;name&gt;&lt;/name&gt;
+			&lt;type&gt;10&lt;/type&gt;
+			&lt;matcher&gt;
+				&lt;id&gt;org.eclipse.ui.ide.multiFilter&lt;/id&gt;
+				&lt;arguments&gt;1.0-name-matches-false-false-*&lt;/arguments&gt;
+			&lt;/matcher&gt;
+		&lt;/filter&gt;
+	&lt;/filteredResources&gt;</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>With this new project configuration, the Package Explorer now hides its child folders. This means that you no longer see the modules <code>project1</code> and <code>project2</code> in the <code>parent</code> project:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_package-explorer_nice.png" alt="Package Explorer with hidden child modules"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>I hope this will helps projects that have similar needs.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2017/2017-01-27_ressource-filter.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>

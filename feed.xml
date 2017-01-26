@@ -6,9 +6,97 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Wed, 11 Jan 2017 07:11:14 +0100</pubDate>
-    <lastBuildDate>Wed, 11 Jan 2017 07:11:14 +0100</lastBuildDate>
+    <pubDate>Thu, 26 Jan 2017 22:00:24 +0100</pubDate>
+    <lastBuildDate>Thu, 26 Jan 2017 22:00:24 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Ressource filter at project level in Eclipse IDE</title>
+      <link>http://jmini.github.io/blog/2017/2017-01-27_ressource-filter.html</link>
+      <pubDate>Fri, 27 Jan 2017 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2017/2017-01-27_ressource-filter.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you follow the maven convention in multi-modules maven project, your directory structure will looks like this:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre&gt;\---parent
+    |   .project
+    |   pom.xml
+    |
+    +---project1
+    |   |   .classpath
+    |   |   .project
+    |   |   pom.xml
+    |   |
+    |   \---src/main/java
+    |       \---...
+    |
+    \---project2
+        |   .classpath
+        |   .project
+        |   pom.xml
+        |
+        \---src/main/java
+            \---...&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;When the projects are imported in Eclipse IDE, the parent project looks not nice in the Package Explorer. The child modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; appear twice: as sub-folder of the &lt;code&gt;parent&lt;/code&gt; project and as separated java project. In my opinion this is not really user-friendly.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_package-explorer.png&quot; alt=&quot;Package Explorer&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A solution was suggested by Ed Merks: in the parent project, the child folders can be filtered. Use the &lt;em&gt;Ressource Filters&lt;/em&gt; at project level. Select the &lt;span class=&quot;menu&quot;&gt;Properties&lt;/span&gt; context menu on the parent project and select &quot;Ressource Filters&quot; under &quot;Ressource&quot; in the tree. Click on the &lt;b class=&quot;button&quot;&gt;Add Filter&amp;#x2026;&amp;#x200b;&lt;/b&gt; button. In the Dialog configure your filter to exclude all folders with a name that matches &lt;code&gt;*&lt;/code&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_add-resource-filter.png&quot; alt=&quot;Add a Ressource Filter for project parent&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The configuration should look like this:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_resource-filters.png&quot; alt=&quot;Ressource Filters - project configuration page&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you have a look at the xml content in the &lt;code&gt;.project&lt;/code&gt; file of the &lt;code&gt;parent&lt;/code&gt; project, you should see something like this:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;	&amp;lt;filteredResources&amp;gt;
+		&amp;lt;filter&amp;gt;
+			&amp;lt;id&amp;gt;1485436062166&amp;lt;/id&amp;gt;
+			&amp;lt;name&amp;gt;&amp;lt;/name&amp;gt;
+			&amp;lt;type&amp;gt;10&amp;lt;/type&amp;gt;
+			&amp;lt;matcher&amp;gt;
+				&amp;lt;id&amp;gt;org.eclipse.ui.ide.multiFilter&amp;lt;/id&amp;gt;
+				&amp;lt;arguments&amp;gt;1.0-name-matches-false-false-*&amp;lt;/arguments&amp;gt;
+			&amp;lt;/matcher&amp;gt;
+		&amp;lt;/filter&amp;gt;
+	&amp;lt;/filteredResources&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;With this new project configuration, the Package Explorer now hides its child folders. This means that you no longer see the modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; in the &lt;code&gt;parent&lt;/code&gt; project:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_package-explorer_nice.png&quot; alt=&quot;Package Explorer with hidden child modules&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I hope this will helps projects that have similar needs.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Use the Eclipse Java Development Tools in a Java SE application</title>
