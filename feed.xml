@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Thu, 26 Jan 2017 22:00:24 +0100</pubDate>
-    <lastBuildDate>Thu, 26 Jan 2017 22:00:24 +0100</lastBuildDate>
+    <pubDate>Fri, 27 Jan 2017 21:17:05 +0100</pubDate>
+    <lastBuildDate>Fri, 27 Jan 2017 21:17:05 +0100</lastBuildDate>
 
     
     <item>
@@ -43,7 +43,7 @@
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;When the projects are imported in Eclipse IDE, the parent project looks not nice in the Package Explorer. The child modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; appear twice: as sub-folder of the &lt;code&gt;parent&lt;/code&gt; project and as separated java project. In my opinion this is not really user-friendly.&lt;/p&gt; 
+ &lt;p&gt;When the projects are imported in Eclipse IDE, the parent project looks not nice in the &lt;em&gt;Package Explorer&lt;/em&gt;. The child modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; appear twice: as sub-folder of the &lt;code&gt;parent&lt;/code&gt; project and as separated java project. In my opinion this is not really user-friendly.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -85,7 +85,7 @@
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;With this new project configuration, the Package Explorer now hides its child folders. This means that you no longer see the modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; in the &lt;code&gt;parent&lt;/code&gt; project:&lt;/p&gt; 
+ &lt;p&gt;With this new project configuration, the &lt;em&gt;Package Explorer&lt;/em&gt; now hides its child folders. This means that you no longer see the modules &lt;code&gt;project1&lt;/code&gt; and &lt;code&gt;project2&lt;/code&gt; in the &lt;code&gt;parent&lt;/code&gt; project:&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -94,6 +94,29 @@
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;I hope this will helps projects that have similar needs.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;hr&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;There is also an easier way to display this standard maven structure in Eclipse IDE: use the &lt;em&gt;Project Explorer&lt;/em&gt; instead of the &lt;em&gt;Package Explorer&lt;/em&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;With the menu item &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;Projects Presentation&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Hierarchical&lt;/span&gt;&lt;/span&gt; the display behavior in the &lt;em&gt;Project Explorer&lt;/em&gt; can be modified.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_project-explorer-configuration.png&quot; alt=&quot;Switch the Projects Presentation configuration in the Project Explorer&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;With this new configuration, the maven structure is reflected in the IDE:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-01-27_project-explorer.png&quot; alt=&quot;Project Explorer displaying the maven structure&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This works even with the resource filter configuration approach presented in this blog post.&lt;/p&gt; 
 &lt;/div&gt;
       </description>
     </item>

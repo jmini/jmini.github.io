@@ -86,7 +86,7 @@
  </div> 
 </div> 
 <div class="paragraph"> 
- <p>When the projects are imported in Eclipse IDE, the parent project looks not nice in the Package Explorer. The child modules <code>project1</code> and <code>project2</code> appear twice: as sub-folder of the <code>parent</code> project and as separated java project. In my opinion this is not really user-friendly.</p> 
+ <p>When the projects are imported in Eclipse IDE, the parent project looks not nice in the <em>Package Explorer</em>. The child modules <code>project1</code> and <code>project2</code> appear twice: as sub-folder of the <code>parent</code> project and as separated java project. In my opinion this is not really user-friendly.</p> 
 </div> 
 <div class="imageblock"> 
  <div class="content"> 
@@ -128,7 +128,7 @@
  </div> 
 </div> 
 <div class="paragraph"> 
- <p>With this new project configuration, the Package Explorer now hides its child folders. This means that you no longer see the modules <code>project1</code> and <code>project2</code> in the <code>parent</code> project:</p> 
+ <p>With this new project configuration, the <em>Package Explorer</em> now hides its child folders. This means that you no longer see the modules <code>project1</code> and <code>project2</code> in the <code>parent</code> project:</p> 
 </div> 
 <div class="imageblock"> 
  <div class="content"> 
@@ -137,6 +137,29 @@
 </div> 
 <div class="paragraph"> 
  <p>I hope this will helps projects that have similar needs.</p> 
+</div> 
+<hr> 
+<div class="paragraph"> 
+ <p>There is also an easier way to display this standard maven structure in Eclipse IDE: use the <em>Project Explorer</em> instead of the <em>Package Explorer</em>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>With the menu item <span class="menuseq"><span class="menu">Projects Presentation</span>&nbsp;&#x25b8; <span class="menuitem">Hierarchical</span></span> the display behavior in the <em>Project Explorer</em> can be modified.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_project-explorer-configuration.png" alt="Switch the Projects Presentation configuration in the Project Explorer"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>With this new configuration, the maven structure is reflected in the IDE:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-01-27_project-explorer.png" alt="Project Explorer displaying the maven structure"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>This works even with the resource filter configuration approach presented in this blog post.</p> 
 </div>
 
     <hr />
