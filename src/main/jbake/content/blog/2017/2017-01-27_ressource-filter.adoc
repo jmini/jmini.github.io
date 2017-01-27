@@ -33,7 +33,7 @@ If you follow the maven convention in multi-modules maven project, your director
             \---...
 ----
 
-When the projects are imported in Eclipse IDE, the parent project looks not nice in the Package Explorer.
+When the projects are imported in Eclipse IDE, the parent project looks not nice in the _Package Explorer_.
 The child modules `project1` and `project2` appear twice: as sub-folder of the `parent` project and as separated java project.
 In my opinion this is not really user-friendly.
 
@@ -68,9 +68,24 @@ If you have a look at the xml content in the `.project` file of the `parent` pro
 	</filteredResources>
 ----
 
-With this new project configuration, the Package Explorer now hides its child folders. 
+With this new project configuration, the _Package Explorer_ now hides its child folders. 
 This means that you no longer see the modules `project1` and `project2` in the `parent` project:
 
 image::2017-01-27_package-explorer_nice.png[Package Explorer with hidden child modules]
 
 I hope this will helps projects that have similar needs.
+
+---
+
+There is also an easier way to display this standard maven structure in Eclipse IDE: use the _Project Explorer_ instead of the _Package Explorer_.
+
+With the menu item menu:Projects Presentation[Hierarchical] the display behavior in the _Project Explorer_ can be modified.
+
+image::2017-01-27_project-explorer-configuration.png[Switch the Projects Presentation configuration in the Project Explorer]
+
+With this new configuration, the maven structure is reflected in the IDE:
+
+image::2017-01-27_project-explorer.png[Project Explorer displaying the maven structure]
+
+This works even with the resource filter configuration approach presented in this blog post.
+
