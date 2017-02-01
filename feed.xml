@@ -6,9 +6,47 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 27 Jan 2017 21:17:05 +0100</pubDate>
-    <lastBuildDate>Fri, 27 Jan 2017 21:17:05 +0100</lastBuildDate>
+    <pubDate>Wed, 1 Feb 2017 22:25:39 +0100</pubDate>
+    <lastBuildDate>Wed, 1 Feb 2017 22:25:39 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Mylyn Docs Wikitext: changes with Version 3.0.0</title>
+      <link>http://jmini.github.io/blog/2017/2017-02-02_wikitext_v3.html</link>
+      <pubDate>Thu, 2 Feb 2017 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2017/2017-02-02_wikitext_v3.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;David Green has proposed to do a lot of changes to Mylyn Docs Wikitext. The &quot;core&quot; plugins will now be plain java/maven artifacts. The expected benefits are:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;easier to build/release Mylyn Docs (or at least Mylyn WikiText) separately from Mylyn&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;easier to consume Mylyn WikiText core bundles (e.g. as plain jars, with normal poms)&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;easier to contribute (e.g. without knowledge of OSGi or PDE)&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;better structured code/tests (e.g. using normal Maven project layout)&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;faster cycle time (e.g. easier to verify code changes, faster builds)&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Another side goal is to be present on maven central as soon as possible.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;These structural modifications require changing the version to &lt;code&gt;3.0.0-SNAPSHOT&lt;/code&gt; and this is the occasion to review what we are publishing and how (update sites, features, p2 repository, bundle names, package names, &amp;#x2026;&amp;#x200b;). If you are using wikitext as part of your build (to build the eclipse help for example) or as part of another tool, be aware that this is a breaking change. Your feedback is welcomed on &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=511120&quot;&gt;Bug 511120&lt;/a&gt;. You can also follow the discussion on the &lt;a href=&quot;http://dev.eclipse.org/mhonarc/lists/mylyn-docs-dev/&quot;&gt;mylyn-docs-dev mailing list&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Here is one example: we might drop the standalone distribution of wikitext (jars available in a zip) that is currently available on the &lt;a href=&quot;https://eclipse.org/mylyn/downloads/&quot;&gt;Mylyn download page&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-02-02_wikitext-download-standalone.png&quot; alt=&quot;Mylyn download page&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you are using it, please notify us on Bugzilla.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Ressource filter at project level in Eclipse IDE</title>

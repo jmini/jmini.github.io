@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Mylyn Docs Wikitext: changes with Version 3.0.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Mylyn Docs Wikitext: changes with Version 3.0.0</h1>
+    </div>
+
+    <p><em>02 February 2017</em></p>
+
+    <div class="paragraph"> 
+ <p>David Green has proposed to do a lot of changes to Mylyn Docs Wikitext. The "core" plugins will now be plain java/maven artifacts. The expected benefits are:</p> 
+</div> 
+<div class="ulist"> 
+ <ul> 
+  <li> <p>easier to build/release Mylyn Docs (or at least Mylyn WikiText) separately from Mylyn</p> </li> 
+  <li> <p>easier to consume Mylyn WikiText core bundles (e.g. as plain jars, with normal poms)</p> </li> 
+  <li> <p>easier to contribute (e.g. without knowledge of OSGi or PDE)</p> </li> 
+  <li> <p>better structured code/tests (e.g. using normal Maven project layout)</p> </li> 
+  <li> <p>faster cycle time (e.g. easier to verify code changes, faster builds)</p> </li> 
+ </ul> 
+</div> 
+<div class="paragraph"> 
+ <p>Another side goal is to be present on maven central as soon as possible.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>These structural modifications require changing the version to <code>3.0.0-SNAPSHOT</code> and this is the occasion to review what we are publishing and how (update sites, features, p2 repository, bundle names, package names, &#x2026;&#x200b;). If you are using wikitext as part of your build (to build the eclipse help for example) or as part of another tool, be aware that this is a breaking change. Your feedback is welcomed on <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=511120">Bug 511120</a>. You can also follow the discussion on the <a href="http://dev.eclipse.org/mhonarc/lists/mylyn-docs-dev/">mylyn-docs-dev mailing list</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Here is one example: we might drop the standalone distribution of wikitext (jars available in a zip) that is currently available on the <a href="https://eclipse.org/mylyn/downloads/">Mylyn download page</a>.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-02-02_wikitext-download-standalone.png" alt="Mylyn download page"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you are using it, please notify us on Bugzilla.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2017/2017-02-02_wikitext_v3.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
