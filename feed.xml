@@ -6,9 +6,149 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Wed, 1 Feb 2017 22:25:39 +0100</pubDate>
-    <lastBuildDate>Wed, 1 Feb 2017 22:25:39 +0100</lastBuildDate>
+    <pubDate>Sat, 25 Mar 2017 16:14:47 +0100</pubDate>
+    <lastBuildDate>Sat, 25 Mar 2017 16:14:47 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Mylyn Wikitext is available on maven central</title>
+      <link>http://jmini.github.io/blog/2017/2017-03-26_wikitext_on_maven_central.html</link>
+      <pubDate>Sun, 26 Mar 2017 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2017/2017-03-26_wikitext_on_maven_central.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;As announced in my &lt;a href=&quot;2017-02-02_wikitext_v3.html&quot;&gt;previous blog post&lt;/a&gt;, important refactorings are going in the mylyn wikitext project. One of the first goals is achieved: the jars are now available on maven central (see also &lt;a href=&quot;http://greensopinion.com/2017/03/06/Mylyn-WikiText-on-Maven-Central.html&quot;&gt;Mylyn WikiText on Maven Central&lt;/a&gt; by David Green). Have a look at the &lt;a href=&quot;https://mvnrepository.com/artifact/org.eclipse.mylyn.docs&quot;&gt;org.eclipse.mylyn.docs group&lt;/a&gt; in a maven central viewer (right now the newest version is &lt;code&gt;3.0.6&lt;/code&gt;).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Wikitext provides the capability to transform from one language to another. I have already blogged about the &lt;a href=&quot;tmp/../../2016/2016-12-21_convert_to_asciidoc.html&quot;&gt;possibility to convert to AsciiDoc&lt;/a&gt; from Eclipse IDE (new feature introduced with Oxygen M4).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-03-26_generate-asciidoc.png&quot; alt=&quot;Convert from textile to AsciiDoc with Eclipse IDE&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Let demonstrates how you can convert from MediaWiki to AsciiDoc, directly in a small Java program. It is just a few lines of code in a simple main class.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-03-26_mediawiki_to_adoc.png&quot; alt=&quot;From MediaWiki to Asciidoctor (logos)&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In the Example the content of the &lt;a href=&quot;http://wiki.eclipse.org/Scout/Contribution&quot;&gt;Scout/Contribution page&lt;/a&gt; taken from the Eclipse wiki will be converted into an AsciiDoc File: &lt;code&gt;scout_contribution.adoc&lt;/code&gt;. The code is straight forward:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 1. Example main class
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;import java.io.File;
+import java.io.StringWriter;
+import java.net.URL;
+
+import org.eclipse.mylyn.wikitext.asciidoc.internal.AsciiDocDocumentBuilder;
+import org.eclipse.mylyn.wikitext.mediawiki.MediaWikiLanguage;
+import org.eclipse.mylyn.wikitext.parser.DocumentBuilder;
+import org.eclipse.mylyn.wikitext.parser.MarkupParser;
+
+import com.google.common.base.Charsets;
+import com.google.common.io.Files;
+import com.google.common.io.Resources;
+
+public class MediaWikiToAdocExample {
+
+  public static void main(String[] args) throws Exception {
+    String url = &quot;http://wiki.eclipse.org/index.php?title=Scout/Contribution&amp;amp;action=raw&amp;amp;templates=expand&quot;;
+    String input = Resources.toString(new URL(url), Charsets.UTF_8);
+
+    MediaWikiLanguage markupLanguage = new MediaWikiLanguage();
+    markupLanguage.setInternalLinkPattern(&quot;https://wiki.eclipse.org/index.php?title={0}&quot;);
+    MarkupParser parser = new MarkupParser(markupLanguage);
+
+    StringWriter writer = new StringWriter();
+    DocumentBuilder builder = new AsciiDocDocumentBuilder(writer);
+    parser.setBuilder(builder);
+    parser.parse(input);
+
+    String output = &quot;= Eclipse Scout - Contribution\n\n&quot;;
+    output += writer.toString();
+    Files.write(output, new File(&quot;scout_contribution.adoc&quot;), Charsets.UTF_8);
+  }
+}&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;On your classpath, you will need some of the wikitext jars and google guava. The &lt;code&gt;pom.xml&lt;/code&gt; File for Maven looks like this:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 2. pom.xml for the Example
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&amp;gt;
+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+    &amp;lt;groupId&amp;gt;wikitext.examples&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mediawiki-to-adoc&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+
+    &amp;lt;dependencies&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;3.0.6&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext.mediawiki&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;3.0.6&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;org.eclipse.mylyn.docs&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;org.eclipse.mylyn.wikitext.asciidoc&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;3.0.6&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+        &amp;lt;dependency&amp;gt;
+            &amp;lt;groupId&amp;gt;com.google.guava&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;guava&amp;lt;/artifactId&amp;gt;
+            &amp;lt;version&amp;gt;21.0&amp;lt;/version&amp;gt;
+        &amp;lt;/dependency&amp;gt;
+    &amp;lt;/dependencies&amp;gt;
+
+    &amp;lt;build&amp;gt;
+        &amp;lt;plugins&amp;gt;
+            &amp;lt;plugin&amp;gt;
+                &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+                &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+                &amp;lt;version&amp;gt;3.6.0&amp;lt;/version&amp;gt;
+                &amp;lt;configuration&amp;gt;
+                    &amp;lt;source&amp;gt;1.8&amp;lt;/source&amp;gt;
+                    &amp;lt;target&amp;gt;1.8&amp;lt;/target&amp;gt;
+                &amp;lt;/configuration&amp;gt;
+            &amp;lt;/plugin&amp;gt;
+        &amp;lt;/plugins&amp;gt;
+    &amp;lt;/build&amp;gt;
+&amp;lt;/project&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Here is a side by side comparison of the wiki page and of a preview of &lt;code&gt;scout_contribution.adoc&lt;/code&gt;:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview.png&quot; alt=&quot;2017 03 26 mediawiki and adoc preview&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you look very closely at this example, you might notice some issues during the conversion process. I have reported them in &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=508262&quot;&gt;Bug 508262&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you are interessted by the Mylyn Wikitext project, you can follow &lt;a href=&quot;https://twitter.com/WikiText&quot;&gt;@WikiText&lt;/a&gt; on twitter. You can ask questions on StackOverflow using the &lt;a href=&quot;http://stackoverflow.com/questions/tagged/mylyn-wikitext&quot;&gt;mylyn-wikitext&lt;/a&gt; tag. Are you looking for more usage examples of Mylyn Wikitext? Have a look at &lt;a href=&quot;https://github.com/greensopinion/wikitext-examples&quot;&gt;greensopinion/wikitext-examples&lt;/a&gt; on GitHub. David Green has prepared additional use cases there.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Mylyn Docs Wikitext: changes with Version 3.0.0</title>

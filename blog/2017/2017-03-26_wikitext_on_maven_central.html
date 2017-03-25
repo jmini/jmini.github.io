@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Mylyn Wikitext is available on maven central</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Mylyn Wikitext is available on maven central</h1>
+    </div>
+
+    <p><em>26 March 2017</em></p>
+
+    <div class="paragraph"> 
+ <p>As announced in my <a href="2017-02-02_wikitext_v3.html">previous blog post</a>, important refactorings are going in the mylyn wikitext project. One of the first goals is achieved: the jars are now available on maven central (see also <a href="http://greensopinion.com/2017/03/06/Mylyn-WikiText-on-Maven-Central.html">Mylyn WikiText on Maven Central</a> by David Green). Have a look at the <a href="https://mvnrepository.com/artifact/org.eclipse.mylyn.docs">org.eclipse.mylyn.docs group</a> in a maven central viewer (right now the newest version is <code>3.0.6</code>).</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Wikitext provides the capability to transform from one language to another. I have already blogged about the <a href="tmp/../../2016/2016-12-21_convert_to_asciidoc.html">possibility to convert to AsciiDoc</a> from Eclipse IDE (new feature introduced with Oxygen M4).</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-03-26_generate-asciidoc.png" alt="Convert from textile to AsciiDoc with Eclipse IDE"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Let demonstrates how you can convert from MediaWiki to AsciiDoc, directly in a small Java program. It is just a few lines of code in a simple main class.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-03-26_mediawiki_to_adoc.png" alt="From MediaWiki to Asciidoctor (logos)"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>In the Example the content of the <a href="http://wiki.eclipse.org/Scout/Contribution">Scout/Contribution page</a> taken from the Eclipse wiki will be converted into an AsciiDoc File: <code>scout_contribution.adoc</code>. The code is straight forward:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 1. Example main class
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-java" data-lang="java">import java.io.File;
+import java.io.StringWriter;
+import java.net.URL;
+
+import org.eclipse.mylyn.wikitext.asciidoc.internal.AsciiDocDocumentBuilder;
+import org.eclipse.mylyn.wikitext.mediawiki.MediaWikiLanguage;
+import org.eclipse.mylyn.wikitext.parser.DocumentBuilder;
+import org.eclipse.mylyn.wikitext.parser.MarkupParser;
+
+import com.google.common.base.Charsets;
+import com.google.common.io.Files;
+import com.google.common.io.Resources;
+
+public class MediaWikiToAdocExample {
+
+  public static void main(String[] args) throws Exception {
+    String url = "http://wiki.eclipse.org/index.php?title=Scout/Contribution&amp;action=raw&amp;templates=expand";
+    String input = Resources.toString(new URL(url), Charsets.UTF_8);
+
+    MediaWikiLanguage markupLanguage = new MediaWikiLanguage();
+    markupLanguage.setInternalLinkPattern("https://wiki.eclipse.org/index.php?title={0}");
+    MarkupParser parser = new MarkupParser(markupLanguage);
+
+    StringWriter writer = new StringWriter();
+    DocumentBuilder builder = new AsciiDocDocumentBuilder(writer);
+    parser.setBuilder(builder);
+    parser.parse(input);
+
+    String output = "= Eclipse Scout - Contribution\n\n";
+    output += writer.toString();
+    Files.write(output, new File("scout_contribution.adoc"), Charsets.UTF_8);
+  }
+}</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>On your classpath, you will need some of the wikitext jars and google guava. The <code>pom.xml</code> File for Maven looks like this:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 2. pom.xml for the Example
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;wikitext.examples&lt;/groupId&gt;
+    &lt;artifactId&gt;mediawiki-to-adoc&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.eclipse.mylyn.docs&lt;/groupId&gt;
+            &lt;artifactId&gt;org.eclipse.mylyn.wikitext&lt;/artifactId&gt;
+            &lt;version&gt;3.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.eclipse.mylyn.docs&lt;/groupId&gt;
+            &lt;artifactId&gt;org.eclipse.mylyn.wikitext.mediawiki&lt;/artifactId&gt;
+            &lt;version&gt;3.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.eclipse.mylyn.docs&lt;/groupId&gt;
+            &lt;artifactId&gt;org.eclipse.mylyn.wikitext.asciidoc&lt;/artifactId&gt;
+            &lt;version&gt;3.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+            &lt;artifactId&gt;guava&lt;/artifactId&gt;
+            &lt;version&gt;21.0&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.6.0&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;1.8&lt;/source&gt;
+                    &lt;target&gt;1.8&lt;/target&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Here is a side by side comparison of the wiki page and of a preview of <code>scout_contribution.adoc</code>:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-03-26_mediawiki_and_adoc_preview.png" alt="2017 03 26 mediawiki and adoc preview"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you look very closely at this example, you might notice some issues during the conversion process. I have reported them in <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=508262">Bug 508262</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>If you are interessted by the Mylyn Wikitext project, you can follow <a href="https://twitter.com/WikiText">@WikiText</a> on twitter. You can ask questions on StackOverflow using the <a href="http://stackoverflow.com/questions/tagged/mylyn-wikitext">mylyn-wikitext</a> tag. Are you looking for more usage examples of Mylyn Wikitext? Have a look at <a href="https://github.com/greensopinion/wikitext-examples">greensopinion/wikitext-examples</a> on GitHub. David Green has prepared additional use cases there.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2017/2017-03-26_wikitext_on_maven_central.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
