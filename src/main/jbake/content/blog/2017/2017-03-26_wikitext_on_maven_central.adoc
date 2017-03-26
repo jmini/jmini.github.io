@@ -122,7 +122,7 @@ The `pom.xml` File for Maven looks like this:
 
 Here is a side by side comparison of the wiki page and of a preview of `scout_contribution.adoc`:
 
-image::2017-03-26_mediawiki_and_adoc_preview.png[]
+image::2017-03-26_mediawiki_and_adoc_preview_800.png[link="2017-03-26_mediawiki_and_adoc_preview.png"]
 
 If you look very closely at this example, you might notice some issues during the conversion process.
 I have reported them in link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=508262[Bug 508262].
