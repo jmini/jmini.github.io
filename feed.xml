@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sun, 26 Mar 2017 22:30:35 +0200</pubDate>
-    <lastBuildDate>Sun, 26 Mar 2017 22:30:35 +0200</lastBuildDate>
+    <pubDate>Sun, 26 Mar 2017 22:57:13 +0200</pubDate>
+    <lastBuildDate>Sun, 26 Mar 2017 22:57:13 +0200</lastBuildDate>
 
     
     <item>
@@ -138,7 +138,7 @@ public class MediaWikiToAdocExample {
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
-  &lt;a class=&quot;image&quot; href=&quot;2017-03-26_mediawiki_and_adoc_preview.png&quot;&gt;&lt;img src=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview_800.png&quot; alt=&quot;2017 03 26 mediawiki and adoc preview 800&quot;&gt;&lt;/a&gt; 
+  &lt;a class=&quot;image&quot; href=&quot;http://jmini.github.io/blog/2017/2017-03-26_mediawiki_and_adoc_preview.png&quot;&gt;&lt;img src=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview_800.png&quot; alt=&quot;2017 03 26 mediawiki and adoc preview 800&quot;&gt;&lt;/a&gt; 
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
