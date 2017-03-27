@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sun, 26 Mar 2017 22:57:13 +0200</pubDate>
-    <lastBuildDate>Sun, 26 Mar 2017 22:57:13 +0200</lastBuildDate>
+    <pubDate>Mon, 27 Mar 2017 11:58:27 +0200</pubDate>
+    <lastBuildDate>Mon, 27 Mar 2017 11:58:27 +0200</lastBuildDate>
 
     
     <item>
@@ -17,10 +17,10 @@
       <guid isPermaLink="false">blog/2017/2017-03-26_wikitext_on_maven_central.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;As announced in my &lt;a href=&quot;2017-02-02_wikitext_v3.html&quot;&gt;previous blog post&lt;/a&gt;, important refactorings are going in the mylyn wikitext project. One of the first goals is achieved: the jars are now available on maven central (see also &lt;a href=&quot;http://greensopinion.com/2017/03/06/Mylyn-WikiText-on-Maven-Central.html&quot;&gt;Mylyn WikiText on Maven Central&lt;/a&gt; by David Green). Have a look at the &lt;a href=&quot;https://mvnrepository.com/artifact/org.eclipse.mylyn.docs&quot;&gt;org.eclipse.mylyn.docs group&lt;/a&gt; in a maven central viewer (right now the newest version is &lt;code&gt;3.0.6&lt;/code&gt;).&lt;/p&gt; 
+ &lt;p&gt;As announced in my &lt;a href=&quot;blog/2017/2017-02-02_wikitext_v3.html&quot;&gt;previous blog post&lt;/a&gt;, important refactorings are going in the mylyn wikitext project. One of the first goals is achieved: the jars are now available on maven central (see also &lt;a href=&quot;http://greensopinion.com/2017/03/06/Mylyn-WikiText-on-Maven-Central.html&quot;&gt;Mylyn WikiText on Maven Central&lt;/a&gt; by David Green). Have a look at the &lt;a href=&quot;https://mvnrepository.com/artifact/org.eclipse.mylyn.docs&quot;&gt;org.eclipse.mylyn.docs group&lt;/a&gt; in a maven central viewer (right now the newest version is &lt;code&gt;3.0.6&lt;/code&gt;).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Wikitext provides the capability to transform from one language to another. I have already blogged about the &lt;a href=&quot;tmp/../../2016/2016-12-21_convert_to_asciidoc.html&quot;&gt;possibility to convert to AsciiDoc&lt;/a&gt; from Eclipse IDE (new feature introduced with Oxygen M4).&lt;/p&gt; 
+ &lt;p&gt;Wikitext provides the capability to transform from one language to another. I have already blogged about the &lt;a href=&quot;blog/2017/tmp/../../2016/2016-12-21_convert_to_asciidoc.html&quot;&gt;possibility to convert to AsciiDoc&lt;/a&gt; from Eclipse IDE (new feature introduced with Oxygen M4).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -138,7 +138,7 @@ public class MediaWikiToAdocExample {
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
-  &lt;a class=&quot;image&quot; href=&quot;http://jmini.github.io/blog/2017/2017-03-26_mediawiki_and_adoc_preview.png&quot;&gt;&lt;img src=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview_800.png&quot; alt=&quot;2017 03 26 mediawiki and adoc preview 800&quot;&gt;&lt;/a&gt; 
+  &lt;a class=&quot;image&quot; href=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview.png&quot;&gt;&lt;img src=&quot;blog/2017/2017-03-26_mediawiki_and_adoc_preview_800.png&quot; alt=&quot;2017 03 26 mediawiki and adoc preview 800&quot;&gt;&lt;/a&gt; 
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
@@ -420,7 +420,7 @@ public class MainFormatter {
       <guid isPermaLink="false">blog/2016/2016-12-21_convert_to_asciidoc.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;If you need to convert your documentation to the AsciiDoc format, you might be interested in this new feature delivered with Eclipse Oxygen M4 (see also my previous blog post: &lt;a href=&quot;2016-10-28_from_mediawiki_to_asciidoc.html&quot;&gt;Asciidoctor instead of MediaWiki?&lt;/a&gt;). Any file format supported by Mylyn WikiText (textile, mediawiki, markdown and more) can now be converted to the AsciiDoc format. Just select &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;WikiText&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Generate AsciiDoc&lt;/span&gt;&lt;/span&gt; from the context menu in the package explorer.&lt;/p&gt; 
+ &lt;p&gt;If you need to convert your documentation to the AsciiDoc format, you might be interested in this new feature delivered with Eclipse Oxygen M4 (see also my previous blog post: &lt;a href=&quot;blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html&quot;&gt;Asciidoctor instead of MediaWiki?&lt;/a&gt;). Any file format supported by Mylyn WikiText (textile, mediawiki, markdown and more) can now be converted to the AsciiDoc format. Just select &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;WikiText&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Generate AsciiDoc&lt;/span&gt;&lt;/span&gt; from the context menu in the package explorer.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -528,7 +528,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;p&gt;By the way, if an Eclipse Project wants to migrate and start to use Asciidoctor, I will be happy to help as much as I can.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;EDIT: the feature is available in Eclipse IDE Oxygen version, read more here: &lt;a href=&quot;2016-12-21_convert_to_asciidoc.html&quot;&gt;Oxygen M4: convert to AsciiDoc with Mylyn WikiText&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;EDIT: the feature is available in Eclipse IDE Oxygen version, read more here: &lt;a href=&quot;blog/2016/2016-12-21_convert_to_asciidoc.html&quot;&gt;Oxygen M4: convert to AsciiDoc with Mylyn WikiText&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt;
       </description>
     </item>
@@ -554,7 +554,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;If you prefer the Oomph way, you can paste the snippet contained in &lt;a href=&quot;#lst-oomph&quot;&gt;Listing 1&lt;/a&gt; in your &lt;code&gt;installation.setup&lt;/code&gt; file (Open it with the Menu: &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;Navigate&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;submenu&quot;&gt;Open Setup&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Installation&lt;/span&gt;&lt;/span&gt;).&lt;/p&gt; 
+ &lt;p&gt;If you prefer the Oomph way, you can paste the snippet contained in &lt;a href=&quot;blog/2016/2016-09-16_eclipse_plugin_spy.html#lst-oomph&quot;&gt;Listing 1&lt;/a&gt; in your &lt;code&gt;installation.setup&lt;/code&gt; file (Open it with the Menu: &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;Navigate&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;submenu&quot;&gt;Open Setup&lt;/span&gt;&amp;nbsp;&amp;#x25b8; &lt;span class=&quot;menuitem&quot;&gt;Installation&lt;/span&gt;&lt;/span&gt;).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;lst-oomph&quot; class=&quot;listingblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -571,7 +571,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Your Oomph Editor should looks like in &lt;a href=&quot;#img-oomph&quot;&gt;Figure 2&lt;/a&gt;. Save the file and select &quot;Perform Setup Task&amp;#x2026;&amp;#x200b;&quot; (in the &lt;span class=&quot;menu&quot;&gt;Help&lt;/span&gt; menu). Oomph will update your installation and will ask for a restart.&lt;/p&gt; 
+ &lt;p&gt;Your Oomph Editor should looks like in &lt;a href=&quot;blog/2016/2016-09-16_eclipse_plugin_spy.html#img-oomph&quot;&gt;Figure 2&lt;/a&gt;. Save the file and select &quot;Perform Setup Task&amp;#x2026;&amp;#x200b;&quot; (in the &lt;span class=&quot;menu&quot;&gt;Help&lt;/span&gt; menu). Oomph will update your installation and will ask for a restart.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;img-oomph&quot; class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -582,7 +582,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;In both cases, after the restart you can press &lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;shift&lt;/kbd&gt;+&lt;kbd&gt;f1&lt;/kbd&gt;&lt;/span&gt; and use the Plug-in Spy as in &lt;a href=&quot;#img-spy&quot;&gt;Figure 3&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;In both cases, after the restart you can press &lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;shift&lt;/kbd&gt;+&lt;kbd&gt;f1&lt;/kbd&gt;&lt;/span&gt; and use the Plug-in Spy as in &lt;a href=&quot;blog/2016/2016-09-16_eclipse_plugin_spy.html#img-spy&quot;&gt;Figure 3&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;img-spy&quot; class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -608,7 +608,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;p&gt;Today I want to write about the &lt;a href=&quot;http://www.eclipse.org/eclipse/news/4.6/jdt.php#remove-redundant-type-arguments&quot;&gt;clean-Up to remove redundant type arguments&lt;/a&gt; feature. This is something I was looking for at the beginning of 2015.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Since Java 7 you can use the Diamond operator. The code line presented in &lt;a href=&quot;#lst1&quot;&gt;Listing 1&lt;/a&gt; (Java 6) can be written as in &lt;a href=&quot;#lst2&quot;&gt;Listing 2&lt;/a&gt; (Java 7).&lt;/p&gt; 
+ &lt;p&gt;Since Java 7 you can use the Diamond operator. The code line presented in &lt;a href=&quot;blog/2016/2016-06-19_eclipse_diamond_notation.html#lst1&quot;&gt;Listing 1&lt;/a&gt; (Java 6) can be written as in &lt;a href=&quot;blog/2016/2016-06-19_eclipse_diamond_notation.html#lst2&quot;&gt;Listing 2&lt;/a&gt; (Java 7).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;lst1&quot; class=&quot;listingblock&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
@@ -627,7 +627,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;With Eclipse Mars (and probably before) you could already let the compiler warn you about Redundant type arguments. The setting is under Preferences &amp;#x2192; Java &amp;#x2192; Compiler &amp;#x2192; Errors/Warnings in the tree. And in the list: Generic Types &amp;#x2192; Redundant type arguments (1.7 or higher) as presented in &lt;a href=&quot;#fig1&quot;&gt;Figure 1&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;With Eclipse Mars (and probably before) you could already let the compiler warn you about Redundant type arguments. The setting is under Preferences &amp;#x2192; Java &amp;#x2192; Compiler &amp;#x2192; Errors/Warnings in the tree. And in the list: Generic Types &amp;#x2192; Redundant type arguments (1.7 or higher) as presented in &lt;a href=&quot;blog/2016/2016-06-19_eclipse_diamond_notation.html#fig1&quot;&gt;Figure 1&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;fig1&quot; class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -638,7 +638,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;With this setting enabled, it was possible to Quick-Fix all the code locations that were not using the diamond operator (see &lt;a href=&quot;#fig2&quot;&gt;Figure 2&lt;/a&gt;).&lt;/p&gt; 
+ &lt;p&gt;With this setting enabled, it was possible to Quick-Fix all the code locations that were not using the diamond operator (see &lt;a href=&quot;blog/2016/2016-06-19_eclipse_diamond_notation.html#fig2&quot;&gt;Figure 2&lt;/a&gt;).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;fig2&quot; class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -720,7 +720,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;p&gt;If understand French, I recommend you to watch &lt;a href=&quot;https://www.youtube.com/watch?v=Ek5pCnI0Zps&quot;&gt;the video of the talk&lt;/a&gt;. In the other case, I am sure you will learn something by just looking at &lt;a href=&quot;http://www.slideshare.net/mikaelbarbero/the-eclipse-ide-the-force-awakens-devoxx-france-2016&quot;&gt;the slides&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Something I have learned: with Neon you can deactivate the theming (appearance section of the preferences) completely. In that case the CSS styling engine will be deactivated and your Eclipse IDE will have a really raw look. To disable the theming, just uncheck the checkbox highlighted in &lt;a href=&quot;#img-prefs&quot;&gt;Figure 2&lt;/a&gt;&lt;/p&gt; 
+ &lt;p&gt;Something I have learned: with Neon you can deactivate the theming (appearance section of the preferences) completely. In that case the CSS styling engine will be deactivated and your Eclipse IDE will have a really raw look. To disable the theming, just uncheck the checkbox highlighted in &lt;a href=&quot;blog/2016/2016-04-24_disable_eclipse_theming.html#img-prefs&quot;&gt;Figure 2&lt;/a&gt;&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;img-prefs&quot; class=&quot;paragraph&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
@@ -729,7 +729,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
  &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-24_preferences_appearance.png&quot; alt=&quot;2016-04-24_preferences_appearance&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;After a restart your Eclipse will look like this screenshot (&lt;a href=&quot;#img-screenshot&quot;&gt;Figure 3&lt;/a&gt;):&lt;/p&gt; 
+ &lt;p&gt;After a restart your Eclipse will look like this screenshot (&lt;a href=&quot;blog/2016/2016-04-24_disable_eclipse_theming.html#img-screenshot&quot;&gt;Figure 3&lt;/a&gt;):&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;img-screenshot&quot; class=&quot;paragraph&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
@@ -872,7 +872,7 @@ Do you want to improve this documentation? Please gh:edit[].&lt;/code&gt;&lt;/pr
  &lt;p&gt;Mylyn-Wikitext is an eclipse project that provides great tooling for lightweight markup language (Markdown, MediaWiki, Textile, Confluence, TracWiki, and others). The project is spitted into several modules: some of them (like the Editor) are coupled to the Eclipse runtime but others (like the parser) can be used in plain java applications.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;A simple Java Main Class (conversion from Markdown to HTML) is presented in &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;A simple Java Main Class (conversion from Markdown to HTML) is presented in &lt;a href=&quot;blog/2016/2016-02-21_maven_repo_and_pom_files.html#lst-java&quot;&gt;Listing 1&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;lst-java&quot; class=&quot;listingblock&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
@@ -912,7 +912,7 @@ public class MarkdownHelloWorld {
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;To build the code presented in &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt;, you can use Maven with the &lt;code&gt;pom.xml&lt;/code&gt; File presented in &lt;a href=&quot;#lst-pom_eclipse&quot;&gt;Listing 2&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;To build the code presented in &lt;a href=&quot;blog/2016/2016-02-21_maven_repo_and_pom_files.html#lst-java&quot;&gt;Listing 1&lt;/a&gt;, you can use Maven with the &lt;code&gt;pom.xml&lt;/code&gt; File presented in &lt;a href=&quot;blog/2016/2016-02-21_maven_repo_and_pom_files.html#lst-pom_eclipse&quot;&gt;Listing 2&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;lst-pom_eclipse&quot; class=&quot;listingblock&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
@@ -963,7 +963,7 @@ public class MarkdownHelloWorld {
  &lt;p&gt;I have used the &lt;a href=&quot;https://www.eclipse.org/b3/&quot;&gt;Eclipse B3&lt;/a&gt; tool to republish the Mylyn Wikitext jars coming from the Mars P2 Update Site to a maven repository hosted on Bintray. I my opinion this was a workaround until Bug 421551 is solved (see &lt;a href=&quot;https://bugs.eclipse.org/bugs/show_bug.cgi?id=421551&quot;&gt;Bug 421551: publish current stable release to a Maven repository&lt;/a&gt;). The B3 XML file is &lt;a href=&quot;https://github.com/jmini/mylyn-wikitext-repository&quot;&gt;published on GitHub&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Last week I discovered something interesting. With my maven repository, the POM file to build the simple Hello World from &lt;a href=&quot;#lst-java&quot;&gt;Listing 1&lt;/a&gt; is much simpler and is presented in &lt;a href=&quot;#lst-pom_bintray&quot;&gt;Listing 3&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;Last week I discovered something interesting. With my maven repository, the POM file to build the simple Hello World from &lt;a href=&quot;blog/2016/2016-02-21_maven_repo_and_pom_files.html#lst-java&quot;&gt;Listing 1&lt;/a&gt; is much simpler and is presented in &lt;a href=&quot;blog/2016/2016-02-21_maven_repo_and_pom_files.html#lst-pom_bintray&quot;&gt;Listing 3&lt;/a&gt;.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div id=&quot;lst-pom_bintray&quot; class=&quot;listingblock&quot;&gt; 
  &lt;div class=&quot;title&quot;&gt;
