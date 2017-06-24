@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Asciidoctor: watch you build log</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Asciidoctor: watch you build log</h1>
+    </div>
+
+    <p><em>25 June 2017</em></p>
+
+    <div class="paragraph"> 
+ <p>Last thursday at Voxxed Days Luxembourg I had the opportunity to speak about asciidoctor in my talk (<a href="http://cfp-voxxed-lux.yajug.org/2017/talk/KMC-5325/Documentation_as_code:_controler_la_qualite_!">Documentation as code: contr&ocirc;ler la qualit&eacute; !</a>). Voxxed Days conferences are similar to Devoxx, but smaller (only one day). It was the second edition of Voxxed Days Luxembourg and the conference is really great (perfect organization, pleasant ambience, nice people and interesting conversations).</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-06-25_voxxed-pictures.png" alt="Voxxed Days Luxembourg"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Back to my talk, I want to provide more details about a point I have presented: <strong>how to monitor your asciidoctor build logs with jenkins</strong>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>During the build, asciidoctor tells you when something is unexpected. Let me give you a real example: In the <a href="http://eclipsescout.github.io/">eclipse scout documentation</a>, you have a lot of code snippets with callouts to mark certain lines.</p> 
+</div> 
+<div id="fig-doc" class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-06-25_eclipse-scout-doc-example.png" alt="Eclipse Scout documentation extract"> 
+ </div> 
+ <div class="title">
+  Figure 1. Eclipse scout documentation extract
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>In order to do this, you need to define the callout in your source code and add the explanation after the code snippet as presented in <a href="#lst-callout">Listing 1</a>.</p> 
+</div> 
+<div id="lst-callout" class="listingblock"> 
+ <div class="title">
+  Listing 1. Callout example
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-asciidoc" data-lang="asciidoc">[source,adoc]
+.Initial implementation of class OrganizationTablePage.
+----
+(..)
+    return TEXTS.get("Organizations"); // &lt;1&gt;
+(..)
+----
+&lt;1&gt; Make sure to add a translated text entry for "Organizations" using the Scout NLS tooling</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If there is a mismatch between the two elements, you will get a warning in your logs:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="content"> 
+  <pre>[INFO]
+[INFO] --- asciidoctor-maven-plugin:1.5.5:process-asciidoc (book_scout_intro-to-html) @ scout_beginners_guide ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] ignoreDelta true
+[INFO] Copying 0 resource
+asciidoctor: WARNING: _TutorialStep2.adoc: line 247: no callouts refer to list item 1 beginners_guide/src/docs/beginners-guide.adoc
+[INFO]</pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>If you are using Jenkins as continuous integration server, the <a href="https://plugins.jenkins.io/warnings">warnings plugin</a> helps you to find those lines in your log. It also keeps a record of them, in order to track the evolution over the time.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-06-25_jenkins.png" alt="Jenkins Job"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Here is how you can configure the plugin in the admin view in order to detect the asciidoctor lines:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-06-25_jenkins_admin_config.png" alt="Jenkins Admin configuration"> 
+ </div> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 2. Regular expression:
+ </div> 
+ <div class="content"> 
+  <pre>asciidoctor: (WARNING|ERROR): ([^:]+): line ([0-9]+): (.*)</pre> 
+ </div> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 3. Mapping Script:
+ </div> 
+ <div class="content"> 
+  <pre>import hudson.plugins.warnings.parser.Warning
+
+String category = matcher.group(1)
+String fileName = matcher.group(2)
+String lineNumber = matcher.group(3)
+String message = matcher.group(4)
+
+return new Warning(fileName, Integer.parseInt(lineNumber), "Dynamic Parser", category, message);</pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Then in your build definition you need to add a post-build step:</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2017-06-25_jenkins_job_config.png" alt="Jenkins Job configuration"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Now you are informed when something goes wrong in your documentation. By the way there is the idea that Asciidoctor could produce a report containing all the warnings and errors that are discovered during the build. They could be collected in a xml or json file. For the moment <a href="https://github.com/asciidoctor/asciidoctor/issues/44">issue #44</a> is still open.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>By the way my slides are online on <a href="https://www.slideshare.net/jmini/20170622-documentation-as-code">SlideShare</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>PS: I have already proposed <a href="https://www.eclipsecon.org/europe2017/session/documentation-code-asciidoctor">a talk</a> for EclipseCon Europe 2017. I hope I will get a slot to be able to present more aspects of the "documentation as code" pattern.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2017/2017-06-25_asciidoctor-watch-build-log.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
