@@ -10,7 +10,7 @@ Jeremie Bresson
 :experimental:
 
 
-Last thursday at Voxxed Days Luxembourg I had the opportunity to speak about asciidoctor in my talk (link:http://cfp-voxxed-lux.yajug.org/2017/talk/KMC-5325/Documentation_as_code:_controler_la_qualite_![Documentation as code: contr&#244;ler la qualit&#233; !]).
+Last thursday at Voxxed Days Luxembourg I had the opportunity to speak about asciidoctor in my talk (link:http://cfp-voxxed-lux.yajug.org/2017/talk/KMC-5325/Documentation_as_code:_controler_la_qualite_![Documentation as code: contr&#244;ler la qualit&#233; !] - link:https://www.slideshare.net/jmini/20170622-documentation-as-code[slides] - link:https://www.youtube.com/watch?v=Z5nmB7lrsqU[video]).
 Voxxed Days conferences are similar to Devoxx, but smaller (only one day).
 It was the second edition of Voxxed Days Luxembourg and the conference is really great (perfect organization, pleasant ambience, nice people and interesting conversations).
 
@@ -89,7 +89,7 @@ By the way there is the idea that Asciidoctor could produce a report containing 
 They could be collected in a xml or json file.
 For the moment link:https://github.com/asciidoctor/asciidoctor/issues/44[issue #44] is still open.
 
-By the way my slides are online on link:https://www.slideshare.net/jmini/20170622-documentation-as-code[SlideShare].
+You can have a look at the slides on link:https://www.slideshare.net/jmini/20170622-documentation-as-code[SlideShare] or at the recorded video on link:https://www.youtube.com/watch?v=Z5nmB7lrsqU[YouTube] (in french).
 
 PS: I have already proposed link:https://www.eclipsecon.org/europe2017/session/documentation-code-asciidoctor[a talk] for EclipseCon Europe 2017.
 I hope I will get a slot to be able to present more aspects of the "documentation as code" pattern.
