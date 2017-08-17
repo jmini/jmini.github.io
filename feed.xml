@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Sat, 24 Jun 2017 15:42:17 +0200</pubDate>
-    <lastBuildDate>Sat, 24 Jun 2017 15:42:17 +0200</lastBuildDate>
+    <pubDate>Thu, 17 Aug 2017 06:20:36 +0200</pubDate>
+    <lastBuildDate>Thu, 17 Aug 2017 06:20:36 +0200</lastBuildDate>
 
     
     <item>
@@ -17,7 +17,7 @@
       <guid isPermaLink="false">blog/2017/2017-06-25_asciidoctor-watch-build-log.html</guid>
       <description>
       &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;Last thursday at Voxxed Days Luxembourg I had the opportunity to speak about asciidoctor in my talk (&lt;a href=&quot;http://cfp-voxxed-lux.yajug.org/2017/talk/KMC-5325/Documentation_as_code:_controler_la_qualite_!&quot;&gt;Documentation as code: contr&amp;ocirc;ler la qualit&amp;eacute; !&lt;/a&gt;). Voxxed Days conferences are similar to Devoxx, but smaller (only one day). It was the second edition of Voxxed Days Luxembourg and the conference is really great (perfect organization, pleasant ambience, nice people and interesting conversations).&lt;/p&gt; 
+ &lt;p&gt;Last thursday at Voxxed Days Luxembourg I had the opportunity to speak about asciidoctor in my talk (&lt;a href=&quot;http://cfp-voxxed-lux.yajug.org/2017/talk/KMC-5325/Documentation_as_code:_controler_la_qualite_!&quot;&gt;Documentation as code: contr&amp;ocirc;ler la qualit&amp;eacute; !&lt;/a&gt; - &lt;a href=&quot;https://www.slideshare.net/jmini/20170622-documentation-as-code&quot;&gt;slides&lt;/a&gt; - &lt;a href=&quot;https://www.youtube.com/watch?v=Z5nmB7lrsqU&quot;&gt;video&lt;/a&gt;). Voxxed Days conferences are similar to Devoxx, but smaller (only one day). It was the second edition of Voxxed Days Luxembourg and the conference is really great (perfect organization, pleasant ambience, nice people and interesting conversations).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
@@ -121,7 +121,7 @@ return new Warning(fileName, Integer.parseInt(lineNumber), &quot;Dynamic Parser&
  &lt;p&gt;Now you are informed when something goes wrong in your documentation. By the way there is the idea that Asciidoctor could produce a report containing all the warnings and errors that are discovered during the build. They could be collected in a xml or json file. For the moment &lt;a href=&quot;https://github.com/asciidoctor/asciidoctor/issues/44&quot;&gt;issue #44&lt;/a&gt; is still open.&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
- &lt;p&gt;By the way my slides are online on &lt;a href=&quot;https://www.slideshare.net/jmini/20170622-documentation-as-code&quot;&gt;SlideShare&lt;/a&gt;.&lt;/p&gt; 
+ &lt;p&gt;You can have a look at the slides on &lt;a href=&quot;https://www.slideshare.net/jmini/20170622-documentation-as-code&quot;&gt;SlideShare&lt;/a&gt; or at the recorded video on &lt;a href=&quot;https://www.youtube.com/watch?v=Z5nmB7lrsqU&quot;&gt;YouTube&lt;/a&gt; (in french).&lt;/p&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
  &lt;p&gt;PS: I have already proposed &lt;a href=&quot;https://www.eclipsecon.org/europe2017/session/documentation-code-asciidoctor&quot;&gt;a talk&lt;/a&gt; for EclipseCon Europe 2017. I hope I will get a slot to be able to present more aspects of the &quot;documentation as code&quot; pattern.&lt;/p&gt; 
