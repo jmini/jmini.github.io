@@ -6,9 +6,43 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Mon, 11 Sep 2017 10:11:22 +0200</pubDate>
-    <lastBuildDate>Mon, 11 Sep 2017 10:11:22 +0200</lastBuildDate>
+    <pubDate>Mon, 5 Feb 2018 05:05:46 +0100</pubDate>
+    <lastBuildDate>Mon, 5 Feb 2018 05:05:46 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Use the eclipse-settings-maven-plugin to synchronize prefs files across projects</title>
+      <link>http://jmini.github.io/blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</link>
+      <pubDate>Mon, 5 Feb 2018 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The question &amp;laquo;&amp;nbsp;&lt;em&gt;Should the meta files related to an IDE be committed in the git repository?&lt;/em&gt;&amp;nbsp;&amp;raquo; is a never-ending fight. According to &lt;a href=&quot;https://twitter.com/apupier&quot;&gt;Aurelien Pupier&lt;/a&gt;, the answer to this question is YES (&lt;a href=&quot;https://www.eclipsecon.org/europe2015/comment/628.html&quot;&gt;Talk&lt;/a&gt; from 2015 - &lt;a href=&quot;https://www.slideshare.net/AurelienPupier/committing-ide-meta-files-misconceptions-misunderstandings-and-solutions&quot;&gt;slides&lt;/a&gt; and &lt;a href=&quot;https://www.youtube.com/watch?v=J5RzSbpNLM4&quot;&gt;video&lt;/a&gt;). I totally agree with him, because settings files like &lt;code&gt;org.eclipse.core.resources.prefs&lt;/code&gt;, &lt;code&gt;org.eclipse.jdt.core.prefs&lt;/code&gt;, &lt;code&gt;org.eclipse.jdt.ui.prefs&lt;/code&gt; or &lt;code&gt;org.eclipse.m2e.core.prefs&lt;/code&gt; can contain valuable configuration information that will be shared between all Eclipse IDE users working on the project: code formatting rules, save actions, automated code cleanup tasks, compiler settings&amp;#x2026;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2018/2018-02-05_enable_project_specific_settings.png&quot; alt=&quot;Enable project specific settings&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Even today a lot of people still prefer not to have the IDE metadata files in their git Repository. This means that every coworker needs to configure his IDE and more important everybody needs to keep the configuration in sync with the team over the time.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In both cases (having the settings files in your repo or not), the &lt;a href=&quot;https://github.com/BSI-Business-Systems-Integration-AG/eclipse-settings-maven-plugin&quot;&gt;eclipse-settings-maven-plugin&lt;/a&gt; can be interesting for you. The idea is to use maven in order to replicate the same prefs files across multiple maven modules. This way you can distribute the prefs file if they are missing in the git repository. An other use case is the distribution accros multiple teams (for example at organization level).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The source for the settings file is a simple maven artifact located in a maven repository. With a single maven command, you can synchronize the prefs files.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2018/2018-02-05_sync_eclipse-settings.png&quot; alt=&quot;Using eclipse-settings-maven-plugin to copy prefs files&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you wants to see how the setup looks like, you can refer to my &lt;a href=&quot;https://jmini.github.io/sync-eclipse-settings-example/&quot;&gt;sync-eclipse-settings-example&lt;/a&gt; page and the associated GitHub project. I have updated it in order to use the latest version published last week by my former colleagues at BSI Business Systems Integration AG.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Asciidoctor: watch you build log</title>
