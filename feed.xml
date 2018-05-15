@@ -6,9 +6,68 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Mon, 5 Feb 2018 05:05:46 +0100</pubDate>
-    <lastBuildDate>Mon, 5 Feb 2018 05:05:46 +0100</lastBuildDate>
+    <pubDate>Tue, 15 May 2018 08:50:42 +0200</pubDate>
+    <lastBuildDate>Tue, 15 May 2018 08:50:42 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Starting a new open-source project</title>
+      <link>http://jmini.github.io/blog/2018/2018-05-15_new-open-source-project.html</link>
+      <pubDate>Tue, 15 May 2018 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2018/2018-05-15_new-open-source-project.html</guid>
+      <description>
+      &lt;div id=&quot;preamble&quot;&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Working on open-source is a skill&amp;#x2026;&amp;#x200b;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Three month ago I started to use and to contribute &lt;code&gt;swagger-codegen&lt;/code&gt;. It feelt natural to fix and to add the stuff I needed there.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Then I received an invitation from a group of people that had started a fork of the project. Without going into the details, I think that each member had its own reasons to work on this fork. We wrote a summary in the &lt;a href=&quot;https://github.com/OpenAPITools/openapi-generator/blob/master/docs/qna.md&quot;&gt;project Q&amp;amp;A&lt;/a&gt;.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;imageblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;img src=&quot;blog/2018/2018-05-15_logo_proposition.png&quot; alt=&quot;Enable project specific settings&quot;&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;title&quot;&gt;
+    Image 1. OpenAPI Generator logo 
+    &lt;a href=&quot;https://github.com/OpenAPITools/openapi-generator/issues/23&quot;&gt;proposition&lt;/a&gt; by 
+    &lt;a href=&quot;https://twitter.com/jimschubert&quot;&gt;@jimschubert&lt;/a&gt;
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;The last days were really exiting, we have started the &lt;code&gt;openapi-generator&lt;/code&gt; project officially. We have now a GitHub repository: &lt;a href=&quot;https://github.com/OpenAPITools/openapi-generator&quot;&gt;OpenAPITools/openapi-generator&lt;/a&gt; The first feedback arrives. We have pushed our first &lt;a href=&quot;https://oss.sonatype.org/content/repositories/snapshots/org/openapitools/&quot;&gt;SNAPSHOT artifacts&lt;/a&gt; on sonatype central repository. We are close to our first release&amp;#x2026;&amp;#x200b;&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect2&quot;&gt; 
+ &lt;h3 id=&quot;running_an_open_source_project&quot;&gt;Running an open-source project&lt;/h3&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;I realised during this experiment that participating in an open-source project and running it is really a skill. Some people have it, they are directly alined, they understand what they need to do. Other do not understand how it works.&lt;/p&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;I have learned it from talented people. All developers involved with projects hosted at the Eclipse Foundation and contributors of the Asciidoctor project have shown me the way. They were excellent teachers.&lt;/p&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect2&quot;&gt; 
+ &lt;h3 id=&quot;what_is_next_for_openapi_generator&quot;&gt;What is next for OpenAPI Generator?&lt;/h3&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;Starting an open source project is not only about code. Communication and marketing are also important. I hope we will manage build a community of user around our project. This is the best way to find potential contributors.&lt;/p&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect2&quot;&gt; 
+ &lt;h3 id=&quot;about_openapi_generator&quot;&gt;About OpenAPI Generator:&lt;/h3&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;If you wonder what the project is about, here my short definition:&lt;/p&gt; 
+ &lt;/div&gt; 
+ &lt;div class=&quot;paragraph&quot;&gt; 
+  &lt;p&gt;An &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/&quot;&gt;OpenAPI Specification (OAS)&lt;/a&gt; is a great way to describe API in a standardised, machine readable and programming language-agnostic manner. &lt;a href=&quot;https://github.com/OpenAPITools/openapi-generator&quot;&gt;OpenAPI Generator&lt;/a&gt; is an engine to generate documentation, API clients and server stubs in different languages for a given OpenAPI Specification.&lt;/p&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Use the eclipse-settings-maven-plugin to synchronize prefs files across projects</title>
