@@ -6,9 +6,55 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Tue, 15 May 2018 08:50:42 +0200</pubDate>
-    <lastBuildDate>Tue, 15 May 2018 08:50:42 +0200</lastBuildDate>
+    <pubDate>Fri, 8 Jun 2018 06:48:15 +0200</pubDate>
+    <lastBuildDate>Fri, 8 Jun 2018 06:48:15 +0200</lastBuildDate>
 
+    
+    <item>
+      <title>Edit an OpenAPI specification in Eclipse IDE</title>
+      <link>http://jmini.github.io/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</link>
+      <pubDate>Fri, 8 Jun 2018 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I am working a lot on the &lt;a href=&quot;https://github.com/OpenAPITools/openapi-generator&quot;&gt;OpenAPI Generator&lt;/a&gt; project these days. This means that I need to edit OpenAPI Specification files a lot. A specification file is a &lt;code&gt;*.yaml&lt;/code&gt; file that describes a REST API.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In Eclipse IDE I have installed the &lt;a href=&quot;https://github.com/RepreZen/KaiZen-OpenApi-Editor&quot;&gt;KaiZen OpenAPI Editor&lt;/a&gt; plugin. This is an Xtext editor that provides everything that you need to be efficient with your OpenAPI specification: outline, code completion, jumps for references, renaming support&amp;#x2026;&amp;#x200b;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2018/2018-06-08_kaizen-openapi-editor.png&quot; alt=&quot;KaiZen OpenAPI Editor for Eclipse IDE&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;It can be installed from the &lt;a href=&quot;https://marketplace.eclipse.org/content/kaizen-openapi-editor&quot;&gt;Eclipse Marketplace&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If you use the Eclipse Installer (also called Oomph), you can add this xml snippet to your &lt;code&gt;installation.setup&lt;/code&gt; file:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Listing 1. Oomph snippet to install the KaiZen OpenAPI Editor
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;setup.p2:P2Task
+    xmi:version=&quot;2.0&quot;
+    xmlns:xmi=&quot;http://www.omg.org/XMI&quot;
+    xmlns:setup.p2=&quot;http://www.eclipse.org/oomph/setup/p2/1.0&quot;&amp;gt;
+  &amp;lt;requirement
+      name=&quot;com.reprezen.swagedit.feature.feature.group&quot;/&amp;gt;
+  &amp;lt;repository
+      url=&quot;http://products.reprezen.com/swagedit/latest/&quot;/&amp;gt;
+&amp;lt;/setup.p2:P2Task&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;It is free and open-source (EPL). Enjoy.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Starting a new open-source project</title>

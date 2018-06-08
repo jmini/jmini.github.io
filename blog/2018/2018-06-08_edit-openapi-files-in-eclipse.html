@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Edit an OpenAPI specification in Eclipse IDE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Edit an OpenAPI specification in Eclipse IDE</h1>
+    </div>
+
+    <p><em>08 June 2018</em></p>
+
+    <div class="paragraph"> 
+ <p>I am working a lot on the <a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Generator</a> project these days. This means that I need to edit OpenAPI Specification files a lot. A specification file is a <code>*.yaml</code> file that describes a REST API.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>In Eclipse IDE I have installed the <a href="https://github.com/RepreZen/KaiZen-OpenApi-Editor">KaiZen OpenAPI Editor</a> plugin. This is an Xtext editor that provides everything that you need to be efficient with your OpenAPI specification: outline, code completion, jumps for references, renaming support&#x2026;&#x200b;</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2018-06-08_kaizen-openapi-editor.png" alt="KaiZen OpenAPI Editor for Eclipse IDE"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>It can be installed from the <a href="https://marketplace.eclipse.org/content/kaizen-openapi-editor">Eclipse Marketplace</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>If you use the Eclipse Installer (also called Oomph), you can add this xml snippet to your <code>installation.setup</code> file:</p> 
+</div> 
+<div class="listingblock"> 
+ <div class="title">
+  Listing 1. Oomph snippet to install the KaiZen OpenAPI Editor
+ </div> 
+ <div class="content"> 
+  <pre class="prettyprint highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;setup.p2:P2Task
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"&gt;
+  &lt;requirement
+      name="com.reprezen.swagedit.feature.feature.group"/&gt;
+  &lt;repository
+      url="http://products.reprezen.com/swagedit/latest/"/&gt;
+&lt;/setup.p2:P2Task&gt;</code></pre> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>It is free and open-source (EPL). Enjoy.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>
