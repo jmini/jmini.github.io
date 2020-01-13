@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Building and running Equinox with maven without Tycho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>Building and running Equinox with maven without Tycho</h1>
+    </div>
+
+    <p><em>13 January 2020</em></p>
+
+    <div class="paragraph"> 
+ <p>Eclipse Tycho is a great way to let maven build PDE based projects. But the Plug-in Development Environment (PDE) model is not the only way to work with OSGi.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>In particular, since 2 or 3 years the Eclipse Platform jars (including the Equinox jars) are regularly published on Maven Central (check the artifacts having <code>org.eclipse.platform</code> as <code>groupId</code>).</p> 
+</div> 
+<div class="paragraph"> 
+ <p>I was looking for an alternative to P2 and to the target-platform mechanism.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2020-01-13_bnd-bndtools.png" alt="bnd and bndtools logo"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>Bnd and Bndtools are always mentioned as potential alternative to PDE (I attended several talks discussing this at EclipseCon 2018: <a href="https://www.eclipsecon.org/europe2018/sessions/migrating-pde-bndtools-practice">Migrating from PDE to Bndtools in Practice</a>, <a href="https://www.eclipsecon.org/europe2018/sessions/zero-professional-osgi-project-minutes">From Zero to a Professional OSGi Project in Minutes</a>). So I decided to explore this path.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>This StackOverflow question catches my attention: <a href="https://stackoverflow.com/questions/52776222/how-to-start-with-osgi">How to start with OSGi</a>. I had a close look at the answer provided by Peter Kriens (the founder of the Bnd and Bndtools projects), where he discusses the different possible setup:</p> 
+</div> 
+<div class="ulist"> 
+ <ul> 
+  <li> <p>Maven Only</p> </li> 
+  <li> <p>Gradle Only</p> </li> 
+  <li> <p>Eclipse, M2E, Maven, and Bndtools</p> </li> 
+  <li> <p>Eclipse, Bndtools, Gradle</p> </li> 
+ </ul> 
+</div> 
+<div class="paragraph"> 
+ <p>Even in the "Maven Only" or "Gradle Only" setups, the proposed solution relies on plugins using bnd under the hood.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2020-01-13_how-to-start.png" alt="How to start?"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>My project is quite simple, the dependencies are already on maven central. I will not have a complex use-case with multiple versions of the same library or with platform dependent artifacts. So fetching the dependencies with maven is sufficient.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>I decided to try the "Maven Only" model.</p> 
+</div> 
+<div class="imageblock"> 
+ <div class="content"> 
+  <img src="2020-01-13_effective-osgi-logo.png" alt="How to start?"> 
+ </div> 
+</div> 
+<div class="paragraph"> 
+ <p>I was not sure to understand how to use the different maven bnd plugins: <code>bnd-maven-plugin</code>, <code>bnd-indexer-maven-plugin</code>, <code>bnd-testing-maven-plugin</code>, <code>bnd-export-maven-plugin</code> &#x2026;</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Luckily I found the slides of the <a href="https://www.slideshare.net/mfrancis/bndtools-and-maven-a-brave-new-world-n-bartlett-t-ward">Bndtools and Maven: A Brave New World</a> workshop (given at EclipseCon 2017) and the corresponding git repository: <a href="https://github.com/paremus/osgi-community-event2017">osgi-community-event2017</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The corresponding <a href="https://github.com/effectiveosgi/maven-archetypes">effective-osgi maven archetypes</a> used during the workshop are still working well. I could follow the step-by-step guide (in the readme of the maven archetypes project). I got everything working as described and I could find enough explanations about the generated projects. I think I understood what I did and this is very important when you start.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>After some cleanup and a switch from Apache Felix to Eclipse Equinox, I got my running setup and I answered my question: "<em>How to start with OSGi without PDE and Tycho</em>".</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The corresponding code is in this folder: <a href="https://github.com/jmini/bnd-experiments/tree/master/effectiveosgi-example">effectiveosgi-example</a>.</p> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2020/2020-01-13_equinox-without-tycho.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>

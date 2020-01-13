@@ -6,9 +6,80 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 8 Jun 2018 06:48:15 +0200</pubDate>
-    <lastBuildDate>Fri, 8 Jun 2018 06:48:15 +0200</lastBuildDate>
+    <pubDate>Mon, 13 Jan 2020 23:32:36 +0100</pubDate>
+    <lastBuildDate>Mon, 13 Jan 2020 23:32:36 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Building and running Equinox with maven without Tycho</title>
+      <link>http://jmini.github.io/blog/2020/2020-01-13_equinox-without-tycho.html</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2020/2020-01-13_equinox-without-tycho.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Eclipse Tycho is a great way to let maven build PDE based projects. But the Plug-in Development Environment (PDE) model is not the only way to work with OSGi.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In particular, since 2 or 3 years the Eclipse Platform jars (including the Equinox jars) are regularly published on Maven Central (check the artifacts having &lt;code&gt;org.eclipse.platform&lt;/code&gt; as &lt;code&gt;groupId&lt;/code&gt;).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I was looking for an alternative to P2 and to the target-platform mechanism.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2020/2020-01-13_bnd-bndtools.png&quot; alt=&quot;bnd and bndtools logo&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Bnd and Bndtools are always mentioned as potential alternative to PDE (I attended several talks discussing this at EclipseCon 2018: &lt;a href=&quot;https://www.eclipsecon.org/europe2018/sessions/migrating-pde-bndtools-practice&quot;&gt;Migrating from PDE to Bndtools in Practice&lt;/a&gt;, &lt;a href=&quot;https://www.eclipsecon.org/europe2018/sessions/zero-professional-osgi-project-minutes&quot;&gt;From Zero to a Professional OSGi Project in Minutes&lt;/a&gt;). So I decided to explore this path.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This StackOverflow question catches my attention: &lt;a href=&quot;https://stackoverflow.com/questions/52776222/how-to-start-with-osgi&quot;&gt;How to start with OSGi&lt;/a&gt;. I had a close look at the answer provided by Peter Kriens (the founder of the Bnd and Bndtools projects), where he discusses the different possible setup:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;Maven Only&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;Gradle Only&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;Eclipse, M2E, Maven, and Bndtools&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;Eclipse, Bndtools, Gradle&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Even in the &quot;Maven Only&quot; or &quot;Gradle Only&quot; setups, the proposed solution relies on plugins using bnd under the hood.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2020/2020-01-13_how-to-start.png&quot; alt=&quot;How to start?&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;My project is quite simple, the dependencies are already on maven central. I will not have a complex use-case with multiple versions of the same library or with platform dependent artifacts. So fetching the dependencies with maven is sufficient.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I decided to try the &quot;Maven Only&quot; model.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;imageblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;img src=&quot;blog/2020/2020-01-13_effective-osgi-logo.png&quot; alt=&quot;How to start?&quot;&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;I was not sure to understand how to use the different maven bnd plugins: &lt;code&gt;bnd-maven-plugin&lt;/code&gt;, &lt;code&gt;bnd-indexer-maven-plugin&lt;/code&gt;, &lt;code&gt;bnd-testing-maven-plugin&lt;/code&gt;, &lt;code&gt;bnd-export-maven-plugin&lt;/code&gt; &amp;#x2026;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Luckily I found the slides of the &lt;a href=&quot;https://www.slideshare.net/mfrancis/bndtools-and-maven-a-brave-new-world-n-bartlett-t-ward&quot;&gt;Bndtools and Maven: A Brave New World&lt;/a&gt; workshop (given at EclipseCon 2017) and the corresponding git repository: &lt;a href=&quot;https://github.com/paremus/osgi-community-event2017&quot;&gt;osgi-community-event2017&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The corresponding &lt;a href=&quot;https://github.com/effectiveosgi/maven-archetypes&quot;&gt;effective-osgi maven archetypes&lt;/a&gt; used during the workshop are still working well. I could follow the step-by-step guide (in the readme of the maven archetypes project). I got everything working as described and I could find enough explanations about the generated projects. I think I understood what I did and this is very important when you start.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;After some cleanup and a switch from Apache Felix to Eclipse Equinox, I got my running setup and I answered my question: &quot;&lt;em&gt;How to start with OSGi without PDE and Tycho&lt;/em&gt;&quot;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The corresponding code is in this folder: &lt;a href=&quot;https://github.com/jmini/bnd-experiments/tree/master/effectiveosgi-example&quot;&gt;effectiveosgi-example&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Edit an OpenAPI specification in Eclipse IDE</title>
