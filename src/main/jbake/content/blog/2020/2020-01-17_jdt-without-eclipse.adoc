@@ -1,0 +1,43 @@
+= JDT without Eclipse
+Jeremie Bresson
+2020-01-17
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, jdt, bnd, maven
+:idprefix:
+:listing-caption: Listing
+:figure-caption: Figure
+:experimental:
+
+The link:https://www.eclipse.org/jdt/[JDT] (Java Development Tools) is an important part of Eclipse IDE but it can also be used without Eclipse.
+
+For example the Spring Tools 4, which is nowadays a cross-platform tool (Visual Studio Code, Eclipse IDE, …), is highly using the JDT behind the scene.
+If you would like to know more, I recommend you this podcast episode: link:https://soundcloud.com/a-bootiful-podcast/spring-tools-lead-martin-lippert[Spring Tools lead Martin Lippert]
+
+A second known example is the Java Formatter that is also part of the JDT.
+Since a long time you have maven and gradle plugins that performs the same formatting as Eclipse IDE but as part of the build (often with the possibly to break the build when it is wrongly formatted).
+
+Reusing the JDT has been made easier since 2017 when the Eclipse Foundation decided to publish the necessary artifacts on maven central (most of the work was made by Stephan Herrmann).
+I blogged about this: link:https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html[Use the Eclipse Java Development Tools in a Java SE application] and I have pushed a simple example: link:https://github.com/jmini/jdt-experiments/tree/master/java-formatter[java-formatter] (the Java Formatter is used in a simple Maven project).
+
+== Workspace or not?
+
+When using the JDT in an headless application, two cases needs to be distinguished:
+
+1. Some features (the parser, the formatter…) can be used in a simple Java main method.
+2. Other features (search index, AST rewriter…) require a workspace. This imply that the code run inside an OSGi runtime.
+
+To illustrate this aspect, I took some of the examples provided by the site `www.programcreek.com` in the blog post series link:https://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/[Eclipse JDT Tutorials] and I adapted them so that each code snippet can be executed inside a JUnit test. This is the link:https://jmini.github.io/jdt-experiments/#programcreek-examples[Programcreek examples] project.
+
+
+I split the unit-tests into two projects:
+
+* `programcreek-osgi` for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)
+* `programcreek-standalone` for the one that must run inside an OSGi runtime. The bnd maven plugins are configured in the `pom.xml` to take care of the OSGi stuff.
+
+If you run the test with Maven, it will work out-of-the box.
+
+If you would like to run them inside an IDE, you should use one that starts OSGi when executing the tests (you can call this a bnd aware IDE).
+A good fit is link:https://www.eclipse.org/downloads/packages/release/2019-12/r/eclipse-ide-java-developers[Eclipse IDE for Java Developers] with the additional plugin link:https://bndtools.org/[Bndtools] installed, but there are other possibilities.
+
+Source code can be found on GitHub: link:https://github.com/jmini/jdt-experiments/tree/master/programcreek-examples[programcreek-examples]
