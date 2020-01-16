@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>JDT without Eclipse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeremie Bresson personal Blog">
+    <meta name="author" content="Jeremie Bresson">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+   
+
+        <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Feed</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+
+    <div class="page-header">
+        <h1>JDT without Eclipse</h1>
+    </div>
+
+    <p><em>17 January 2020</em></p>
+
+    <div id="preamble"> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>The <a href="https://www.eclipse.org/jdt/">JDT</a> (Java Development Tools) is an important part of Eclipse IDE but it can also be used without Eclipse.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>For example the Spring Tools 4, which is nowadays a cross-platform tool (Visual Studio Code, Eclipse IDE, &#x2026;), is highly using the JDT behind the scene. If you would like to know more, I recommend you this podcast episode: <a href="https://soundcloud.com/a-bootiful-podcast/spring-tools-lead-martin-lippert">Spring Tools lead Martin Lippert</a></p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>A second known example is the Java Formatter that is also part of the JDT. Since a long time you have maven and gradle plugins that performs the same formatting as Eclipse IDE but as part of the build (often with the possibly to break the build when it is wrongly formatted).</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Reusing the JDT has been made easier since 2017 when the Eclipse Foundation decided to publish the necessary artifacts on maven central (most of the work was made by Stephan Herrmann). I blogged about this: <a href="https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html">Use the Eclipse Java Development Tools in a Java SE application</a> and I have pushed a simple example: <a href="https://github.com/jmini/jdt-experiments/tree/master/java-formatter">java-formatter</a> (the Java Formatter is used in a simple Maven project).</p> 
+  </div> 
+ </div> 
+</div> 
+<div class="sect1"> 
+ <h2 id="workspace_or_not">Workspace or not?</h2> 
+ <div class="sectionbody"> 
+  <div class="paragraph"> 
+   <p>When using the JDT in an headless application, two cases needs to be distinguished:</p> 
+  </div> 
+  <div class="olist arabic"> 
+   <ol class="arabic"> 
+    <li> <p>Some features (the parser, the formatter&#x2026;) can be used in a simple Java main method.</p> </li> 
+    <li> <p>Other features (search index, AST rewriter&#x2026;) require a workspace. This imply that the code run inside an OSGi runtime.</p> </li> 
+   </ol> 
+  </div> 
+  <div class="paragraph"> 
+   <p>To illustrate this aspect, I took some of the examples provided by the site <code>www.programcreek.com</code> in the blog post series <a href="https://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/">Eclipse JDT Tutorials</a> and I adapted them so that each code snippet can be executed inside a JUnit test. This is the <a href="https://jmini.github.io/jdt-experiments/#programcreek-examples">Programcreek examples</a> project.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>I split the unit-tests into two projects:</p> 
+  </div> 
+  <div class="ulist"> 
+   <ul> 
+    <li> <p><code>programcreek-osgi</code> for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)</p> </li> 
+    <li> <p><code>programcreek-standalone</code> for the one that must run inside an OSGi runtime. The bnd maven plugins are configured in the <code>pom.xml</code> to take care of the OSGi stuff.</p> </li> 
+   </ul> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you run the test with Maven, it will work out-of-the box.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>If you would like to run them inside an IDE, you should use one that starts OSGi when executing the tests (you can call this a bnd aware IDE). A good fit is <a href="https://www.eclipse.org/downloads/packages/release/2019-12/r/eclipse-ide-java-developers">Eclipse IDE for Java Developers</a> with the additional plugin <a href="https://bndtools.org/">Bndtools</a> installed, but there are other possibilities.</p> 
+  </div> 
+  <div class="paragraph"> 
+   <p>Source code can be found on GitHub: <a href="https://github.com/jmini/jdt-experiments/tree/master/programcreek-examples">programcreek-examples</a></p> 
+  </div> 
+ </div> 
+</div>
+
+    <hr />
+    <a href="https://github.com/jmini/jmini.github.io/tree/develop/src/main/jbake/content/blog/2020/2020-01-17_jdt-without-eclipse.adoc">Post source on GitHub</a> 
+    <hr />
+
+        </div>
+        <div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2014 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>

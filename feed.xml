@@ -6,9 +6,69 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Mon, 13 Jan 2020 23:32:36 +0100</pubDate>
-    <lastBuildDate>Mon, 13 Jan 2020 23:32:36 +0100</lastBuildDate>
+    <pubDate>Thu, 16 Jan 2020 23:50:40 +0100</pubDate>
+    <lastBuildDate>Thu, 16 Jan 2020 23:50:40 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>JDT without Eclipse</title>
+      <link>http://jmini.github.io/blog/2020/2020-01-17_jdt-without-eclipse.html</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2020/2020-01-17_jdt-without-eclipse.html</guid>
+      <description>
+      &lt;div id=&quot;preamble&quot;&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;The &lt;a href=&quot;https://www.eclipse.org/jdt/&quot;&gt;JDT&lt;/a&gt; (Java Development Tools) is an important part of Eclipse IDE but it can also be used without Eclipse.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;For example the Spring Tools 4, which is nowadays a cross-platform tool (Visual Studio Code, Eclipse IDE, &amp;#x2026;), is highly using the JDT behind the scene. If you would like to know more, I recommend you this podcast episode: &lt;a href=&quot;https://soundcloud.com/a-bootiful-podcast/spring-tools-lead-martin-lippert&quot;&gt;Spring Tools lead Martin Lippert&lt;/a&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;A second known example is the Java Formatter that is also part of the JDT. Since a long time you have maven and gradle plugins that performs the same formatting as Eclipse IDE but as part of the build (often with the possibly to break the build when it is wrongly formatted).&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Reusing the JDT has been made easier since 2017 when the Eclipse Foundation decided to publish the necessary artifacts on maven central (most of the work was made by Stephan Herrmann). I blogged about this: &lt;a href=&quot;https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html&quot;&gt;Use the Eclipse Java Development Tools in a Java SE application&lt;/a&gt; and I have pushed a simple example: &lt;a href=&quot;https://github.com/jmini/jdt-experiments/tree/master/java-formatter&quot;&gt;java-formatter&lt;/a&gt; (the Java Formatter is used in a simple Maven project).&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;workspace_or_not&quot;&gt;Workspace or not?&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;When using the JDT in an headless application, two cases needs to be distinguished:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;olist arabic&quot;&gt; 
+   &lt;ol class=&quot;arabic&quot;&gt; 
+    &lt;li&gt; &lt;p&gt;Some features (the parser, the formatter&amp;#x2026;) can be used in a simple Java main method.&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;Other features (search index, AST rewriter&amp;#x2026;) require a workspace. This imply that the code run inside an OSGi runtime.&lt;/p&gt; &lt;/li&gt; 
+   &lt;/ol&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;To illustrate this aspect, I took some of the examples provided by the site &lt;code&gt;www.programcreek.com&lt;/code&gt; in the blog post series &lt;a href=&quot;https://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/&quot;&gt;Eclipse JDT Tutorials&lt;/a&gt; and I adapted them so that each code snippet can be executed inside a JUnit test. This is the &lt;a href=&quot;https://jmini.github.io/jdt-experiments/#programcreek-examples&quot;&gt;Programcreek examples&lt;/a&gt; project.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;I split the unit-tests into two projects:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;ulist&quot;&gt; 
+   &lt;ul&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-osgi&lt;/code&gt; for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-standalone&lt;/code&gt; for the one that must run inside an OSGi runtime. The bnd maven plugins are configured in the &lt;code&gt;pom.xml&lt;/code&gt; to take care of the OSGi stuff.&lt;/p&gt; &lt;/li&gt; 
+   &lt;/ul&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;If you run the test with Maven, it will work out-of-the box.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;If you would like to run them inside an IDE, you should use one that starts OSGi when executing the tests (you can call this a bnd aware IDE). A good fit is &lt;a href=&quot;https://www.eclipse.org/downloads/packages/release/2019-12/r/eclipse-ide-java-developers&quot;&gt;Eclipse IDE for Java Developers&lt;/a&gt; with the additional plugin &lt;a href=&quot;https://bndtools.org/&quot;&gt;Bndtools&lt;/a&gt; installed, but there are other possibilities.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Source code can be found on GitHub: &lt;a href=&quot;https://github.com/jmini/jdt-experiments/tree/master/programcreek-examples&quot;&gt;programcreek-examples&lt;/a&gt;&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>Building and running Equinox with maven without Tycho</title>
