@@ -6,8 +6,8 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 17 Jan 2020 07:25:56 +0100</pubDate>
-    <lastBuildDate>Fri, 17 Jan 2020 07:25:56 +0100</lastBuildDate>
+    <pubDate>Fri, 17 Jan 2020 12:45:18 +0100</pubDate>
+    <lastBuildDate>Fri, 17 Jan 2020 12:45:18 +0100</lastBuildDate>
 
     
     <item>
@@ -52,8 +52,8 @@
   &lt;/div&gt; 
   &lt;div class=&quot;ulist&quot;&gt; 
    &lt;ul&gt; 
-    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-osgi&lt;/code&gt; for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)&lt;/p&gt; &lt;/li&gt; 
-    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-standalone&lt;/code&gt; for the one that must run inside an OSGi runtime. The &lt;a href=&quot;https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin&quot;&gt;bnd maven plugins&lt;/a&gt; are configured in the &lt;code&gt;pom.xml&lt;/code&gt; to take care of the OSGi stuff.&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-standalone&lt;/code&gt; for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;code&gt;programcreek-osgi&lt;/code&gt; for the one that must run inside an OSGi runtime. The &lt;a href=&quot;https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin&quot;&gt;bnd maven plugins&lt;/a&gt; are configured in the &lt;code&gt;pom.xml&lt;/code&gt; to take care of the OSGi stuff.&lt;/p&gt; &lt;/li&gt; 
    &lt;/ul&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
