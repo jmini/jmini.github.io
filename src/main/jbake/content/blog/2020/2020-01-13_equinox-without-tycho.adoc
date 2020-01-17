@@ -41,7 +41,7 @@ I decided to try the "Maven Only" model.
 
 image::2020-01-13_effective-osgi-logo.png[How to start?]
 
-I was not sure to understand how to use the different maven bnd plugins: `bnd-maven-plugin`, `bnd-indexer-maven-plugin`, `bnd-testing-maven-plugin`, `bnd-export-maven-plugin` …
+I was not sure to understand how to use the different link:https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin[bnd maven plugins]: `bnd-maven-plugin`, `bnd-indexer-maven-plugin`, `bnd-testing-maven-plugin`, `bnd-export-maven-plugin` …
 
 Luckily I found the slides of the link:https://www.slideshare.net/mfrancis/bndtools-and-maven-a-brave-new-world-n-bartlett-t-ward[Bndtools and Maven: A Brave New World] workshop (given at EclipseCon 2017) and the corresponding git repository: link:https://github.com/paremus/osgi-community-event2017[osgi-community-event2017].
 
