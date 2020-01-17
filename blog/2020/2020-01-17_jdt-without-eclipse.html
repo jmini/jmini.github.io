@@ -68,10 +68,10 @@
    <p>For example the Spring Tools 4, which is nowadays a cross-platform tool (Visual Studio Code, Eclipse IDE, &#x2026;), is highly using the JDT behind the scene. If you would like to know more, I recommend you this podcast episode: <a href="https://soundcloud.com/a-bootiful-podcast/spring-tools-lead-martin-lippert">Spring Tools lead Martin Lippert</a></p> 
   </div> 
   <div class="paragraph"> 
-   <p>A second known example is the Java Formatter that is also part of the JDT. Since a long time you have maven and gradle plugins that performs the same formatting as Eclipse IDE but as part of the build (often with the possibly to break the build when it is wrongly formatted).</p> 
+   <p>A second known example is the Java Formatter that is also part of the JDT. Since a long time there are maven and gradle plugins that performs the same formatting as Eclipse IDE but as part of the build (often with the possibly to break the build when the code is wrongly formatted).</p> 
   </div> 
   <div class="paragraph"> 
-   <p>Reusing the JDT has been made easier since 2017 when the Eclipse Foundation decided to publish the necessary artifacts on maven central (most of the work was made by Stephan Herrmann). I blogged about this: <a href="https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html">Use the Eclipse Java Development Tools in a Java SE application</a> and I have pushed a simple example: <a href="https://github.com/jmini/jdt-experiments/tree/master/java-formatter">java-formatter</a> (the Java Formatter is used in a simple Maven project).</p> 
+   <p>Reusing the JDT has been made easier since 2017 when it was decided to publish each release and its dependencies on maven central (with following <code>groupId</code>: <code>org.eclipse.jdt</code>, <code>org.eclipse.platform</code>). Stephan Herrmann did a lot of work to achieve this goal. I blogged about this: <a href="https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html">Use the Eclipse Java Development Tools in a Java SE application</a> and I have pushed a simple example the Java Formatter is used in a simple <code>main(String[])</code> method built by a classic minimal Maven project: <a href="https://github.com/jmini/jdt-experiments/tree/master/java-formatter">java-formatter</a>.</p> 
   </div> 
  </div> 
 </div> 
@@ -91,19 +91,19 @@
    <p>To illustrate this aspect, I took some of the examples provided by the site <code>www.programcreek.com</code> in the blog post series <a href="https://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/">Eclipse JDT Tutorials</a> and I adapted them so that each code snippet can be executed inside a JUnit test. This is the <a href="https://jmini.github.io/jdt-experiments/#programcreek-examples">Programcreek examples</a> project.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>I split the unit-tests into two projects:</p> 
+   <p>I have split the unit-tests into two projects:</p> 
   </div> 
   <div class="ulist"> 
    <ul> 
     <li> <p><code>programcreek-osgi</code> for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)</p> </li> 
-    <li> <p><code>programcreek-standalone</code> for the one that must run inside an OSGi runtime. The bnd maven plugins are configured in the <code>pom.xml</code> to take care of the OSGi stuff.</p> </li> 
+    <li> <p><code>programcreek-standalone</code> for the one that must run inside an OSGi runtime. The <a href="https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin">bnd maven plugins</a> are configured in the <code>pom.xml</code> to take care of the OSGi stuff.</p> </li> 
    </ul> 
   </div> 
   <div class="paragraph"> 
    <p>If you run the test with Maven, it will work out-of-the box.</p> 
   </div> 
   <div class="paragraph"> 
-   <p>If you would like to run them inside an IDE, you should use one that starts OSGi when executing the tests (you can call this a bnd aware IDE). A good fit is <a href="https://www.eclipse.org/downloads/packages/release/2019-12/r/eclipse-ide-java-developers">Eclipse IDE for Java Developers</a> with the additional plugin <a href="https://bndtools.org/">Bndtools</a> installed, but there are other possibilities.</p> 
+   <p>If you would like to run them inside an IDE, you should use one that starts OSGi when executing the tests (in the same way the maven build is doing it). To get a bnd aware IDE, you can use <a href="https://www.eclipse.org/downloads/packages/release/2019-12/r/eclipse-ide-java-developers">Eclipse IDE for Java Developers</a> with the additional plugin <a href="https://bndtools.org/">Bndtools</a> installed, but there are other possibilities.</p> 
   </div> 
   <div class="paragraph"> 
    <p>Source code can be found on GitHub: <a href="https://github.com/jmini/jdt-experiments/tree/master/programcreek-examples">programcreek-examples</a></p> 
