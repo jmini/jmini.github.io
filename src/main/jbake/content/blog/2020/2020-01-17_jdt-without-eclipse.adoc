@@ -32,8 +32,8 @@ To illustrate this aspect, I took some of the examples provided by the site `www
 
 I have split the unit-tests into two projects:
 
-* `programcreek-osgi` for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)
-* `programcreek-standalone` for the one that must run inside an OSGi runtime. The link:https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin[bnd maven plugins] are configured in the `pom.xml` to take care of the OSGi stuff.
+* `programcreek-standalone` for the one that do not require OSGi. The maven project is really simple (using the default convention everywhere)
+* `programcreek-osgi` for the one that must run inside an OSGi runtime. The link:https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin[bnd maven plugins] are configured in the `pom.xml` to take care of the OSGi stuff.
 
 If you run the test with Maven, it will work out-of-the box.
 
