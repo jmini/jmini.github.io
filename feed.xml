@@ -6,9 +6,209 @@
     <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Fri, 17 Jan 2020 12:45:18 +0100</pubDate>
-    <lastBuildDate>Fri, 17 Jan 2020 12:45:18 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jan 2021 07:13:32 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jan 2021 07:13:32 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>OSGi and javax.inject</title>
+      <link>http://jmini.github.io/blog/2021/2021-01-27_osgi-java-inject.html</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2021/2021-01-27_osgi-java-inject.html</guid>
+      <description>
+      &lt;div id=&quot;preamble&quot;&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;An OSGi bundle that exports the &lt;code&gt;javax.inject&lt;/code&gt; package.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Since a couple of years, the Eclipse platform jars are &lt;a href=&quot;http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html&quot;&gt;published on maven central&lt;/a&gt; with metadata that allows the consumption in a traditional maven project (no &lt;a href=&quot;https://projects.eclipse.org/projects/technology.tycho&quot;&gt;Eclipse Tycho&lt;/a&gt; required).&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;This article is my feedback after having experimented with PDE (the &lt;a href=&quot;https://www.eclipse.org/pde/&quot;&gt;Plug-in Development Environment&lt;/a&gt; project).&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;the_problem&quot;&gt;The problem&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;The goal is to compile and execute code that requires this OSGi bundle from maven-central:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;listingblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.eclipse.pde&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;org.eclipse.pde.core&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;3.13.200&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;I am using a regular maven project (with the bnd plugins to manage the OSGi related tasks). I do not have Eclipse Tycho, so maven do not have access to any P2 Update Site.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Amongst all dependencies of PDE, there is &lt;code&gt;org.eclipse.e4.core.contexts&lt;/code&gt; and &lt;code&gt;org.eclipse.e4.core.services&lt;/code&gt;. Those two bundles requires:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;listingblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-MF&quot; data-lang=&quot;MF&quot;&gt;Import-Package: javax.inject;version=&quot;1.0.0&quot;,&lt;/code&gt;&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Source: &lt;a href=&quot;https://github.com/eclipse/eclipse.platform.runtime/blob/9541c1ee0b599c4b7666fca6fdbfdba3eb3d1979/bundles/org.eclipse.e4.core.contexts/META-INF/MANIFEST.MF#L11&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://github.com/eclipse/eclipse.platform.runtime/blob/9541c1ee0b599c4b7666fca6fdbfdba3eb3d1979/bundles/org.eclipse.e4.core.services/META-INF/MANIFEST.MF#L11&quot;&gt;here&lt;/a&gt;.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;So we need a bundle exporting this package, otherwise the requirements are not fulfilled and I get this error:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;listingblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre&gt;[ERROR] Resolution failed. Capabilities satisfying the following requirements could not be found:
+    [&amp;lt;&amp;lt;INITIAL&amp;gt;&amp;gt;]
+      &amp;#x21d2; osgi.identity: (osgi.identity=org.eclipse.pde.core)
+          &amp;#x21d2; [org.eclipse.pde.core version=3.13.200.v20191202-2135]
+              &amp;#x21d2; osgi.wiring.bundle: (&amp;amp;(osgi.wiring.bundle=org.eclipse.e4.core.services)(bundle-version&amp;gt;=2.0.0)(!(bundle-version&amp;gt;=3.0.0)))
+                  &amp;#x21d2; [org.eclipse.e4.core.services version=2.2.100.v20191122-2104]
+                      &amp;#x21d2; osgi.wiring.package: (&amp;amp;(osgi.wiring.package=javax.inject)(version&amp;gt;=1.0.0))
+    [org.eclipse.e4.core.contexts version=1.8.300.v20191017-1404]
+      &amp;#x21d2; osgi.wiring.package: (&amp;amp;(osgi.wiring.package=javax.inject)(version&amp;gt;=1.0.0))&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;in_the_p2_world&quot;&gt;In the P2 world&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;The bundle &lt;code&gt;javax.inject&lt;/code&gt; version &lt;code&gt;1.0.0&lt;/code&gt; is available in the &lt;a href=&quot;https://download.eclipse.org/tools/orbit/downloads/&quot;&gt;Eclipse Orbit&lt;/a&gt; repositories.&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;in_the_maven_world&quot;&gt;In the maven world&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;sect2&quot;&gt; 
+   &lt;h3 id=&quot;the_official_dependency&quot;&gt;The official dependency&lt;/h3&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;The dependency used by most of the other libraries:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;javax.inject&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;javax.inject&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;This library does not contain any OSGi metadata in the published &lt;code&gt;MANIFEST.MF&lt;/code&gt;.&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;See the corresponding &lt;a href=&quot;https://github.com/javax-inject/javax-inject/issues/25&quot;&gt;open issue&lt;/a&gt;.&lt;/p&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;sect2&quot;&gt; 
+   &lt;h3 id=&quot;tom_schindl_s_solution&quot;&gt;Tom Schindl&amp;#x2019;s solution&lt;/h3&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;The jar from Eclipse Orbit is available at:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;at.bestsolution.efxclipse.eclipse&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;javax.inject&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.0.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;But this is not on maven central. You will need to add following repository to your &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;repositories&amp;gt;
+  &amp;lt;repository&amp;gt;
+    &amp;lt;id&amp;gt;bestsolution&amp;lt;/id&amp;gt;
+    &amp;lt;url&amp;gt;http://maven.bestsolution.at/efxclipse-releases/&amp;lt;/url&amp;gt;
+  &amp;lt;/repository&amp;gt;
+&amp;lt;/repositories&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;sect2&quot;&gt; 
+   &lt;h3 id=&quot;on_maven_central&quot;&gt;On maven central&lt;/h3&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;This &lt;a href=&quot;https://stackoverflow.com/questions/22874910/weld-osgi-apache-felix-cant-find-packages&quot;&gt;question on stackoverflow&lt;/a&gt; gives some inputs and suggests:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;From the &lt;a href=&quot;https://servicemix.apache.org/&quot;&gt;Apache ServiceMix&lt;/a&gt; project:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.servicemix.bundles&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;org.apache.servicemix.bundles.javax-inject&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1_3&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;&lt;a href=&quot;https://search.maven.org/artifact/org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject&quot;&gt;page on maven search&lt;/a&gt;&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;From the &lt;a href=&quot;https://glassfish.org/&quot;&gt;GlassFish&lt;/a&gt; project.&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.glassfish.hk2.external&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;javax.inject&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;2.5.0-b62&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;&lt;a href=&quot;https://search.maven.org/artifact/org.glassfish.hk2.external/javax.inject&quot;&gt;page on maven search&lt;/a&gt;&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;After analyzing other candidates in list where &lt;code&gt;artifactId == &quot;javax.inject&quot;&lt;/code&gt;, there is also this one from the &lt;a href=&quot;https://www.lucee.org/&quot;&gt;Lucee&lt;/a&gt; project:&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.lucee&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;javax.inject&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.0.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;&lt;a href=&quot;https://search.maven.org/artifact/org.lucee/javax.inject&quot;&gt;page on maven search&lt;/a&gt;&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;And on twitter &lt;a href=&quot;https://twitter.com/rotty3000/status/1352746312584847360&quot;&gt;Raymond Aug&amp;eacute;&lt;/a&gt; suggested the &lt;a href=&quot;https://geronimo.apache.org/&quot;&gt;Apache geronimo&lt;/a&gt; project.&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;listingblock&quot;&gt; 
+    &lt;div class=&quot;content&quot;&gt; 
+     &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.geronimo.specs&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;geronimo-atinject_1.0_spec&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.2&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt; 
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;&lt;a href=&quot;https://search.maven.org/artifact/org.apache.geronimo.specs/geronimo-atinject_1.0_spec&quot;&gt;page on maven search&lt;/a&gt;&lt;/p&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;paragraph&quot;&gt; 
+    &lt;p&gt;Make your choice.&lt;/p&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>JDT without Eclipse</title>
