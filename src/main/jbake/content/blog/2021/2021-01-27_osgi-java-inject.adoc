@@ -1,0 +1,159 @@
+= OSGi and javax.inject
+Jeremie Bresson
+2021-01-27
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, jdt, pde, bnd, maven
+:idprefix:
+:listing-caption: Listing
+:figure-caption: Figure
+:experimental:
+
+An OSGi bundle that exports the `javax.inject` package.
+
+Since a couple of years, the Eclipse platform jars are link:http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html[published on maven central] with metadata that allows the consumption in a traditional maven project (no link:https://projects.eclipse.org/projects/technology.tycho[Eclipse Tycho] required).
+
+This article is my feedback after having experimented with PDE (the link:https://www.eclipse.org/pde/[Plug-in Development Environment] project).
+
+== The problem
+
+The goal is to compile and execute code that requires this OSGi bundle from maven-central:
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.eclipse.pde</groupId>
+  <artifactId>org.eclipse.pde.core</artifactId>
+  <version>3.13.200</version>
+</dependency>
+----
+
+I am using a regular maven project (with the bnd plugins to manage the OSGi related tasks).
+I do not have Eclipse Tycho, so maven do not have access to any P2 Update Site.
+
+Amongst all dependencies of PDE, there is `org.eclipse.e4.core.contexts` and `org.eclipse.e4.core.services`.
+Those two bundles requires:
+
+[source, MF]
+----
+Import-Package: javax.inject;version="1.0.0",
+----
+
+Source: link:https://github.com/eclipse/eclipse.platform.runtime/blob/9541c1ee0b599c4b7666fca6fdbfdba3eb3d1979/bundles/org.eclipse.e4.core.contexts/META-INF/MANIFEST.MF#L11[here] and link:https://github.com/eclipse/eclipse.platform.runtime/blob/9541c1ee0b599c4b7666fca6fdbfdba3eb3d1979/bundles/org.eclipse.e4.core.services/META-INF/MANIFEST.MF#L11[here].
+
+So we need a bundle exporting this package, otherwise the requirements are not fulfilled and I get this error:
+
+----
+[ERROR] Resolution failed. Capabilities satisfying the following requirements could not be found:
+    [<<INITIAL>>]
+      ⇒ osgi.identity: (osgi.identity=org.eclipse.pde.core)
+          ⇒ [org.eclipse.pde.core version=3.13.200.v20191202-2135]
+              ⇒ osgi.wiring.bundle: (&(osgi.wiring.bundle=org.eclipse.e4.core.services)(bundle-version>=2.0.0)(!(bundle-version>=3.0.0)))
+                  ⇒ [org.eclipse.e4.core.services version=2.2.100.v20191122-2104]
+                      ⇒ osgi.wiring.package: (&(osgi.wiring.package=javax.inject)(version>=1.0.0))
+    [org.eclipse.e4.core.contexts version=1.8.300.v20191017-1404]
+      ⇒ osgi.wiring.package: (&(osgi.wiring.package=javax.inject)(version>=1.0.0))
+----
+
+== In the P2 world
+
+The bundle `javax.inject` version `1.0.0` is available in the link:https://download.eclipse.org/tools/orbit/downloads/[Eclipse Orbit] repositories.
+
+== In the maven world
+
+=== The official dependency
+
+The dependency used by most of the other libraries:
+
+[source, xml]
+----
+<dependency>
+  <groupId>javax.inject</groupId>
+  <artifactId>javax.inject</artifactId>
+  <version>1</version>
+</dependency>
+----
+
+This library does not contain any OSGi metadata in the published `MANIFEST.MF`.
+
+See the corresponding link:https://github.com/javax-inject/javax-inject/issues/25[open issue].
+
+=== Tom Schindl's solution
+
+The jar from Eclipse Orbit is available at:
+
+[source, xml]
+----
+<dependency>
+  <groupId>at.bestsolution.efxclipse.eclipse</groupId>
+  <artifactId>javax.inject</artifactId>
+  <version>1.0.0</version>
+</dependency>
+----
+
+But this is not on maven central.
+You will need to add following repository to your `pom.xml`:
+
+[source, xml]
+----
+<repositories>
+  <repository>
+    <id>bestsolution</id>
+    <url>http://maven.bestsolution.at/efxclipse-releases/</url>
+  </repository>
+</repositories>
+----
+
+=== On maven central
+
+This link:https://stackoverflow.com/questions/22874910/weld-osgi-apache-felix-cant-find-packages[question on stackoverflow] gives some inputs and suggests:
+
+From the link:https://servicemix.apache.org/[Apache ServiceMix] project:
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.apache.servicemix.bundles</groupId>
+  <artifactId>org.apache.servicemix.bundles.javax-inject</artifactId>
+  <version>1_3</version>
+</dependency>
+----
+link:https://search.maven.org/artifact/org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject[page on maven search]
+
+From the link:https://glassfish.org/[GlassFish] project.
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.glassfish.hk2.external</groupId>
+  <artifactId>javax.inject</artifactId>
+  <version>2.5.0-b62</version>
+</dependency>
+----
+link:https://search.maven.org/artifact/org.glassfish.hk2.external/javax.inject[page on maven search]
+
+After analyzing other candidates in list where `artifactId == "javax.inject"`, there is also this one from the link:https://www.lucee.org/[Lucee] project:
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.lucee</groupId>
+  <artifactId>javax.inject</artifactId>
+  <version>1.0.0</version>
+</dependency>
+----
+link:https://search.maven.org/artifact/org.lucee/javax.inject[page on maven search]
+
+And on twitter link:https://twitter.com/rotty3000/status/1352746312584847360[Raymond Augé] suggested the link:https://geronimo.apache.org/[Apache geronimo] project.
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.apache.geronimo.specs</groupId>
+  <artifactId>geronimo-atinject_1.0_spec</artifactId>
+  <version>1.2</version>
+</dependency>
+----
+link:https://search.maven.org/artifact/org.apache.geronimo.specs/geronimo-atinject_1.0_spec[page on maven search]
+
+Make your choice.
