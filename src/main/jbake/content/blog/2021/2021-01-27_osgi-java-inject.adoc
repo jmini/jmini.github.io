@@ -11,7 +11,7 @@ Jeremie Bresson
 
 An OSGi bundle that exports the `javax.inject` package.
 
-Since a couple of years, the Eclipse platform jars are link:http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html[published on maven central] with metadata that allows the consumption in a traditional maven project (no link:https://projects.eclipse.org/projects/technology.tycho[Eclipse Tycho] required).
+Since a couple of years, the Eclipse platform jars are link:https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html[published on maven central] with metadata that allows the consumption in a traditional maven project (no link:https://projects.eclipse.org/projects/technology.tycho[Eclipse Tycho] required).
 
 This article is my feedback after having experimented with PDE (the link:https://www.eclipse.org/pde/[Plug-in Development Environment] project).
 

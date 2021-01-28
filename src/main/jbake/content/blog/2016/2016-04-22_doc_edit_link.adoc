@@ -25,7 +25,7 @@ Example 3: Eclipse Scout documentation (see link:http://eclipsescout.github.io/6
 
 image:2016-04-22_scout.png[]
 
-Example 4: My blog (see link:http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html[my last article] for example):
+Example 4: My blog (see link:https://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html[my last article] for example):
 
 image:2016-04-22_blog.png[]
 
@@ -40,7 +40,7 @@ image:2016-04-22_gef4.png[]
 
 === Asciidoctorj macro
 
-If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: link:http://jmini.github.io/asciidoctorj-gh-edit/[asciidoctorj-gh-edit].
+If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: link:https://jmini.github.io/asciidoctorj-gh-edit/[asciidoctorj-gh-edit].
 Short usage example:
 
 [source,asciidoc]
