@@ -2,142 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
     <url>
-        <loc>http://jmini.github.io/about.html</loc>
+        <loc>https://jmini.github.io/about.html</loc>
         <lastmod>2015-12-27</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2021/2021-01-27_osgi-java-inject.html</loc>
+        <loc>https://jmini.github.io/blog/2021/2021-01-27_osgi-java-inject.html</loc>
         <lastmod>2021-01-27</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2020/2020-01-17_jdt-without-eclipse.html</loc>
+        <loc>https://jmini.github.io/blog/2020/2020-01-17_jdt-without-eclipse.html</loc>
         <lastmod>2020-01-17</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2020/2020-01-13_equinox-without-tycho.html</loc>
+        <loc>https://jmini.github.io/blog/2020/2020-01-13_equinox-without-tycho.html</loc>
         <lastmod>2020-01-13</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</loc>
+        <loc>https://jmini.github.io/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</loc>
         <lastmod>2018-06-08</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2018/2018-05-15_new-open-source-project.html</loc>
+        <loc>https://jmini.github.io/blog/2018/2018-05-15_new-open-source-project.html</loc>
         <lastmod>2018-05-15</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</loc>
+        <loc>https://jmini.github.io/blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</loc>
         <lastmod>2018-02-05</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2017/2017-06-25_asciidoctor-watch-build-log.html</loc>
+        <loc>https://jmini.github.io/blog/2017/2017-06-25_asciidoctor-watch-build-log.html</loc>
         <lastmod>2017-06-25</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2017/2017-03-26_wikitext_on_maven_central.html</loc>
+        <loc>https://jmini.github.io/blog/2017/2017-03-26_wikitext_on_maven_central.html</loc>
         <lastmod>2017-03-26</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2017/2017-02-02_wikitext_v3.html</loc>
+        <loc>https://jmini.github.io/blog/2017/2017-02-02_wikitext_v3.html</loc>
         <lastmod>2017-02-02</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2017/2017-01-27_ressource-filter.html</loc>
+        <loc>https://jmini.github.io/blog/2017/2017-01-27_ressource-filter.html</loc>
         <lastmod>2017-01-27</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</loc>
+        <loc>https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</loc>
         <lastmod>2017-01-10</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-12-21_convert_to_asciidoc.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-12-21_convert_to_asciidoc.html</loc>
         <lastmod>2016-12-21</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</loc>
         <lastmod>2016-10-28</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-09-16_eclipse_plugin_spy.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-09-16_eclipse_plugin_spy.html</loc>
         <lastmod>2016-09-16</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-06-19_eclipse_diamond_notation.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-06-19_eclipse_diamond_notation.html</loc>
         <lastmod>2016-06-18</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</loc>
         <lastmod>2016-05-27</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-04-24_disable_eclipse_theming.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-04-24_disable_eclipse_theming.html</loc>
         <lastmod>2016-04-24</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-04-22_doc_edit_link.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-04-22_doc_edit_link.html</loc>
         <lastmod>2016-04-22</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html</loc>
         <lastmod>2016-03-02</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-02-21_maven_repo_and_pom_files.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-02-21_maven_repo_and_pom_files.html</loc>
         <lastmod>2016-02-21</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-02-06_terminate_and_relaunch.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-02-06_terminate_and_relaunch.html</loc>
         <lastmod>2016-02-12</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-02-06_bug-75981-is-fixed.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-02-06_bug-75981-is-fixed.html</loc>
         <lastmod>2016-02-06</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</loc>
+        <loc>https://jmini.github.io/blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</loc>
         <lastmod>2016-01-03</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2015/2015-12-27-jbake-migration.html</loc>
+        <loc>https://jmini.github.io/blog/2015/2015-12-27-jbake-migration.html</loc>
         <lastmod>2015-12-27</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2015/2015-08-17-backing-junit-next-version.html</loc>
+        <loc>https://jmini.github.io/blog/2015/2015-08-17-backing-junit-next-version.html</loc>
         <lastmod>2015-08-17</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2014/2014-11-10-eclipse-con-participation-roi.html</loc>
+        <loc>https://jmini.github.io/blog/2014/2014-11-10-eclipse-con-participation-roi.html</loc>
         <lastmod>2014-11-10</lastmod>
     </url>
 
     <url>
-        <loc>http://jmini.github.io/blog/2014/2014-11-01-part-of-it.html</loc>
+        <loc>https://jmini.github.io/blog/2014/2014-11-01-part-of-it.html</loc>
         <lastmod>2014-11-01</lastmod>
     </url>
 

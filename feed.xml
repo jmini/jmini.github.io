@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jeremie Bresson</title>
-    <link>http://jmini.github.io</link>
-    <atom:link href="http://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://jmini.github.io</link>
+    <atom:link href="https://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Wed, 27 Jan 2021 07:13:32 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jan 2021 07:13:32 +0100</lastBuildDate>
+    <pubDate>Wed, 27 Jan 2021 08:13:57 +0100</pubDate>
+    <lastBuildDate>Wed, 27 Jan 2021 08:13:57 +0100</lastBuildDate>
 
     
     <item>
       <title>OSGi and javax.inject</title>
-      <link>http://jmini.github.io/blog/2021/2021-01-27_osgi-java-inject.html</link>
+      <link>https://jmini.github.io/blog/2021/2021-01-27_osgi-java-inject.html</link>
       <pubDate>Wed, 27 Jan 2021 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2021/2021-01-27_osgi-java-inject.html</guid>
       <description>
@@ -22,7 +22,7 @@
    &lt;p&gt;An OSGi bundle that exports the &lt;code&gt;javax.inject&lt;/code&gt; package.&lt;/p&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
-   &lt;p&gt;Since a couple of years, the Eclipse platform jars are &lt;a href=&quot;http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html&quot;&gt;published on maven central&lt;/a&gt; with metadata that allows the consumption in a traditional maven project (no &lt;a href=&quot;https://projects.eclipse.org/projects/technology.tycho&quot;&gt;Eclipse Tycho&lt;/a&gt; required).&lt;/p&gt; 
+   &lt;p&gt;Since a couple of years, the Eclipse platform jars are &lt;a href=&quot;https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html&quot;&gt;published on maven central&lt;/a&gt; with metadata that allows the consumption in a traditional maven project (no &lt;a href=&quot;https://projects.eclipse.org/projects/technology.tycho&quot;&gt;Eclipse Tycho&lt;/a&gt; required).&lt;/p&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
    &lt;p&gt;This article is my feedback after having experimented with PDE (the &lt;a href=&quot;https://www.eclipse.org/pde/&quot;&gt;Plug-in Development Environment&lt;/a&gt; project).&lt;/p&gt; 
@@ -212,7 +212,7 @@
     
     <item>
       <title>JDT without Eclipse</title>
-      <link>http://jmini.github.io/blog/2020/2020-01-17_jdt-without-eclipse.html</link>
+      <link>https://jmini.github.io/blog/2020/2020-01-17_jdt-without-eclipse.html</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2020/2020-01-17_jdt-without-eclipse.html</guid>
       <description>
@@ -272,7 +272,7 @@
     
     <item>
       <title>Building and running Equinox with maven without Tycho</title>
-      <link>http://jmini.github.io/blog/2020/2020-01-13_equinox-without-tycho.html</link>
+      <link>https://jmini.github.io/blog/2020/2020-01-13_equinox-without-tycho.html</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2020/2020-01-13_equinox-without-tycho.html</guid>
       <description>
@@ -343,7 +343,7 @@
     
     <item>
       <title>Edit an OpenAPI specification in Eclipse IDE</title>
-      <link>http://jmini.github.io/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</link>
+      <link>https://jmini.github.io/blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</link>
       <pubDate>Fri, 8 Jun 2018 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2018/2018-06-08_edit-openapi-files-in-eclipse.html</guid>
       <description>
@@ -389,7 +389,7 @@
     
     <item>
       <title>Starting a new open-source project</title>
-      <link>http://jmini.github.io/blog/2018/2018-05-15_new-open-source-project.html</link>
+      <link>https://jmini.github.io/blog/2018/2018-05-15_new-open-source-project.html</link>
       <pubDate>Tue, 15 May 2018 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2018/2018-05-15_new-open-source-project.html</guid>
       <description>
@@ -448,7 +448,7 @@
     
     <item>
       <title>Use the eclipse-settings-maven-plugin to synchronize prefs files across projects</title>
-      <link>http://jmini.github.io/blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</link>
+      <link>https://jmini.github.io/blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</link>
       <pubDate>Mon, 5 Feb 2018 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2018/2018-02-05_eclipse-settings-maven-plugin.html</guid>
       <description>
@@ -482,7 +482,7 @@
     
     <item>
       <title>Asciidoctor: watch you build log</title>
-      <link>http://jmini.github.io/blog/2017/2017-06-25_asciidoctor-watch-build-log.html</link>
+      <link>https://jmini.github.io/blog/2017/2017-06-25_asciidoctor-watch-build-log.html</link>
       <pubDate>Sun, 25 Jun 2017 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2017/2017-06-25_asciidoctor-watch-build-log.html</guid>
       <description>
@@ -601,7 +601,7 @@ return new Warning(fileName, Integer.parseInt(lineNumber), &quot;Dynamic Parser&
     
     <item>
       <title>Mylyn Wikitext is available on maven central</title>
-      <link>http://jmini.github.io/blog/2017/2017-03-26_wikitext_on_maven_central.html</link>
+      <link>https://jmini.github.io/blog/2017/2017-03-26_wikitext_on_maven_central.html</link>
       <pubDate>Sun, 26 Mar 2017 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2017/2017-03-26_wikitext_on_maven_central.html</guid>
       <description>
@@ -741,7 +741,7 @@ public class MediaWikiToAdocExample {
     
     <item>
       <title>Mylyn Docs Wikitext: changes with Version 3.0.0</title>
-      <link>http://jmini.github.io/blog/2017/2017-02-02_wikitext_v3.html</link>
+      <link>https://jmini.github.io/blog/2017/2017-02-02_wikitext_v3.html</link>
       <pubDate>Thu, 2 Feb 2017 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2017/2017-02-02_wikitext_v3.html</guid>
       <description>
@@ -779,7 +779,7 @@ public class MediaWikiToAdocExample {
     
     <item>
       <title>Ressource filter at project level in Eclipse IDE</title>
-      <link>http://jmini.github.io/blog/2017/2017-01-27_ressource-filter.html</link>
+      <link>https://jmini.github.io/blog/2017/2017-01-27_ressource-filter.html</link>
       <pubDate>Fri, 27 Jan 2017 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2017/2017-01-27_ressource-filter.html</guid>
       <description>
@@ -890,7 +890,7 @@ public class MediaWikiToAdocExample {
     
     <item>
       <title>Use the Eclipse Java Development Tools in a Java SE application</title>
-      <link>http://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</link>
+      <link>https://jmini.github.io/blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2017/2017-01-10_use-eclipse-jdt-in-java-app.html</guid>
       <description>
@@ -1004,7 +1004,7 @@ public class MainFormatter {
     
     <item>
       <title>Oxygen M4: convert to AsciiDoc with Mylyn WikiText</title>
-      <link>http://jmini.github.io/blog/2016/2016-12-21_convert_to_asciidoc.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-12-21_convert_to_asciidoc.html</link>
       <pubDate>Wed, 21 Dec 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-12-21_convert_to_asciidoc.html</guid>
       <description>
@@ -1035,7 +1035,7 @@ public class MainFormatter {
     
     <item>
       <title>Asciidoctor instead of MediaWiki?</title>
-      <link>http://jmini.github.io/blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</link>
       <pubDate>Fri, 28 Oct 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-10-28_from_mediawiki_to_asciidoc.html</guid>
       <description>
@@ -1124,7 +1124,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
     
     <item>
       <title>Install "Plug-in Spy" in your Eclipse Neon IDE</title>
-      <link>http://jmini.github.io/blog/2016/2016-09-16_eclipse_plugin_spy.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-09-16_eclipse_plugin_spy.html</link>
       <pubDate>Fri, 16 Sep 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-09-16_eclipse_plugin_spy.html</guid>
       <description>
@@ -1186,7 +1186,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
     
     <item>
       <title>Eclipse Neon: diamond notation as clean-up action</title>
-      <link>http://jmini.github.io/blog/2016/2016-06-19_eclipse_diamond_notation.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-06-19_eclipse_diamond_notation.html</link>
       <pubDate>Sat, 18 Jun 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-06-19_eclipse_diamond_notation.html</guid>
       <description>
@@ -1259,7 +1259,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
     
     <item>
       <title>Eclipse debugging: truncated String values</title>
-      <link>http://jmini.github.io/blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</link>
       <pubDate>Fri, 27 May 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-05-27_eclipse_debugging_truncated_string_value.html</guid>
       <description>
@@ -1292,7 +1292,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
     
     <item>
       <title>Eclipse Neon: disable the theming</title>
-      <link>http://jmini.github.io/blog/2016/2016-04-24_disable_eclipse_theming.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-04-24_disable_eclipse_theming.html</link>
       <pubDate>Sun, 24 Apr 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-04-24_disable_eclipse_theming.html</guid>
       <description>
@@ -1334,7 +1334,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
     
     <item>
       <title>Documentation: do not forget the edit link</title>
-      <link>http://jmini.github.io/blog/2016/2016-04-22_doc_edit_link.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-04-22_doc_edit_link.html</link>
       <pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2016/2016-04-22_doc_edit_link.html</guid>
       <description>
@@ -1365,7 +1365,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
    &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_scout.png&quot; alt=&quot;2016-04-22_scout&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
-   &lt;p&gt;Example 4: My blog (see &lt;a href=&quot;http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html&quot;&gt;my last article&lt;/a&gt; for example):&lt;/p&gt; 
+   &lt;p&gt;Example 4: My blog (see &lt;a href=&quot;https://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html&quot;&gt;my last article&lt;/a&gt; for example):&lt;/p&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
    &lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;blog/2016/2016-04-22_blog.png&quot; alt=&quot;2016-04-22_blog&quot;&gt;&lt;/span&gt;&lt;/p&gt; 
@@ -1384,7 +1384,7 @@ Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
 &lt;div class=&quot;sect2&quot;&gt; 
  &lt;h3 id=&quot;asciidoctorj_macro&quot;&gt;Asciidoctorj macro&lt;/h3&gt; 
  &lt;div class=&quot;paragraph&quot;&gt; 
-  &lt;p&gt;If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: &lt;a href=&quot;http://jmini.github.io/asciidoctorj-gh-edit/&quot;&gt;asciidoctorj-gh-edit&lt;/a&gt;. Short usage example:&lt;/p&gt; 
+  &lt;p&gt;If you are using asciidoctor for your documentation and if the sources are hosted on GitHub, you might be interested in the small extension I wrote: &lt;a href=&quot;https://jmini.github.io/asciidoctorj-gh-edit/&quot;&gt;asciidoctorj-gh-edit&lt;/a&gt;. Short usage example:&lt;/p&gt; 
  &lt;/div&gt; 
  &lt;div class=&quot;listingblock&quot;&gt; 
   &lt;div class=&quot;content&quot;&gt; 
@@ -1414,7 +1414,7 @@ Do you want to improve this documentation? Please gh:edit[].&lt;/code&gt;&lt;/pr
     
     <item>
       <title>Use pull requests to improve documentation</title>
-      <link>http://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-03-02_pr_improve_documentation.html</link>
       <pubDate>Wed, 2 Mar 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-03-02_pr_improve_documentation.html</guid>
       <description>
@@ -1450,7 +1450,7 @@ Do you want to improve this documentation? Please gh:edit[].&lt;/code&gt;&lt;/pr
     
     <item>
       <title>Maven Repository and POM Files</title>
-      <link>http://jmini.github.io/blog/2016/2016-02-21_maven_repo_and_pom_files.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-02-21_maven_repo_and_pom_files.html</link>
       <pubDate>Sun, 21 Feb 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-02-21_maven_repo_and_pom_files.html</guid>
       <description>
@@ -1606,7 +1606,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>Terminate and Relaunch in Eclipse IDE</title>
-      <link>http://jmini.github.io/blog/2016/2016-02-06_terminate_and_relaunch.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-02-06_terminate_and_relaunch.html</link>
       <pubDate>Fri, 12 Feb 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-02-06_terminate_and_relaunch.html</guid>
       <description>
@@ -1630,7 +1630,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>Bug 75981 is fixed!</title>
-      <link>http://jmini.github.io/blog/2016/2016-02-06_bug-75981-is-fixed.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-02-06_bug-75981-is-fixed.html</link>
       <pubDate>Sat, 6 Feb 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-02-06_bug-75981-is-fixed.html</guid>
       <description>
@@ -1727,7 +1727,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>A Desktop Wallpaper inspired by the Eclipse Logo</title>
-      <link>http://jmini.github.io/blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</link>
+      <link>https://jmini.github.io/blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</link>
       <pubDate>Sun, 3 Jan 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2016/2016-01-03-desktop-wallpaper-eclipse.html</guid>
       <description>
@@ -1748,7 +1748,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>Migration to JBake</title>
-      <link>http://jmini.github.io/blog/2015/2015-12-27-jbake-migration.html</link>
+      <link>https://jmini.github.io/blog/2015/2015-12-27-jbake-migration.html</link>
       <pubDate>Sun, 27 Dec 2015 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2015/2015-12-27-jbake-migration.html</guid>
       <description>
@@ -1797,7 +1797,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>Backing the next version of JUnit</title>
-      <link>http://jmini.github.io/blog/2015/2015-08-17-backing-junit-next-version.html</link>
+      <link>https://jmini.github.io/blog/2015/2015-08-17-backing-junit-next-version.html</link>
       <pubDate>Mon, 17 Aug 2015 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2015/2015-08-17-backing-junit-next-version.html</guid>
       <description>
@@ -1824,7 +1824,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>EclipseCon participation and return on investment</title>
-      <link>http://jmini.github.io/blog/2014/2014-11-10-eclipse-con-participation-roi.html</link>
+      <link>https://jmini.github.io/blog/2014/2014-11-10-eclipse-con-participation-roi.html</link>
       <pubDate>Mon, 10 Nov 2014 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2014/2014-11-10-eclipse-con-participation-roi.html</guid>
       <description>
@@ -1890,7 +1890,7 @@ public class MarkdownHelloWorld {
     
     <item>
       <title>Let be part of it</title>
-      <link>http://jmini.github.io/blog/2014/2014-11-01-part-of-it.html</link>
+      <link>https://jmini.github.io/blog/2014/2014-11-01-part-of-it.html</link>
       <pubDate>Sat, 1 Nov 2014 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2014/2014-11-01-part-of-it.html</guid>
       <description>
