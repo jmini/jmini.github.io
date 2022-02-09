@@ -1,0 +1,68 @@
+= SimpleConfigurator 'bundles.info' file
+Jeremie Bresson
+2022-02-09
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: eclipse, equinox
+:idprefix:
+:listing-caption: Listing
+:figure-caption: Figure
+:experimental:
+
+Any Eclipse RCP Client applications is a set of OSGi bundles started inside an Equinox framework.
+
+The list of bundles that are started and the order is often controlled by the `SimpleConfigurator` and its `bundles.info` file.
+
+The `bundles.info` file is located inside the `configuration` folder of the Eclipse RCP application.
+
+For Mac OS, it is located inside the `*.app` file (use the context menu "Show Package Contents" to open it):
+
+[source, txt]
+----
+MyApp.app
+└── Contents
+    └── Eclipse
+        └── configuration
+            └── org.eclipse.equinox.simpleconfigurator
+                └── bundles.info
+----
+
+For windows or linux it is next to the `*.exe` file or bin file:
+
+[source, txt]
+----
+MyApp
+├── myapp.exe
+└── configuration
+    └── org.eclipse.equinox.simpleconfigurator
+        └── bundles.info
+----
+
+The file describes the list of bundles that will be started.
+It is more or less a CSV file, that looks like this:
+
+[source, csv]
+----
+#encoding=UTF-8
+#version=1
+org.eclipse.equinox.app,1.5.100.v20210212-1143,plugins/org.eclipse.equinox.app_1.5.100.v20210212-1143.jar,4,false
+org.eclipse.equinox.common,3.14.100.v20210212-1143,plugins/org.eclipse.equinox.common_3.14.100.v20210212-1143.jar,2,true
+----
+
+For each bundle, the `bundles.info` file contains one line with this information:
+
+* symbolic name
+* version
+* location
+* start level
+* marked as started
+
+The bundles are alphabetically sorted inside a `bundles.info` file.
+This make the comparison between two files easy.
+
+The code that is parsing those files can be found in link:https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.simpleconfigurator/src/org/eclipse/equinox/internal/simpleconfigurator/utils/SimpleConfiguratorUtils.java[SimpleConfiguratorUtils.java]:
+
+* `SimpleConfiguratorUtils#readConfiguration(InputStream, URI)`
+* And for one line: `SimpleConfiguratorUtils#parseBundleInfoLine(String, URI)`
+
+This can be useful to investigate Eclipse RCP startup issues.
