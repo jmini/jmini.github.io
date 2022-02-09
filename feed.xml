@@ -6,9 +6,90 @@
     <atom:link href="https://jmini.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Jeremie Bresson personal Blog</description>
     <language>en-us</language>
-    <pubDate>Wed, 27 Jan 2021 08:13:57 +0100</pubDate>
-    <lastBuildDate>Wed, 27 Jan 2021 08:13:57 +0100</lastBuildDate>
+    <pubDate>Wed, 9 Feb 2022 21:06:54 +0100</pubDate>
+    <lastBuildDate>Wed, 9 Feb 2022 21:06:54 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>SimpleConfigurator 'bundles.info' file</title>
+      <link>https://jmini.github.io/blog/2022/2022-02-09_bundlesinfo.html</link>
+      <pubDate>Wed, 9 Feb 2022 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/2022/2022-02-09_bundlesinfo.html</guid>
+      <description>
+      &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Any Eclipse RCP Client applications is a set of OSGi bundles started inside an Equinox framework.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The list of bundles that are started and the order is often controlled by the &lt;code&gt;SimpleConfigurator&lt;/code&gt; and its &lt;code&gt;bundles.info&lt;/code&gt; file.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The &lt;code&gt;bundles.info&lt;/code&gt; file is located inside the &lt;code&gt;configuration&lt;/code&gt; folder of the Eclipse RCP application.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;For Mac OS, it is located inside the &lt;code&gt;*.app&lt;/code&gt; file (use the context menu &quot;Show Package Contents&quot; to open it):&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;MyApp.app
+&amp;#x2514;&amp;#x2500;&amp;#x2500; Contents
+    &amp;#x2514;&amp;#x2500;&amp;#x2500; Eclipse
+        &amp;#x2514;&amp;#x2500;&amp;#x2500; configuration
+            &amp;#x2514;&amp;#x2500;&amp;#x2500; org.eclipse.equinox.simpleconfigurator
+                &amp;#x2514;&amp;#x2500;&amp;#x2500; bundles.info&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;For windows or linux it is next to the &lt;code&gt;*.exe&lt;/code&gt; file or bin file:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;MyApp
+&amp;#x251c;&amp;#x2500;&amp;#x2500; myapp.exe
+&amp;#x2514;&amp;#x2500;&amp;#x2500; configuration
+    &amp;#x2514;&amp;#x2500;&amp;#x2500; org.eclipse.equinox.simpleconfigurator
+        &amp;#x2514;&amp;#x2500;&amp;#x2500; bundles.info&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The file describes the list of bundles that will be started. It is more or less a CSV file, that looks like this:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-csv&quot; data-lang=&quot;csv&quot;&gt;#encoding=UTF-8
+#version=1
+org.eclipse.equinox.app,1.5.100.v20210212-1143,plugins/org.eclipse.equinox.app_1.5.100.v20210212-1143.jar,4,false
+org.eclipse.equinox.common,3.14.100.v20210212-1143,plugins/org.eclipse.equinox.common_3.14.100.v20210212-1143.jar,2,true&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;For each bundle, the &lt;code&gt;bundles.info&lt;/code&gt; file contains one line with this information:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;symbolic name&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;version&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;location&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;start level&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;marked as started&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The bundles are alphabetically sorted inside a &lt;code&gt;bundles.info&lt;/code&gt; file. This make the comparison between two files easy.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The code that is parsing those files can be found in &lt;a href=&quot;https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.simpleconfigurator/src/org/eclipse/equinox/internal/simpleconfigurator/utils/SimpleConfiguratorUtils.java&quot;&gt;SimpleConfiguratorUtils.java&lt;/a&gt;:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;&lt;code&gt;SimpleConfiguratorUtils#readConfiguration(InputStream, URI)&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;And for one line: &lt;code&gt;SimpleConfiguratorUtils#parseBundleInfoLine(String, URI)&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;This can be useful to investigate Eclipse RCP startup issues.&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     
     <item>
       <title>OSGi and javax.inject</title>
